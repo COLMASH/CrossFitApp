@@ -1,25 +1,46 @@
-import FormInit from "./components/FormInit";
-import React from "react";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
+// import "./App.css";
+
+// import Home from './pages/Home';
+// import NotFound from './pages/NotFound';
+
+// function App() {
+//   return(
+//     <Router>
+//       <Switch>
+//         <Route exact path = "/" component = {Home}/>
+//         <Route exact path = "*" component = {NotFound}/>
+
+//       </Switch>
+
+//     </Router>
+    
+//   )
+  
+// }
+// export default App;
+////////////////////////
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  // Redirect,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import MainAdmin from "./pages/MainAdmin";
 import "./App.css";
 
-class App extends React.Component {
-  state = {
-    email: "",
-    password: "",
-  };
-
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
-  render() {
-    const { email } = this.state;
-    return (
-      <div className="App">
-        <FormInit email={email} handleChange={this.handleChange} />
-      </div>
-    );
-  }
+function App() {
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/Home" component={Home} />
+        <Route exact path="/MainAdmin" component={MainAdmin} />
+        <Route exact path="*" component={NotFound} />
+      </Switch>
+    </Router>
+  );
 }
 export default App;
