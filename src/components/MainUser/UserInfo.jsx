@@ -43,13 +43,9 @@ function UserInfo() {
             <hr />
             <div className="row">
               <div className="col-sm-12">
-                <a
-                  className="btn btn-info "
-                  target="__blank"
-                  href="https://www.bootdey.com/snippets/view/profile-edit-data-and-skills"
-                >
+                <button className="btn btn-primary btn-sm" type="submit">
                   Edit
-                </a>
+                </button>
               </div>
             </div>
           </div>

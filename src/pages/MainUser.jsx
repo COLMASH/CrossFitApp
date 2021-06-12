@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import UserProfile from "../components/UserProfile";
-import UserInfo from "../components/UserInfo";
+import UserProfile from "../components/MainUser/UserProfile";
+import UserInfo from "../components/MainUser/UserInfo";
 import "../styles/MainUser.css";
 
 class MainUser extends Component {
@@ -9,10 +9,10 @@ class MainUser extends Component {
       <div className="MainUser">
         <div className="ProfInfo-Block">
           <div>
-            <UserProfile /* email={email} handleChange={this.handleChange} */ />
+            <UserProfile />
           </div>
           <div>
-            <UserInfo /* email={email} handleChange={this.handleChange} */ />
+            <UserInfo />
           </div>
         </div>
       </div>

@@ -1,8 +1,5 @@
-function NotFound(){
-    return(
-        <h1>404: Esto no lo hemos hecho!!!!</h1>
-    )
-    
+function NotFound() {
+  return <h1>404: Page Not Found</h1>;
 }
 
 export default NotFound;

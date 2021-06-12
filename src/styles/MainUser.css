@@ -9,6 +9,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -29,9 +30,7 @@ body {
 }
 
 .card1 {
-  /* position: relative; */
   min-width: 0;
-  /* word-wrap: break-word; */
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(235, 224, 224, 0.125);
@@ -42,9 +41,7 @@ body {
 }
 
 .card2 {
-  /* position: relative; */
   min-width: 0;
-  /* word-wrap: break-word; */
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(235, 224, 224, 0.125);
