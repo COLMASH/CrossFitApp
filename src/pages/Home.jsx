@@ -1,6 +1,6 @@
 import FormInit from "../components/FormInit";
 import React from "react";
-import "../App.css";
+import "../styles/Home.css";
 
 class Home extends React.Component {
   state = {
@@ -16,7 +16,7 @@ class Home extends React.Component {
   render() {
     const { email } = this.state;
     return (
-      <div className="App">
+      <div className="Home">
         <FormInit email={email} handleChange={this.handleChange} />
       </div>
     );
