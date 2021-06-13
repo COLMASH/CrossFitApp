@@ -1,5 +1,5 @@
 body {
-  margin: 20px;
+  margin: 10px;
   color: #1a202c;
   text-align: left;
   background-color: #ffffff;
@@ -16,16 +16,17 @@ body {
   margin: 40px 0;
 }
 .main-body {
-  padding: 40px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
+  padding: 30px;
   background-color: #aaaaaa;
   margin: 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
 }
 
 .card1,
-.card2 {
+.card2,
+.card3 {
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 
@@ -38,16 +39,19 @@ body {
   padding: 10px;
   margin: 10px 10px;
   width: fit-content;
+  height: 345px;
 }
 
-.card2 {
+.card2,
+.card3 {
   min-width: 0;
   background-color: #fff;
   background-clip: border-box;
   border: 0 solid rgba(235, 224, 224, 0.125);
   border-radius: 0.25rem;
   padding: 10px;
-  width: 900px;
+  width: 700px;
+  margin: 5px;
 }
 
 .card1-body {

@@ -8,6 +8,7 @@ function FormInit({ handleChange, email, password }) {
               <strong> Email: </strong>
             </label>
             <input
+              autoFocus
               id="email"
               type="text"
               name="email"
