@@ -1,9 +1,12 @@
-import React, { Component } from "react";
+import React from "react";
 import UserProfile from "../components/MainUser/UserProfile";
 import UserInfo from "../components/MainUser/UserInfo";
+import UserNews from "../components/MainUser/UserNews";
+import UserBar from "../components/MainUser/UserBar";
+
 import "../styles/MainUser.css";
 
-class MainUser extends Component {
+class MainUser extends React.Component {
   render() {
     return (
       <div className="MainUser">
@@ -13,6 +16,14 @@ class MainUser extends Component {
           </div>
           <div>
             <UserInfo />
+          </div>
+        </div>
+        <div className="BarAndNews-Block">
+          <div>
+            <UserBar />
+          </div>
+          <div>
+            <UserNews />
           </div>
         </div>
       </div>

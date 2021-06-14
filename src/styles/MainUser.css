@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-  margin: 40px 0;
+  margin: 40px 0 20px 0;
 }
 .main-body {
   padding: 30px;
@@ -59,4 +59,31 @@ body {
   min-height: 10px;
   padding: 1rem;
   background-color: #fff;
+}
+
+.carousel {
+  min-width: 0;
+  background-clip: border-box;
+  border: 0 solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
+  padding: 0px;
+  width: 700px;
+  margin: 0px 400px 0px 0px;
+}
+
+.BarAndNews-Block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.d-grid {
+  width: 455px;
+  margin: 0px 0px 0px 0px;
+}
+
+.btn-primary {
+  height: 70px;
+  margin: 0 0 0 130px;
 }

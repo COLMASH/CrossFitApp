@@ -44,7 +44,7 @@ function UserInfo() {
             <div className="row">
               <div className="col-sm-12">
                 <button className="btn btn-primary btn-sm" type="submit">
-                  Edit
+                  <strong>EDIT</strong>
                 </button>
               </div>
             </div>
