@@ -3,21 +3,16 @@ import React from "react";
 import "../styles/Home.css";
 
 class Home extends React.Component {
-  state = {
-    email: "",
-    password: "",
-  };
-
-  handleChange = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
-
   render() {
-    const { email } = this.state;
     return (
       <div className="Home">
-        <FormInit email={email} handleChange={this.handleChange} />
+        <FormInit
+          email={this.props.email}
+          handleChange={this.props.handleChange}
+          handleSelectUser={this.props.handleSelectUser}
+          handleSubmit={this.props.handleSubmit}
+          history={this.props.history}
+        />
       </div>
     );
   }

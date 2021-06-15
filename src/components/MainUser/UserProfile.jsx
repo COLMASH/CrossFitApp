@@ -1,4 +1,4 @@
-function ProfileCard() {
+function ProfileCard({ user }) {
   return (
     <div class="container">
       <div class="main-body">
@@ -12,11 +12,9 @@ function ProfileCard() {
                 width="150"
               />
               <div className="mt-3">
-                <h4>John Doe</h4>
-                <p className="text-secondary mb-1">Full Stack Developer</p>
-                <p className="text-muted font-size-sm">
-                  Bay Area, San Francisco, CA
-                </p>
+                <h4>{`${user.name} ${user.lastname}`}</h4>
+                <p>{user.email}</p>
+                <p>{user.phone}</p>
               </div>
             </div>
           </div>
@@ -25,5 +23,4 @@ function ProfileCard() {
     </div>
   );
 }
-
 export default ProfileCard;

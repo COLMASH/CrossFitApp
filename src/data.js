@@ -142,3 +142,46 @@ export const plan = [
     credits: 30,
   },
 ];
+
+export const wod = [
+  {
+    id: 1,
+    program:
+      "Crossfit: Amrap x 12 min: 15 Power clean, 10 T2B, 15 Front squat, 20 DB snatch",
+    date: "15/06/2021",
+    schedule: "6 pm",
+    coachID: "1",
+    statusWod: "active",
+  },
+  {
+    id: 2,
+    program: "Running: Practice 100 mts in speed",
+    date: "15/06/2021",
+    schedule: "6 pm",
+    coachID: "2",
+    statusWod: "active",
+  },
+  {
+    id: 3,
+    program:
+      "FT: Every 3 min x 5 rounds: 100mt run, 10 Burpee box jump, 12 Kettlebell swing",
+    date: "16/06/2021",
+    schedule: "7 pm",
+    coachID: "2",
+    satus_wod: "active",
+  },
+];
+export const newsImages = [
+  {
+    id: 1,
+    url: "https://www.crossfit.com/wp-content/uploads/2020/10/19092755/2018072814475780_ND_ND5_6593-1-copy-1920x1080.jpg",
+  },
+  {
+    id: 2,
+    url: "https://i.ytimg.com/vi/n_POCMBdDPs/maxresdefault.jpg",
+  },
+  {
+    id: 3,
+    url: "https://cdn.forbes.com.mx/2020/10/crossfit.jpg",
+  },
+];

@@ -1,21 +1,20 @@
+import { Link } from "react-router-dom";
+
 function UserBar() {
   return (
-    <div class="d-grid gap-3">
-      <button class="btn btn-primary" type="button">
-        <strong>HOME</strong>
-      </button>
-      <button class="btn btn-primary" type="button">
+    <div className="d-grid gap-3">
+      <Link to="/Reservations" className="btn btn-primary link">
         <strong>YOUR RESERVATIONS</strong>
-      </button>
-      <button class="btn btn-primary" type="button">
-        <strong>AVAILABLE WODs</strong>
-      </button>
-      <button class="btn btn-primary" type="button">
+      </Link>
+      <Link to="/WodUser" className="btn btn-primary link">
+        <strong>WODs</strong>
+      </Link>
+      <Link to="/Performance" className="btn btn-primary link">
         <strong>YOUR PERFORMANCE</strong>
-      </button>
-      <button class="btn btn-primary" type="button">
+      </Link>
+      <Link to="/Penalties" className="btn btn-primary link">
         <strong>RESERVATIONS PENALTIES</strong>
-      </button>
+      </Link>
     </div>
   );
 }

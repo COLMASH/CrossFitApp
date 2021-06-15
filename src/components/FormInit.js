@@ -1,8 +1,15 @@
-function FormInit({ handleChange, email, password }) {
+function FormInit({
+  handleChange,
+  email,
+  password,
+  handleSelectUser,
+  handleSubmit,
+  history,
+}) {
   return (
     <div>
       <div className="form-gen">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email">
               <strong> Email: </strong>
@@ -31,19 +38,21 @@ function FormInit({ handleChange, email, password }) {
               className="form-control"
             />
           </div>
+          <div className="bttn">
+            <button
+              className="btn btn-primary btn-sm"
+              type="submit"
+              disabled={email === ""}
+              onClick={() => {
+                handleSelectUser();
+                history.push("/MainUser");
+              }}
+            >
+              Log In
+            </button>
+            <button className="btn btn-primary btn-sm">Sign In</button>
+          </div>
         </form>
-      </div>
-      <div className="bttn">
-        <button
-          className="btn btn-primary btn-sm"
-          type="submit"
-          disabled={email === ""}
-        >
-          Log In
-        </button>
-        <button className="btn btn-primary btn-sm" type="submit">
-          Sign In
-        </button>
       </div>
     </div>
   );

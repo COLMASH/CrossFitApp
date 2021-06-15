@@ -1,4 +1,4 @@
-function UserInfo() {
+function UserInfo({ user }) {
   return (
     <div class="container">
       <div class="main-body">
@@ -8,37 +8,37 @@ function UserInfo() {
               <div className="col-sm-3">
                 <h6 className="mb-0">Full Name</h6>
               </div>
-              <div className="col-sm-9 text-secondary">Kenneth Valdez</div>
+              <div className="col-sm-9 text-secondary">
+                {user.name} {user.lastname}
+              </div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Email</h6>
               </div>
-              <div className="col-sm-9 text-secondary">fip@jukmuh.al</div>
+              <div className="col-sm-9 text-secondary">{user.email}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Mobile </h6>
               </div>
-              <div className="col-sm-9 text-secondary">(320) 380-4539</div>
+              <div className="col-sm-9 text-secondary">{user.phone}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Neighborhood</h6>
               </div>
-              <div className="col-sm-9 text-secondary">Hell's Kitchen</div>
+              <div className="col-sm-9 text-secondary">{user.neighborhood}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Address</h6>
               </div>
-              <div className="col-sm-9 text-secondary">
-                Bay Area, San Francisco, CA
-              </div>
+              <div className="col-sm-9 text-secondary">{user.address}</div>
             </div>
             <hr />
             <div className="row">
@@ -63,28 +63,28 @@ function UserInfo() {
               <div className="col-sm-3">
                 <h6 className="mb-0">Id Number</h6>
               </div>
-              <div className="col-sm-9 text-secondary">1117185534</div>
+              <div className="col-sm-9 text-secondary">{user.dni}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Birthday</h6>
               </div>
-              <div className="col-sm-9 text-secondary">12/04/2000</div>
+              <div className="col-sm-9 text-secondary">{user.birthday}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Height</h6>
               </div>
-              <div className="col-sm-9 text-secondary">160</div>
+              <div className="col-sm-9 text-secondary">{user.height}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h6 className="mb-0">Weight</h6>
               </div>
-              <div className="col-sm-9 text-secondary">62</div>
+              <div className="col-sm-9 text-secondary">{user.weight}</div>
             </div>
             <hr />
           </div>
