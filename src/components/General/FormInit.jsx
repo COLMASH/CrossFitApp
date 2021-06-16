@@ -1,3 +1,5 @@
+//TODO: Olvidó su contraseña.
+
 function FormInit({
   handleChange,
   email,

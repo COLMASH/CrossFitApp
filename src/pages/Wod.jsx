@@ -1,7 +1,7 @@
 import React from "react";
-import UserProfile from "../components/MainUser/UserProfile";
-import UserWod from "../components/Wod/UserWod";
-import UserBar from "../components/MainUser/UserBar";
+import UserProfile from "../components/User/UserProfile";
+import UserWod from "../components/User/UserWod";
+import UserBar from "../components/User/UserBar";
 
 import "../styles/MainUser.css";
 

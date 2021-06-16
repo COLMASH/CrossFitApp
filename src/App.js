@@ -5,11 +5,12 @@ import NotFound from "./pages/NotFound";
 import MainAdmin from "./pages/MainAdmin";
 import MainUser from "./pages/MainUser";
 import Reservations from "./pages/Reservations";
-import WodUser from "./pages/WodUser";
+import WodUser from "./pages/Wod";
 import Penalties from "./pages/Penalties";
 import Performance from "./pages/Performance";
 import { userBox } from "./data";
 import { wod } from "./data";
+import { admin } from "./data";
 
 class App extends React.Component {
   state = {
@@ -17,6 +18,7 @@ class App extends React.Component {
     password: "",
     userBox,
     wod,
+    admin,
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +52,13 @@ class App extends React.Component {
               />
             )}
           />
-          <Route exact path="/MainAdmin" component={MainAdmin} />
+          <Route 
+            exact
+            path="/MainAdmin" 
+            render={(props) => (
+              <MainAdmin admin={this.state.admin[0]} {...props} />
+            )} 
+          />
           <Route
             exact
             path="/MainUser"

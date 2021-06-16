@@ -1,6 +1,6 @@
 import { newsImages } from "../../data";
 
-function UserNews() {
+function News() {
   return (
     <div
       id="carouselExampleControls"
@@ -43,4 +43,4 @@ function UserNews() {
     </div>
   );
 }
-export default UserNews;
+export default News;

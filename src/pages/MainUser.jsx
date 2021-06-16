@@ -1,8 +1,8 @@
 import React from "react";
-import UserProfile from "../components/MainUser/UserProfile";
-import UserInfo from "../components/MainUser/UserInfo";
-import UserNews from "../components/MainUser/UserNews";
-import UserBar from "../components/MainUser/UserBar";
+import UserProfile from "../components/User/UserProfile";
+import UserInfo from "../components/User/UserInfo";
+import UserNews from "../components/General/News";
+import UserBar from "../components/User/UserBar";
 
 import "../styles/MainUser.css";
 
