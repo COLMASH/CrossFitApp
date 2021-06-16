@@ -9,12 +9,14 @@ import WodUser from "./pages/WodUser";
 import Penalties from "./pages/Penalties";
 import Performance from "./pages/Performance";
 import { userBox } from "./data";
+import { wod } from "./data";
 
 class App extends React.Component {
   state = {
     email: "",
     password: "",
     userBox,
+    wod,
   };
   handleSubmit = (e) => {
     e.preventDefault();
@@ -57,7 +59,16 @@ class App extends React.Component {
             )}
           />
           <Route exact path="/Reservations" component={Reservations} />
-          <Route exact path="/WodUser" component={WodUser} />
+          <Route 
+            exact 
+            path="/WodUser" 
+            render={(props) => (
+              <WodUser 
+                wod={this.state.wod[0]}
+                user={this.state.userBox[0]} {...props}  
+              />
+            )} 
+          />
           <Route exact path="/Performance" component={Performance} />
           <Route exact path="/Penalties" component={Penalties} />
           <Route exact path="*" component={NotFound} />
