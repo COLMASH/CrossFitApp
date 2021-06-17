@@ -1,4 +1,4 @@
-import FormInit from "../components/FormInit";
+import FormInit from "../components/General/FormInit";
 import React from "react";
 import "../styles/Home.css";
 

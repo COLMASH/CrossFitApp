@@ -183,3 +183,14 @@ export const newsImages = [
     url: "https://cdn.forbes.com.mx/2020/10/crossfit.jpg",
   },
 ];
+export const admin = [
+  {
+    id: 1,
+    name: "Andrés",
+    lastname: "Correa",
+    birthday: "11/07/1980",
+    email: "andrescorrea@email.com",
+    phone: "3214554333",
+    profilePicture: "AndresCorreaPhoto.png",
+  },
+];
