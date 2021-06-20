@@ -7,28 +7,28 @@ import CoachBar from "../components/Coach/CoachBar";
 import "../styles/MainCoach.css";
 
 class MainCoach extends React.Component {
-	render() {
-		return (
-			<div className="MainCoach">
-				<div className="ProfInfo-Block">
-					<div>
-						<CoachProfile coach={this.props.coach} />
-					</div>
-					<div>
-						<CoachInfo coach={this.props.coach} />
-					</div>
-				</div>
-				<div className="BarAndNews-Block">
-					<div>
-						<CoachBar />
-					</div>
-					<div>
-						<News />
-					</div>
-				</div>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div className="MainCoach">
+        <div className="ProfInfo-Block">
+          <div>
+            <CoachProfile />
+          </div>
+          <div>
+            <CoachInfo />
+          </div>
+        </div>
+        <div className="BarAndNews-Block">
+          <div>
+            <CoachBar />
+          </div>
+          <div>
+            <News />
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default MainCoach;

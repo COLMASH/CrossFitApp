@@ -1,58 +1,60 @@
-function UserWod({ wod }) {
-    return (
-      <div class="container">
-        <div class="main-body">
-          <div className="card2">
-            <div className="card2-body">
-              <div className="row">
-                <div className="col-sm-3">
-                  <h6 className="mb-0">Program</h6>
-                </div>
-                <div className="col-sm-9 text-secondary">
-                  {wod.program}
-                </div>
+import React, { useContext } from "react";
+import GeneralUserContext from "../../contexts/generalUserContext";
+
+function UserWod(props) {
+  const { userWod } = useContext(GeneralUserContext);
+  return (
+    <div class="container">
+      <div class="main-body">
+        <div className="card2">
+          <div className="card2-body">
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Program</h6>
               </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">
-                  <h6 className="mb-0">Date</h6>
-                </div>
-                <div className="col-sm-9 text-secondary">{wod.date}</div>
+              <div className="col-sm-9 text-secondary">{userWod.program}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Date</h6>
               </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">
-                  <h6 className="mb-0">Schedule </h6>
-                </div>
-                <div className="col-sm-9 text-secondary">{wod.schedule}</div>
+              <div className="col-sm-9 text-secondary">{userWod.date}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Schedule </h6>
               </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">
-                  <h6 className="mb-0">Coach ID</h6>
-                </div>
-                <div className="col-sm-9 text-secondary">{wod.coachID}</div>
+              <div className="col-sm-9 text-secondary">{userWod.schedule}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Coach ID</h6>
               </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">
-                  <h6 className="mb-0">Status</h6>
-                </div>
-                <div className="col-sm-9 text-secondary">{wod.statusWod}</div>
+              <div className="col-sm-9 text-secondary">{userWod.coachID}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h6 className="mb-0">Status</h6>
               </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-12">
-                  <button className="btn btn-primary btn-sm" type="submit">
-                    <strong>RESERVE</strong>
-                  </button>
-                </div>
+              <div className="col-sm-9 text-secondary">{userWod.statusWod}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-12">
+                <button className="btn btn-primary btn-sm" type="submit">
+                  <strong>RESERVE</strong>
+                </button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    );
-  }
-  
-  export default UserWod;
+    </div>
+  );
+}
+
+export default UserWod;

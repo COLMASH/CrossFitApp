@@ -12,10 +12,10 @@ class MainUser extends React.Component {
       <div className="MainUser">
         <div className="ProfInfo-Block">
           <div>
-            <UserProfile user={this.props.user} />
+            <UserProfile />
           </div>
           <div>
-            <UserInfo user={this.props.user} />
+            <UserInfo />
           </div>
         </div>
         <div className="BarAndNews-Block">

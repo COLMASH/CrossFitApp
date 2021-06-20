@@ -1,4 +1,8 @@
-function UserInfo({ user }) {
+import React, { useContext } from "react";
+import GeneralUserContext from "../../contexts/generalUserContext";
+
+function UserInfo(props) {
+  const { user } = useContext(GeneralUserContext);
   return (
     <div class="container">
       <div class="main-body">
