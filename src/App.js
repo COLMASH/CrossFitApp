@@ -44,7 +44,7 @@ function App(props) {
 			formInputs,
 			user:user[0],
 			userWod:wod[0],
-			userCoach:[0],
+			userCoach:coach[0],
 			userAdmin:admin[0],
 			handleChange,
 			handleSelectUser,

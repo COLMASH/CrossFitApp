@@ -16,7 +16,9 @@ function ProfileCard(props) {
                 width="150"
               />
               <div className="mt-3">
-                <h4>{`${userAdmin.name} ${userAdmin.lastname}`}</h4>
+                <h4>
+                  {userAdmin.name} {userAdmin.lastname}
+                </h4>
                 <p>Administrator</p>
               </div>
             </div>
