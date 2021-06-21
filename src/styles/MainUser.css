@@ -93,3 +93,7 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+
+.mb-0 {
+  font-size: 16px;
+}

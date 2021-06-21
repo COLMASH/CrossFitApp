@@ -38,3 +38,7 @@ body {
   width: 100px;
   height: 40px;
 }
+
+.mb-0 {
+  font-size: 16px;
+}
