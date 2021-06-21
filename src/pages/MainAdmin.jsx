@@ -12,10 +12,10 @@ class MainAdmin extends React.Component {
       <div className="AdminUser">
         <div className="ProfInfo-Block">
           <div>
-            <AdminProfile admin={this.props.admin} />
+            <AdminProfile />
           </div>
           <div>
-            <AdminInfo admin={this.props.admin} />
+            <AdminInfo />
           </div>
         </div>
         <div className="BarAndNews-Block">

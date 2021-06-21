@@ -11,17 +11,16 @@ class WodUser extends React.Component {
       <div className="MainUser">
         <div className="ProfInfo-Block">
           <div>
-            <UserProfile user={this.props.user} />
+            <UserProfile />
           </div>
           <div>
-            <UserWod wod={this.props.wod} />
+            <UserWod />
           </div>
         </div>
         <div className="BarAndNews-Block">
           <div>
             <UserBar />
           </div>
-         
         </div>
       </div>
     );
