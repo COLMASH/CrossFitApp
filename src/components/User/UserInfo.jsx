@@ -10,7 +10,7 @@ function UserInfo(props) {
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Full Name</h6>
+                <h2 className="mb-0">Full Name</h2>
               </div>
               <div className="col-sm-9 text-secondary">
                 {user.name} {user.lastname}
@@ -19,28 +19,28 @@ function UserInfo(props) {
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Email</h6>
+                <h2 className="mb-0">Email</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.email}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Mobile </h6>
+                <h2 className="mb-0">Mobile </h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.phone}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Neighborhood</h6>
+                <h2 className="mb-0">Neighborhood</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.neighborhood}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Address</h6>
+                <h2 className="mb-0">Address</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.address}</div>
             </div>
@@ -58,35 +58,35 @@ function UserInfo(props) {
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Id Type</h6>
+                <h2 className="mb-0">Id Type</h2>
               </div>
               <div className="col-sm-9 text-secondary">CC</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Id Number</h6>
+                <h2 className="mb-0">Id Number</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.dni}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Birthday</h6>
+                <h2 className="mb-0">Birthday</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.birthday}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Height</h6>
+                <h2 className="mb-0">Height</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.height}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Weight</h6>
+                <h2 className="mb-0">Weight</h2>
               </div>
               <div className="col-sm-9 text-secondary">{user.weight}</div>
             </div>

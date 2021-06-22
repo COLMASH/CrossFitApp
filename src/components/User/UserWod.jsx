@@ -10,35 +10,35 @@ function UserWod(props) {
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Program</h6>
+                <h2 className="mb-0">Program</h2>
               </div>
               <div className="col-sm-9 text-secondary">{userWod.program}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Date</h6>
+                <h2 className="mb-0">Date</h2>
               </div>
               <div className="col-sm-9 text-secondary">{userWod.date}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Schedule </h6>
+                <h2 className="mb-0">Schedule </h2>
               </div>
               <div className="col-sm-9 text-secondary">{userWod.schedule}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Coach ID</h6>
+                <h2 className="mb-0">Coach ID</h2>
               </div>
               <div className="col-sm-9 text-secondary">{userWod.coachID}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h6 className="mb-0">Status</h6>
+                <h2 className="mb-0">Status</h2>
               </div>
               <div className="col-sm-9 text-secondary">{userWod.statusWod}</div>
             </div>
