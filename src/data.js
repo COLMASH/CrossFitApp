@@ -146,7 +146,8 @@ export const plan = [
 export const wod = [
   {
     id: 1,
-    program: "Crossfit: Amrap x 12 min: 15 Power clean, 10 T2B, 15 Front squat, 20 DB snatch",
+    program:
+      "Crossfit: Amrap x 12 min: 15 Power clean, 10 T2B, 15 Front squat, 20 DB snatch",
     date: "15/06/2021",
     schedule: "6 pm",
     coachID: "1",
@@ -162,7 +163,8 @@ export const wod = [
   },
   {
     id: 3,
-    program: "FT: Every 3 min x 5 rounds: 100mt run, 10 Burpee box jump, 12 Kettlebell swing",
+    program:
+      "FT: Every 3 min x 5 rounds: 100mt run, 10 Burpee box jump, 12 Kettlebell swing",
     date: "16/06/2021",
     schedule: "7 pm",
     coachID: "2",

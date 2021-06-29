@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import GeneralUserContext from "../../contexts/generalUserContext";
+import { useSelector } from "react-redux";
 
-function AdminInfo(props) {
-  const { userAdmin } = useContext(GeneralUserContext);
+function AdminInfo() {
+  const { admin } = useSelector(({ selectAdminReducer }) => {
+    return {
+      admin: selectAdminReducer.admin,
+    };
+  });
   return (
     <div class="container">
       <div class="main-body">
@@ -13,7 +16,7 @@ function AdminInfo(props) {
                 <h2 className="mb-0">Full Name</h2>
               </div>
               <div className="col-sm-9 text-secondary">
-                {userAdmin.name} {userAdmin.lastname}
+                {admin.name} {admin.lastname}
               </div>
             </div>
             <hr />
@@ -21,23 +24,21 @@ function AdminInfo(props) {
               <div className="col-sm-3">
                 <h2 className="mb-0">Email</h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userAdmin.email}</div>
+              <div className="col-sm-9 text-secondary">{admin.email}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Mobile </h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userAdmin.phone}</div>
+              <div className="col-sm-9 text-secondary">{admin.phone}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Birthday</h2>
               </div>
-              <div className="col-sm-9 text-secondary">
-                {userAdmin.birthday}
-              </div>
+              <div className="col-sm-9 text-secondary">{admin.birthday}</div>
             </div>
             <hr />
             <div className="row">
