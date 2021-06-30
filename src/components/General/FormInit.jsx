@@ -2,11 +2,13 @@ import { userBox } from "../../data";
 import { admin } from "../../data";
 import { coach } from "../../data";
 import { useHistory } from "react-router-dom";
-import { selectUser } from "../../store/selectUserReducer";
+import { selectUser, saveUser } from "../../store/selectUserReducer";
 import { selectAdmin } from "../../store/selectAdminReducer";
 import { selectCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
+import { userSignIn, getUserInfo } from "../../store/user/services";
+import jwtDecode from "jwt-decode";
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -16,6 +18,31 @@ function FormInit() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleSignIn = () => {
+    userSignIn(email, password).then((resUserSignIn) => {
+      const { data: dataUserSignIn } = resUserSignIn;
+      if (dataUserSignIn.token) {
+        const tokenDecoded = jwtDecode(dataUserSignIn.token);
+        console.log(tokenDecoded);
+        getUserInfo(tokenDecoded.userId).then((resGetUserInfo) => {
+          const { data: dataGetUserInfo } = resGetUserInfo;
+          dispatch(saveUser(dataGetUserInfo));
+          history.push("/MainUser");
+          console.log(dataGetUserInfo);
+        });
+      }
+    });
+
+    if (userBox.filter((user) => user.email === email).length > 0) {
+    } else if (admin.filter((admin) => admin.email === email).length > 0) {
+      dispatch(selectAdmin(email));
+      return history.push("/MainAdmin");
+    } else if (coach.filter((coach) => coach.email === email).length > 0) {
+      dispatch(selectCoach(email));
+      return history.push("/MainCoach");
+    }
   };
 
   return (
@@ -55,22 +82,9 @@ function FormInit() {
               className="btn btn-primary btn-sm"
               type="submit"
               disabled={email === ""}
-              onClick={() => {
-                if (userBox.filter((user) => user.email === email).length > 0) {
-                  dispatch(selectUser(email));
-                  return history.push("/MainUser");
-                }
-                if (admin.filter((admin) => admin.email === email).length > 0) {
-                  dispatch(selectAdmin(email));
-                  return history.push("/MainAdmin");
-                }
-                if (coach.filter((coach) => coach.email === email).length > 0) {
-                  dispatch(selectCoach(email));
-                  return history.push("/MainCoach");
-                }
-              }}
+              onClick={handleSignIn}
             >
-              Log In
+              Sign In
             </button>
             <button className="btn btn-primary btn-sm">Sign Up</button>
           </div>
