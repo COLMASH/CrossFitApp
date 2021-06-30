@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import GeneralUserContext from "../../contexts/generalUserContext";
+import { useSelector } from "react-redux";
 
-function ProfileCard(props) {
-  const { user } = useContext(GeneralUserContext);
+function ProfileCard() {
+  const { user } = useSelector(({ selectUserReducer }) => {
+    return {
+      user: selectUserReducer.user,
+    };
+  });
   return (
     <div class="container">
       <div class="main-body">
@@ -16,7 +19,7 @@ function ProfileCard(props) {
                 width="150"
               />
               <div className="mt-3">
-                <h1 style={{fontSize:25}}>
+                <h1 style={{ fontSize: 25 }}>
                   {user.name} {user.lastname}
                 </h1>
                 <p>{user.email}</p>

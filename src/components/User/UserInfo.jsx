@@ -1,8 +1,11 @@
-import React, { useContext } from "react";
-import GeneralUserContext from "../../contexts/generalUserContext";
+import { useSelector } from "react-redux";
 
-function UserInfo(props) {
-  const { user } = useContext(GeneralUserContext);
+function UserInfo() {
+  const { user } = useSelector(({ selectUserReducer }) => {
+    return {
+      user: selectUserReducer.user,
+    };
+  });
   return (
     <div class="container">
       <div class="main-body">

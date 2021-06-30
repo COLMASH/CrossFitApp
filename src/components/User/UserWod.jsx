@@ -1,8 +1,6 @@
-import React, { useContext } from "react";
-import GeneralUserContext from "../../contexts/generalUserContext";
+import { wod } from "../../data";
 
-function UserWod(props) {
-  const { userWod } = useContext(GeneralUserContext);
+function UserWod() {
   return (
     <div class="container">
       <div class="main-body">
@@ -12,35 +10,35 @@ function UserWod(props) {
               <div className="col-sm-3">
                 <h2 className="mb-0">Program</h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userWod.program}</div>
+              <div className="col-sm-9 text-secondary">{wod[0].program}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Date</h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userWod.date}</div>
+              <div className="col-sm-9 text-secondary">{wod[0].date}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Schedule </h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userWod.schedule}</div>
+              <div className="col-sm-9 text-secondary">{wod[0].schedule}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Coach ID</h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userWod.coachID}</div>
+              <div className="col-sm-9 text-secondary">{wod[0].coachID}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Status</h2>
               </div>
-              <div className="col-sm-9 text-secondary">{userWod.statusWod}</div>
+              <div className="col-sm-9 text-secondary">{wod[0].statusWod}</div>
             </div>
             <hr />
             <div className="row">
