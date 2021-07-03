@@ -19,7 +19,6 @@ function FormInit() {
   const handleSignIn = () => {
     if (checkedValue === "user") {
       userSignIn(email, password).then((resUserSignIn) => {
-        console.log(checkedValue);
         const { data: dataUserSignIn } = resUserSignIn;
         if (dataUserSignIn.token) {
           localStorage.setItem("token", dataUserSignIn.token);
@@ -86,10 +85,7 @@ function FormInit() {
               name="userType"
               value="user"
               checked={checkedValue === "user"}
-              onChange={(e) => {
-                console.log(e);
-                setIsChecked(e.target.value);
-              }}
+              onChange={(e) => setIsChecked(e.target.value)}
             />
             <label htmlFor="user">User</label>
 
