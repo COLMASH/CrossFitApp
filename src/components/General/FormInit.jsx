@@ -2,38 +2,35 @@ import { userBox } from "../../data";
 import { admin } from "../../data";
 import { coach } from "../../data";
 import { useHistory } from "react-router-dom";
-import { selectUser, saveUser } from "../../store/selectUserReducer";
+import { saveUser } from "../../store/selectUserReducer";
 import { selectAdmin } from "../../store/selectAdminReducer";
 import { selectCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
-import jwtDecode from "jwt-decode";
 
 function FormInit() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const [checkedValue, setIsChecked] = useState("");
 
   const handleSignIn = () => {
-    userSignIn(email, password).then((resUserSignIn) => {
-      const { data: dataUserSignIn } = resUserSignIn;
-      if (dataUserSignIn.token) {
-        const tokenDecoded = jwtDecode(dataUserSignIn.token);
-        console.log(tokenDecoded);
-        getUserInfo(tokenDecoded.userId).then((resGetUserInfo) => {
-          const { data: dataGetUserInfo } = resGetUserInfo;
-          dispatch(saveUser(dataGetUserInfo));
-          history.push("/MainUser");
-          console.log(dataGetUserInfo);
-        });
-      }
-    });
+    if (checkedValue === "user") {
+      userSignIn(email, password).then((resUserSignIn) => {
+        console.log(checkedValue);
+        const { data: dataUserSignIn } = resUserSignIn;
+        if (dataUserSignIn.token) {
+          localStorage.setItem("token", dataUserSignIn.token);
+          getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
+            const { data: dataGetUserInfo } = resGetUserInfo;
+            dispatch(saveUser(dataGetUserInfo));
+            history.push("/MainUser");
+          });
+        }
+      });
+    }
 
     if (userBox.filter((user) => user.email === email).length > 0) {
     } else if (admin.filter((admin) => admin.email === email).length > 0) {
@@ -48,7 +45,12 @@ function FormInit() {
   return (
     <div>
       <div className="form-gen">
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignIn();
+          }}
+        >
           <div className="form-group">
             <label htmlFor="email">
               <strong> Email: </strong>
@@ -77,12 +79,46 @@ function FormInit() {
               className="form-control"
             />
           </div>
+          <div>
+            <input
+              type="radio"
+              id="user"
+              name="userType"
+              value="user"
+              checked={checkedValue === "user"}
+              onChange={(e) => {
+                console.log(e);
+                setIsChecked(e.target.value);
+              }}
+            />
+            <label htmlFor="user">User</label>
+
+            <input
+              type="radio"
+              id="coach"
+              name="userType"
+              value="coach"
+              checked={checkedValue === "coach"}
+              onChange={(e) => setIsChecked(e.target.value)}
+            />
+            <label htmlFor="coach">Coach</label>
+
+            <input
+              type="radio"
+              id="admin"
+              name="userType"
+              value="admin"
+              checked={checkedValue === "admin"}
+              onChange={(e) => setIsChecked(e.target.value)}
+            />
+            <label htmlFor="admin">Admin</label>
+          </div>
+
           <div className="bttn">
             <button
               className="btn btn-primary btn-sm"
               type="submit"
               disabled={email === ""}
-              onClick={handleSignIn}
             >
               Sign In
             </button>
