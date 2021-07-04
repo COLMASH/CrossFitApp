@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 function UserInfo() {
   const { user } = useSelector(({ selectUserReducer }) => {
     return {
-      user: selectUserReducer.user,
+      user: selectUserReducer.userLoad,
     };
   });
   return (

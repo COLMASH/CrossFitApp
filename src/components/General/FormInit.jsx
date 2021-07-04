@@ -2,26 +2,54 @@ import { userBox } from "../../data";
 import { admin } from "../../data";
 import { coach } from "../../data";
 import { useHistory } from "react-router-dom";
-import { selectUser } from "../../store/selectUserReducer";
+import { saveUser } from "../../store/selectUserReducer";
 import { selectAdmin } from "../../store/selectAdminReducer";
 import { selectCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
+import { userSignIn, getUserInfo } from "../../store/user/services";
 
 function FormInit() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
   const dispatch = useDispatch();
+  const [checkedValue, setIsChecked] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSignIn = () => {
+    if (checkedValue === "user") {
+      userSignIn(email, password).then((resUserSignIn) => {
+        const { data: dataUserSignIn } = resUserSignIn;
+        if (dataUserSignIn.token) {
+          localStorage.setItem("token", dataUserSignIn.token);
+          getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
+            const { data: dataGetUserInfo } = resGetUserInfo;
+            dispatch(saveUser(dataGetUserInfo));
+            history.push("/MainUser");
+          });
+        }
+      });
+    }
+
+    if (userBox.filter((user) => user.email === email).length > 0) {
+    } else if (admin.filter((admin) => admin.email === email).length > 0) {
+      dispatch(selectAdmin(email));
+      return history.push("/MainAdmin");
+    } else if (coach.filter((coach) => coach.email === email).length > 0) {
+      dispatch(selectCoach(email));
+      return history.push("/MainCoach");
+    }
   };
 
   return (
     <div>
       <div className="form-gen">
-        <form onSubmit={handleSubmit}>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSignIn();
+          }}
+        >
           <div className="form-group">
             <label htmlFor="email">
               <strong> Email: </strong>
@@ -50,27 +78,45 @@ function FormInit() {
               className="form-control"
             />
           </div>
+          <div>
+            <input
+              type="radio"
+              id="user"
+              name="userType"
+              value="user"
+              checked={checkedValue === "user"}
+              onChange={(e) => setIsChecked(e.target.value)}
+            />
+            <label htmlFor="user">User</label>
+
+            <input
+              type="radio"
+              id="coach"
+              name="userType"
+              value="coach"
+              checked={checkedValue === "coach"}
+              onChange={(e) => setIsChecked(e.target.value)}
+            />
+            <label htmlFor="coach">Coach</label>
+
+            <input
+              type="radio"
+              id="admin"
+              name="userType"
+              value="admin"
+              checked={checkedValue === "admin"}
+              onChange={(e) => setIsChecked(e.target.value)}
+            />
+            <label htmlFor="admin">Admin</label>
+          </div>
+
           <div className="bttn">
             <button
               className="btn btn-primary btn-sm"
               type="submit"
               disabled={email === ""}
-              onClick={() => {
-                if (userBox.filter((user) => user.email === email).length > 0) {
-                  dispatch(selectUser(email));
-                  return history.push("/MainUser");
-                }
-                if (admin.filter((admin) => admin.email === email).length > 0) {
-                  dispatch(selectAdmin(email));
-                  return history.push("/MainAdmin");
-                }
-                if (coach.filter((coach) => coach.email === email).length > 0) {
-                  dispatch(selectCoach(email));
-                  return history.push("/MainCoach");
-                }
-              }}
             >
-              Log In
+              Sign In
             </button>
             <button className="btn btn-primary btn-sm">Sign Up</button>
           </div>
