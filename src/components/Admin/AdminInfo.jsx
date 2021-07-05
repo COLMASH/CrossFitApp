@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 function AdminInfo() {
   const { admin } = useSelector(({ selectAdminReducer }) => {
     return {
-      admin: selectAdminReducer.admin,
+      admin: selectAdminReducer.adminLoad,
     };
   });
   return (

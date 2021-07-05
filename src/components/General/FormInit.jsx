@@ -1,13 +1,10 @@
-import { userBox } from "../../data";
-import { admin } from "../../data";
-import { coach } from "../../data";
 import { useHistory } from "react-router-dom";
 import { saveUser } from "../../store/selectUserReducer";
-import { selectAdmin } from "../../store/selectAdminReducer";
-import { selectCoach } from "../../store/selectCoachReducer";
+import { saveAdmin } from "../../store/selectAdminReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
+import { adminSignIn, getAdminInfo } from "../../store/admin/services";
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -29,15 +26,19 @@ function FormInit() {
           });
         }
       });
-    }
-
-    if (userBox.filter((user) => user.email === email).length > 0) {
-    } else if (admin.filter((admin) => admin.email === email).length > 0) {
-      dispatch(selectAdmin(email));
-      return history.push("/MainAdmin");
-    } else if (coach.filter((coach) => coach.email === email).length > 0) {
-      dispatch(selectCoach(email));
-      return history.push("/MainCoach");
+    } else if (checkedValue === "admin") {
+      adminSignIn(email, password).then((resAdminSignIn) => {
+        const { data: dataAdminSignIn } = resAdminSignIn;
+        if (dataAdminSignIn.token) {
+          localStorage.setItem("token", dataAdminSignIn.token);
+          getAdminInfo(dataAdminSignIn.token).then((resGetAdminInfo) => {
+            const { data: dataGetAdminInfo } = resGetAdminInfo;
+            console.log(resGetAdminInfo);
+            dispatch(saveAdmin(dataGetAdminInfo));
+            history.push("/MainAdmin");
+          });
+        }
+      });
     }
   };
 
