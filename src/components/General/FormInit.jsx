@@ -33,7 +33,7 @@ function FormInit() {
         }
       });
     }
-    if (checkedValue === "coach") {
+    else if (checkedValue === "coach") {
       coachSignIn(email, password).then((resCoachSignIn) => {
         const { data: dataCoachSignIn } = resCoachSignIn;
         if (dataCoachSignIn.token) {
