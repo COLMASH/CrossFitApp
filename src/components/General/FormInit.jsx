@@ -33,7 +33,6 @@ function FormInit() {
           localStorage.setItem("token", dataAdminSignIn.token);
           getAdminInfo(dataAdminSignIn.token).then((resGetAdminInfo) => {
             const { data: dataGetAdminInfo } = resGetAdminInfo;
-            console.log(resGetAdminInfo);
             dispatch(saveAdmin(dataGetAdminInfo));
             history.push("/MainAdmin");
           });
