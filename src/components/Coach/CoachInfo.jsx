@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 function CoachInfo() {
   const { coach } = useSelector(({ selectCoachReducer }) => {
     return {
-      coach: selectCoachReducer.coach,
+      coach: selectCoachReducer.coachLoad,
     };
   });
   return (

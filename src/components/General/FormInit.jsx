@@ -3,11 +3,14 @@ import { admin } from "../../data";
 import { coach } from "../../data";
 import { useHistory } from "react-router-dom";
 import { saveUser } from "../../store/selectUserReducer";
+import { saveCoach } from "../../store/selectCoachReducer";
 import { selectAdmin } from "../../store/selectAdminReducer";
 import { selectCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
+import { coachSignIn, getCoachInfo } from "../../store/coach/services";
+
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -30,7 +33,20 @@ function FormInit() {
         }
       });
     }
-
+    else if (checkedValue === "coach") {
+      coachSignIn(email, password).then((resCoachSignIn) => {
+        const { data: dataCoachSignIn } = resCoachSignIn;
+        if (dataCoachSignIn.token) {
+          localStorage.setItem("token", dataCoachSignIn.token);
+          getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
+            const { data: dataGetCoachInfo } = resGetCoachInfo;
+            console.dir(resGetCoachInfo)
+            dispatch(saveCoach(dataGetCoachInfo));
+            history.push("/MainCoach");
+          });
+        }
+      });
+    }
     if (userBox.filter((user) => user.email === email).length > 0) {
     } else if (admin.filter((admin) => admin.email === email).length > 0) {
       dispatch(selectAdmin(email));
