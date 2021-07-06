@@ -1,11 +1,13 @@
 import { useHistory } from "react-router-dom";
 import { saveUser } from "../../store/selectUserReducer";
-
 import { saveAdmin } from "../../store/selectAdminReducer";
+import { saveCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
 import { adminSignIn, getAdminInfo } from "../../store/admin/services";
+import { coachSignIn, getCoachInfo } from "../../store/coach/services";
+import logo from "../../assets/images/logo.png";
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -27,7 +29,6 @@ function FormInit() {
           });
         }
       });
-
     } else if (checkedValue === "admin") {
       adminSignIn(email, password).then((resAdminSignIn) => {
         const { data: dataAdminSignIn } = resAdminSignIn;
@@ -40,15 +41,14 @@ function FormInit() {
           });
         }
       });
-    }
-    else (checkedValue === "coach") {
+    } else {
       coachSignIn(email, password).then((resCoachSignIn) => {
         const { data: dataCoachSignIn } = resCoachSignIn;
         if (dataCoachSignIn.token) {
           localStorage.setItem("token", dataCoachSignIn.token);
           getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
             const { data: dataGetCoachInfo } = resGetCoachInfo;
-            console.dir(resGetCoachInfo)
+            console.dir(resGetCoachInfo);
             dispatch(saveCoach(dataGetCoachInfo));
             history.push("/MainCoach");
           });
@@ -66,6 +66,10 @@ function FormInit() {
             handleSignIn();
           }}
         >
+          <div className="app-logo">
+            <img src={logo} alt="logo" />
+          </div>
+
           <div className="form-group">
             <label htmlFor="email">
               <strong> Email: </strong>
@@ -93,37 +97,39 @@ function FormInit() {
               value={password}
               className="form-control"
             />
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="user"
-              name="userType"
-              value="user"
-              checked={checkedValue === "user"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="user">User</label>
-
-            <input
-              type="radio"
-              id="coach"
-              name="userType"
-              value="coach"
-              checked={checkedValue === "coach"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="coach">Coach</label>
-
-            <input
-              type="radio"
-              id="admin"
-              name="userType"
-              value="admin"
-              checked={checkedValue === "admin"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="admin">Admin</label>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="user"
+                name="userType"
+                value="user"
+                checked={checkedValue === "user"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="user">User</label>
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="coach"
+                name="userType"
+                value="coach"
+                checked={checkedValue === "coach"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="coach">Coach</label>
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="admin"
+                name="userType"
+                value="admin"
+                checked={checkedValue === "admin"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="admin">Admin</label>
+            </div>
           </div>
 
           <div className="bttn">
