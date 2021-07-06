@@ -1,11 +1,11 @@
 import axios from "axios";
 
-export async function userSignIn(email, password) {
+export async function adminSignIn(email, password) {
   try {
     return await axios({
       method: "POST",
       baseURL: "http://localhost:8000",
-      url: "/user/signin",
+      url: "/admin/signin",
       data: {
         email,
         password,
@@ -16,14 +16,14 @@ export async function userSignIn(email, password) {
   }
 }
 
-export async function getUserInfo(token) {
+export async function getAdminInfo(token) {
   try {
     return await axios({
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
       },
-      url: `http://localhost:8000/user/userInfo`,
+      url: `http://localhost:8000/admin/adminInfo`,
     });
   } catch (error) {
     console.log(error.message);

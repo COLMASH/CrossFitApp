@@ -6,6 +6,7 @@ import CoachBar from "../components/Coach/CoachBar";
 import "../styles/MainCoach.css";
 
 function MainCoach() {
+
 	return (
 		<div className="MainCoach">
 			<div className="ProfInfo-Block">
