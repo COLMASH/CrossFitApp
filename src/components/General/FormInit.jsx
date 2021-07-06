@@ -1,5 +1,6 @@
 import { useHistory } from "react-router-dom";
 import { saveUser } from "../../store/selectUserReducer";
+
 import { saveAdmin } from "../../store/selectAdminReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
@@ -26,6 +27,7 @@ function FormInit() {
           });
         }
       });
+
     } else if (checkedValue === "admin") {
       adminSignIn(email, password).then((resAdminSignIn) => {
         const { data: dataAdminSignIn } = resAdminSignIn;
@@ -35,6 +37,20 @@ function FormInit() {
             const { data: dataGetAdminInfo } = resGetAdminInfo;
             dispatch(saveAdmin(dataGetAdminInfo));
             history.push("/MainAdmin");
+          });
+        }
+      });
+    }
+    else (checkedValue === "coach") {
+      coachSignIn(email, password).then((resCoachSignIn) => {
+        const { data: dataCoachSignIn } = resCoachSignIn;
+        if (dataCoachSignIn.token) {
+          localStorage.setItem("token", dataCoachSignIn.token);
+          getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
+            const { data: dataGetCoachInfo } = resGetCoachInfo;
+            console.dir(resGetCoachInfo)
+            dispatch(saveCoach(dataGetCoachInfo));
+            history.push("/MainCoach");
           });
         }
       });

@@ -1,11 +1,19 @@
 import { coach } from "../data";
 
 export const SELECT_COACH = "SELECT_COACH";
+export const SAVE_COACH = "SAVE_COACH";
 
 export function selectCoach(email) {
   return {
     type: SELECT_COACH,
     payload: email,
+  };
+}
+
+export function saveCoach(coach) {
+  return {
+    type: SAVE_COACH,
+    payload: coach,
   };
 }
 
@@ -19,6 +27,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         coach: coach.filter((u) => u.email === action.payload)[0],
+      };
+    }
+    case SAVE_COACH: {
+      return {
+        ...state,
+        coachLoad: action.payload,
       };
     }
     default: {

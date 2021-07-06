@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 function CoachProfile() {
   const { coach } = useSelector(({ selectCoachReducer }) => {
     return {
-      coach: selectCoachReducer.coach,
+      coach: selectCoachReducer.coachLoad,
     };
   });
   return (
@@ -20,7 +20,7 @@ function CoachProfile() {
               />
               <div className="mt-3">
                 <h1 style={{ fontSize: 25 }}>
-                  {coach.name} {coach.lastname}
+                {coach.name} {coach.lastname}
                 </h1>
                 <p>{coach.email}</p>
                 <p>{coach.phone}</p>
