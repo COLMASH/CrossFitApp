@@ -1,11 +1,13 @@
 import { useHistory } from "react-router-dom";
 import { saveUser } from "../../store/selectUserReducer";
-
 import { saveAdmin } from "../../store/selectAdminReducer";
+import { saveCoach } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
 import { adminSignIn, getAdminInfo } from "../../store/admin/services";
+import { coachSignIn, getCoachInfo } from "../../store/coach/services";
+import RegModal from "./RegistrationModal";
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -27,7 +29,6 @@ function FormInit() {
           });
         }
       });
-
     } else if (checkedValue === "admin") {
       adminSignIn(email, password).then((resAdminSignIn) => {
         const { data: dataAdminSignIn } = resAdminSignIn;
@@ -40,15 +41,14 @@ function FormInit() {
           });
         }
       });
-    }
-    else (checkedValue === "coach") {
+    } else {
       coachSignIn(email, password).then((resCoachSignIn) => {
         const { data: dataCoachSignIn } = resCoachSignIn;
         if (dataCoachSignIn.token) {
           localStorage.setItem("token", dataCoachSignIn.token);
           getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
             const { data: dataGetCoachInfo } = resGetCoachInfo;
-            console.dir(resGetCoachInfo)
+            console.dir(resGetCoachInfo);
             dispatch(saveCoach(dataGetCoachInfo));
             history.push("/MainCoach");
           });
@@ -134,10 +134,19 @@ function FormInit() {
             >
               Sign In
             </button>
-            <button className="btn btn-primary btn-sm">Sign Up</button>
+
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              className="btn btn-primary btn-sm"
+            >
+              Sign Up
+            </button>
           </div>
         </form>
       </div>
+      <RegModal />
     </div>
   );
 }

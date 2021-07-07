@@ -7,8 +7,8 @@ function ProfileCard() {
     };
   });
   return (
-    <div class="container">
-      <div class="main-body">
+    <div className="container">
+      <div className="main-body">
         <div className="card1">
           <div className="card1-body">
             <div className="d-flex flex-column align-items-center text-center">
