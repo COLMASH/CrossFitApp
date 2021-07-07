@@ -89,6 +89,12 @@ body {
 }
 
 .btn-primary.link {
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #aaaaaa;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
