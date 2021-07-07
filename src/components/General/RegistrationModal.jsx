@@ -1,11 +1,4 @@
-import {
-  userRegister,
-  userSignIn,
-  getUserInfo,
-} from "../../store/user/services";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
-import { saveUser } from "../../store/selectUserReducer";
+import { userRegister } from "../../store/user/services";
 import React, { useState } from "react";
 
 function RegistrationModal() {
@@ -22,9 +15,6 @@ function RegistrationModal() {
   const [Birthday, setBirthday] = useState("");
   const [Password, setPassword] = useState("");
 
-  const history = useHistory();
-  const dispatch = useDispatch();
-
   const handleRegister = () => {
     userRegister(
       FirstName,
@@ -40,17 +30,8 @@ function RegistrationModal() {
       Birthday,
       Password
     ).then((resUserRegister) => {
-      userSignIn(Email, Password).then((resUserSignIn) => {
-        const { data: dataUserSignIn } = resUserSignIn;
-        if (dataUserSignIn.token) {
-          localStorage.setItem("token", dataUserSignIn.token);
-          getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
-            const { data: dataGetUserInfo } = resGetUserInfo;
-            dispatch(saveUser(dataGetUserInfo));
-            history.push("/MainUser");
-          });
-        }
-      });
+      const { data: dataUserRegister } = resUserRegister;
+      alert(`${dataUserRegister.email} se ha registrado exitosamente!`);
     });
   };
 
