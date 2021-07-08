@@ -8,6 +8,7 @@ import { userSignIn, getUserInfo } from "../../store/user/services";
 import { adminSignIn, getAdminInfo } from "../../store/admin/services";
 import { coachSignIn, getCoachInfo } from "../../store/coach/services";
 import RegModal from "./RegistrationModal";
+import logo from "../../assets/images/logo.png";
 
 function FormInit() {
   const [email, setEmail] = useState("");
@@ -66,6 +67,10 @@ function FormInit() {
             handleSignIn();
           }}
         >
+          <div className="app-logo">
+            <img src={logo} alt="logo" />
+          </div>
+
           <div className="form-group">
             <label htmlFor="email">
               <strong> Email: </strong>
@@ -93,37 +98,39 @@ function FormInit() {
               value={password}
               className="form-control"
             />
-          </div>
-          <div>
-            <input
-              type="radio"
-              id="user"
-              name="userType"
-              value="user"
-              checked={checkedValue === "user"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="user">User</label>
-
-            <input
-              type="radio"
-              id="coach"
-              name="userType"
-              value="coach"
-              checked={checkedValue === "coach"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="coach">Coach</label>
-
-            <input
-              type="radio"
-              id="admin"
-              name="userType"
-              value="admin"
-              checked={checkedValue === "admin"}
-              onChange={(e) => setIsChecked(e.target.value)}
-            />
-            <label htmlFor="admin">Admin</label>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="user"
+                name="userType"
+                value="user"
+                checked={checkedValue === "user"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="user">User</label>
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="coach"
+                name="userType"
+                value="coach"
+                checked={checkedValue === "coach"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="coach">Coach</label>
+            </div>
+            <div className="form-check">
+              <input
+                type="radio"
+                id="admin"
+                name="userType"
+                value="admin"
+                checked={checkedValue === "admin"}
+                onChange={(e) => setIsChecked(e.target.value)}
+              />
+              <label htmlFor="admin">Admin</label>
+            </div>
           </div>
 
           <div className="bttn">
