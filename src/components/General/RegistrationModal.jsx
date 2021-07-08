@@ -31,7 +31,7 @@ function RegistrationModal() {
       Password
     ).then((resUserRegister) => {
       const { data: dataUserRegister } = resUserRegister;
-      alert(`${dataUserRegister.email} se ha registrado exitosamente!`);
+      alert(`${Email} se ha registrado exitosamente!`);
     });
   };
 
