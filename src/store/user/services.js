@@ -29,3 +29,42 @@ export async function getUserInfo(token) {
     console.log(error.message);
   }
 }
+
+export async function userRegister(
+  name,
+  lastname,
+  dniType,
+  dni,
+  email,
+  address,
+  neighborhood,
+  phone,
+  height,
+  weight,
+  birthday,
+  password
+) {
+  try {
+    return await axios({
+      method: "POST",
+      baseURL: "http://localhost:8000",
+      url: "/user/signup",
+      data: {
+        name,
+        lastname,
+        dniType,
+        dni,
+        email,
+        address,
+        neighborhood,
+        phone,
+        height,
+        weight,
+        birthday,
+        password,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}

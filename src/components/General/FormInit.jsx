@@ -7,6 +7,7 @@ import React, { useState } from "react";
 import { userSignIn, getUserInfo } from "../../store/user/services";
 import { adminSignIn, getAdminInfo } from "../../store/admin/services";
 import { coachSignIn, getCoachInfo } from "../../store/coach/services";
+import RegModal from "./RegistrationModal";
 import logo from "../../assets/images/logo.png";
 
 function FormInit() {
@@ -140,10 +141,19 @@ function FormInit() {
             >
               Sign In
             </button>
-            <button className="btn btn-primary btn-sm">Sign Up</button>
+
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              className="btn btn-primary btn-sm"
+            >
+              Sign Up
+            </button>
           </div>
         </form>
       </div>
+      <RegModal />
     </div>
   );
 }

@@ -7,8 +7,8 @@ function UserInfo() {
     };
   });
   return (
-    <div class="container">
-      <div class="main-body">
+    <div className="container">
+      <div className="main-body">
         <div className="card2">
           <div className="card2-body">
             <div className="row">
