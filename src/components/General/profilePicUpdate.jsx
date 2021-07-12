@@ -48,7 +48,11 @@ function UpdateProfilePic() {
           <div className="modal-dialog modal-dialog-scrollable">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="staticBackdropLabel">
+                <h5
+                  className="modal-title"
+                  id="staticBackdropLabel"
+                  style={{ color: "black" }}
+                >
                   Update Profile Picture 📸
                 </h5>
                 <button
@@ -59,24 +63,27 @@ function UpdateProfilePic() {
                 ></button>
               </div>
               <div className="modal-body"></div>
-              <label htmlFor="file">Profile Pic</label>
+              <label htmlFor="file" style={{ color: "black" }}>
+                Profile Pic
+              </label>
               <input
                 type="file"
                 id="file"
                 onChange={selectImage}
                 accept="image/*"
+                style={{ color: "black" }}
               />
               {image && <img src={image} alt="preview" />}
               <div className="modal-footer">
                 <button
                   type="button"
-                  className="btn btn-primary btn-sm"
+                  className="homeButton btn btn-primary btn-sm"
                   data-bs-dismiss="modal"
                 >
                   Cancel
                 </button>
                 <button
-                  className="btn btn-primary btn-sm"
+                  className="homeButton btn btn-primary btn-sm"
                   onClick={(e) => setImage(null)}
                 >
                   Update
