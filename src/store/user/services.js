@@ -30,6 +30,23 @@ export async function getUserInfo(token) {
   }
 }
 
+export async function updateProfilePic(token, data) {
+  try {
+    return await axios({
+      method: "PUT",
+      baseURL: "http://localhost:8000",
+      url: "/user/userProfilePic",
+      data,
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data",
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
 export async function userRegister(
   name,
   lastname,
