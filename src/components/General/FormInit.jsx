@@ -17,46 +17,45 @@ function FormInit() {
 	const dispatch = useDispatch();
 	const [checkedValue, setIsChecked] = useState("");
 
-	const handleSignIn = () => {
-		if (checkedValue === "user") {
-			userSignIn(email, password).then((resUserSignIn) => {
-				const { data: dataUserSignIn } = resUserSignIn;
-				if (dataUserSignIn.token) {
-					localStorage.setItem("token", dataUserSignIn.token);
-					getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
-						const { data: dataGetUserInfo } = resGetUserInfo;
-						dispatch(saveUser(dataGetUserInfo));
-						history.push("/MainUser");
-					});
-				}
-			});
-		} else if (checkedValue === "admin") {
-			adminSignIn(email, password).then((resAdminSignIn) => {
-				const { data: dataAdminSignIn } = resAdminSignIn;
-				if (dataAdminSignIn.token) {
-					localStorage.setItem("token", dataAdminSignIn.token);
-					getAdminInfo(dataAdminSignIn.token).then((resGetAdminInfo) => {
-						const { data: dataGetAdminInfo } = resGetAdminInfo;
-						dispatch(saveAdmin(dataGetAdminInfo));
-						history.push("/MainAdmin");
-					});
-				}
-			});
-		} else {
-			coachSignIn(email, password).then((resCoachSignIn) => {
-				const { data: dataCoachSignIn } = resCoachSignIn;
-				if (dataCoachSignIn.token) {
-					localStorage.setItem("token", dataCoachSignIn.token);
-					getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
-						const { data: dataGetCoachInfo } = resGetCoachInfo;
-						console.dir(resGetCoachInfo);
-						dispatch(saveCoach(dataGetCoachInfo));
-						history.push("/MainCoach");
-					});
-				}
-			});
-		}
-	};
+  const handleSignIn = () => {
+    if (checkedValue === "user") {
+      userSignIn(email, password).then((resUserSignIn) => {
+        const { data: dataUserSignIn } = resUserSignIn;
+        if (dataUserSignIn.token) {
+          localStorage.setItem("token", dataUserSignIn.token);
+          getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
+            const { data: dataGetUserInfo } = resGetUserInfo;
+            dispatch(saveUser(dataGetUserInfo));
+            history.push("/MainUser");
+          });
+        }
+      });
+    } else if (checkedValue === "admin") {
+      adminSignIn(email, password).then((resAdminSignIn) => {
+        const { data: dataAdminSignIn } = resAdminSignIn;
+        if (dataAdminSignIn.token) {
+          localStorage.setItem("token", dataAdminSignIn.token);
+          getAdminInfo(dataAdminSignIn.token).then((resGetAdminInfo) => {
+            const { data: dataGetAdminInfo } = resGetAdminInfo;
+            dispatch(saveAdmin(dataGetAdminInfo));
+            history.push("/MainAdmin");
+          });
+        }
+      });
+    } else {
+      coachSignIn(email, password).then((resCoachSignIn) => {
+        const { data: dataCoachSignIn } = resCoachSignIn;
+        if (dataCoachSignIn.token) {
+          localStorage.setItem("token", dataCoachSignIn.token);
+          getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
+            const { data: dataGetCoachInfo } = resGetCoachInfo;
+            dispatch(saveCoach(dataGetCoachInfo));
+            history.push("/MainCoach");
+          });
+        }
+      });
+    }
+  };
 
 	return (
 		<div>

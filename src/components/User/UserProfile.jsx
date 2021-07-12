@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import UpdateProfilePic from "../General/profilePicUpdate";
 
 function ProfileCard() {
   const { user } = useSelector(({ selectUserReducer }) => {
@@ -6,15 +7,24 @@ function ProfileCard() {
       user: selectUserReducer.userLoad,
     };
   });
+
   return (
     <div className="user-container">
       <div className="user-main-body">
         <div className="card1">
           <div className="card1-body">
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              className="btn btn-primary btn-sm"
+            >
+              Update
+            </button>
             <div className="d-flex flex-column align-items-center text-center">
               <img
-                src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                alt="User"
+                src={user.profilePicture}
+                alt="Admin"
                 className="rounded-circle"
                 width="150"
               />
@@ -27,6 +37,7 @@ function ProfileCard() {
                 <p>{user.phone}</p>
               </div>
             </div>
+            <UpdateProfilePic />
           </div>
         </div>
       </div>
