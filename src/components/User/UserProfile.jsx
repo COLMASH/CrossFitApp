@@ -17,7 +17,7 @@ function ProfileCard() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
-              className="btn btn-primary btn-sm"
+              className="homeButton btn btn-primary btn-sm"
             >
               Update
             </button>
@@ -29,7 +29,6 @@ function ProfileCard() {
                 width="150"
               />
               <div className="mt-3">
-              <h1>User</h1>
                 <h1 style={{ fontSize: 25 }}>
                   {user.name} {user.lastname}
                 </h1>
