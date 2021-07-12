@@ -12,6 +12,9 @@ function AdminBar() {
       <Link to="/Coaches" className="btn btn-primary link">
         <strong>COACHES</strong>
       </Link>
+      <Link to="/Admins" className="btn btn-primary link">
+        <strong>ADMINS</strong>
+      </Link>
       <Link to="/Coaches" className="btn btn-primary link">
         <strong>UPDATE NEWS</strong>
       </Link>

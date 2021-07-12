@@ -6,6 +6,7 @@ import MainAdmin from "./pages/MainAdmin";
 import MainCoach from "./pages/MainCoach";
 import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
+import Admins from "./pages/Admins";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route exact path="/MainCoach" component={MainCoach} />
         <Route exact path="/MainUser" component={MainUser} />
         <Route exact path="/WodUser" component={WodUser} />
+        <Route exact path="/Admins" component={Admins} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>

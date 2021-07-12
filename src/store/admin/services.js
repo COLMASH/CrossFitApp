@@ -29,3 +29,34 @@ export async function getAdminInfo(token) {
     console.log(error.message);
   }
 }
+
+export async function adminRegister(
+  name,
+  lastname,
+  dniType,
+  dni,
+  email,
+  phone,
+  birthday,
+  password
+) {
+  try {
+    return await axios({
+      method: "POST",
+      baseURL: "http://localhost:8000",
+      url: "/admin/create",
+      data: {
+        name,
+        lastname,
+        dniType,
+        dni,
+        email,
+        phone,
+        birthday,
+        password,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
