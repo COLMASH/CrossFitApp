@@ -6,25 +6,26 @@ import UserBar from "../components/User/UserBar";
 import "../styles/MainUser.css";
 
 function MainUser() {
-  return (
-    <div className="MainUser">
-      <div className="ProfInfo-Block">
-        <div>
-          <UserProfile />
-        </div>
-        <div>
-          <UserInfo />
-        </div>
-      </div>
-      <div className="BarAndNews-Block">
-        <div>
-          <UserBar />
-        </div>
-        <div>
-          <UserNews />
-        </div>
-      </div>
-    </div>
-  );
+	return (
+		<div className="mainUser">
+			<div className="user-blockNavInfo">
+				<div>
+					<UserProfile />
+				</div>
+				<div>
+					<UserBar />
+				</div>
+			</div>
+			<div className="user-blockInfo">
+				<div>
+					<UserInfo />
+				</div>
+				<div  className="news-container">
+					<UserNews />
+				</div>
+			</div>
+		</div>
+	);
 }
+
 export default MainUser;

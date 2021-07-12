@@ -1,105 +1,96 @@
-body {
-  margin: 10px;
-  color: #1a202c;
-  text-align: left;
-  background-color: #ffffff;
+.mainCoach {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
 
-.ProfInfo-Block {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  flex-wrap: wrap;
+.coach-blockNavInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
-.container {
-  margin: 40px 0 20px 0;
-}
-.main-body {
-  padding: 30px;
-  background-color: #aaaaaa;
-  margin: 0px;
-  display: flex;
-  flex-direction: row;
-  justify-content: left;
+.coach-main-body {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
 }
 
-.card1,
-.card2,
-.card3 {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+.coach-blockInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .card1 {
-  min-width: 0;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(235, 224, 224, 0.125);
-  border-radius: 0.25rem;
-  padding: 10px;
-  margin: 10px 10px;
-  width: fit-content;
-  height: 345px;
+	padding: 10px;
+	margin: 10px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
 }
 
-.card2,
-.card3 {
-  min-width: 0;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 0 solid rgba(235, 224, 224, 0.125);
-  border-radius: 0.25rem;
-  padding: 10px;
-  width: 700px;
-  margin: 5px;
+.card2 {
+	padding: 10px;
+	margin: 5px;
+	width: 700px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
 }
 
 .card1-body {
-  flex: 1 1 auto;
-  min-height: 10px;
-  padding: 1rem;
-  background-color: #fff;
+	flex: 1 1 auto;
+	min-height: 10px;
+	padding: 1rem;
 }
 
-.carousel {
-  min-width: 0;
-  background-clip: border-box;
-  border: 0 solid rgba(235, 224, 224, 0.125);
-  border-radius: 0.25rem;
-  padding: 0px;
-  width: 700px;
-  margin: 0px 400px 0px 0px;
+.coachNavContainer {
+	padding: 20px;
 }
 
-.BarAndNews-Block {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  flex-wrap: wrap;
+.coachLinkButton.coachLinkButton.coachLinkButton {
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #40403e;
+	border: cornsilk;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bolder;
+	color: #ffffff;
 }
 
-.d-grid {
-  width: 455px;
-  margin: 0px 0px 0px 0px;
+.coachLinkButton.coachLinkButton.coachLinkButton:hover {
+	background-color: white;
+	color: black;
 }
 
-.btn-primary {
-  height: 70px;
-  margin: 0 0 0 130px;
+.coachButton.coachButton.coachButton {
+	height: 40px;
+	background-color: #40403e;
+	border: cornsilk;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bolder;
+	color: #ffffff;
 }
 
-.btn-primary.link {
-  background-color: #40403e;
-  border: cornsilk;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bolder;
-  color: #aaaaaa;
-  font-size: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.coachButton.coachButton.coachButton:hover {
+	background-color: white;
+	color: black;
 }
 
 .mb-0 {
-  font-size: 16px;
+	font-size: 16px;
+}
+
+.carousel {
+	padding: 20px;
+	max-width: 1000px;
+	color: #fff;
 }

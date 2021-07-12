@@ -1,58 +1,53 @@
 body {
-  margin: 20px;
-  color: #1a202c;
-  text-align: center;
-  background-color: #ffffff;
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../assets/images/background.jpg") no-repeat center top;
-  background-size: cover;
+	background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+		url("../assets/images/background.jpg") no-repeat center top;
+  background-attachment: fixed;
+	background-size: cover;
 }
 
 .form-gen {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 0px;
-  padding: 40px;
+	padding: 40px;
+	display: flex;
+	justify-content: center;
 }
 
 .form-group {
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  font-family: "Courier New", Courier, monospace;
-  color: #aaaaaa;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 10px;
-  background-color: #aaaaaa;
-  background: rgba(0, 0, 0, 0.5);
-  margin: 0px;
-  width: 500px;
+	padding: 10px;
+	font-family: "Courier New", Courier, monospace;
+	color: rgb(255, 255, 255);
+	display: flex;
+	flex-direction: column;
+	background: rgba(0, 0, 0, 0.6);
+}
+
+.formItem {
+	margin: 5px;
 }
 
 .form-check {
-  margin-top: 10px;
+	padding-top: 10px;
+}
+.radioItem {
+	margin: 5px;
 }
 
-.bttn_ {
-  display: flex-end;
-  flex-direction: row;
-  justify-content: center;
+.homeButton-container {
+	display: flex;
+	justify-content: center;
 }
 
-.btn.btn-primary.btn-sm {
-  background-color: #40403e;
-  border: cornsilk;
-  font-family: "Courier New", Courier, monospace;
-  font-weight: bolder;
-  color: #aaaaaa;
-  font-size: 20px;
-  margin: 5px;
-  width: 100px;
-  height: 40px;
+.homeButton.homeButton.homeButton {
+	margin: 5px;
+	height: 40px;
+	font-size: 20px;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bolder;
+	color: rgb(255, 255, 255);
+	background-color: #40403e;
+	border: cornsilk;
 }
 
-.mb-0 {
-  font-size: 16px;
+.homeButton.homeButton.homeButton:hover {
+	background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
 }
