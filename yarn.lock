@@ -1597,11 +1597,6 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
-"@sweetalert2/theme-wordpress-admin@^5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@sweetalert2/theme-wordpress-admin/-/theme-wordpress-admin-5.0.1.tgz#77a6a87fa1925e8e1cb417883a62de5c0a070638"
-  integrity sha512-iuF5qEfVbdFkuRQ/+2YVx+l21P9wAhioqFB97o3R8uooMrX8cwxbF/c6B3HLtA/PymZa73wTXIa6Z84YBm+glw==
-
 "@testing-library/dom@^7.28.1":
   version "7.31.2"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.2.tgz#df361db38f5212b88555068ab8119f5d841a8c4a"

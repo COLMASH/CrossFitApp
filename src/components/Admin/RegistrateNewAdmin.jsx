@@ -24,8 +24,10 @@ function RegistrateNewAdmin() {
       Password
     ).then((resAdminRegister) => {
       Swal.fire({
-        icon: "sucess",
-        text: `${Email} se ha registrado exitosamente!`,
+        title: "Confirmación",
+        icon: "success",
+        text: `El usuario ${Email} se ha registrado exitosamente!`,
+        button: "Aceptar",
       });
 
       //alert(`${Email} se ha registrado exitosamente!`);
