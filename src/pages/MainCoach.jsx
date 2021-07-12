@@ -6,20 +6,19 @@ import CoachBar from "../components/Coach/CoachBar";
 import "../styles/MainCoach.css";
 
 function MainCoach() {
-
 	return (
-		<div className="MainCoach">
-			<div className="ProfInfo-Block">
+		<div className="mainCoach">
+			<div className="coach-blockNavInfo">
 				<div>
 					<CoachProfile />
 				</div>
 				<div>
-					<CoachInfo />
+					<CoachBar />
 				</div>
 			</div>
-			<div className="BarAndNews-Block">
+			<div className="coach-blockInfo">
 				<div>
-					<CoachBar />
+					<CoachInfo />
 				</div>
 				<div>
 					<News />
