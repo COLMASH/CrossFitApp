@@ -9,8 +9,8 @@ function ProfileCard() {
   });
 
   return (
-    <div className="container">
-      <div className="main-body">
+    <div className="user-container">
+      <div className="user-main-body">
         <div className="card1">
           <div className="card1-body">
             <button
@@ -29,6 +29,7 @@ function ProfileCard() {
                 width="150"
               />
               <div className="mt-3">
+              <h1>User</h1>
                 <h1 style={{ fontSize: 25 }}>
                   {user.name} {user.lastname}
                 </h1>
