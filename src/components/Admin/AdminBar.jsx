@@ -1,6 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 
 function AdminBar() {
+
   const history = useHistory();
 
 	function Logout() {
@@ -32,6 +33,7 @@ function AdminBar() {
 			</div>
 		</nav>
 	);
+
 }
 
 export default AdminBar;

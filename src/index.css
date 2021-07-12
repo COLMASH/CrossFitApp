@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.swal2-title {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #aaaaaa;
+}
+
+.swal2-html-container {
+  font-family: "Courier New", Courier, monospace;
+}
+
+.swal2-confirm {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #aaaaaa;
+  background-color: #41464b;
+}
