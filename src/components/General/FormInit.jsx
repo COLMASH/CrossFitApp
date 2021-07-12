@@ -49,7 +49,6 @@ function FormInit() {
           localStorage.setItem("token", dataCoachSignIn.token);
           getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
             const { data: dataGetCoachInfo } = resGetCoachInfo;
-            console.dir(resGetCoachInfo);
             dispatch(saveCoach(dataGetCoachInfo));
             history.push("/MainCoach");
           });
