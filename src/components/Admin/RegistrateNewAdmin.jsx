@@ -1,5 +1,6 @@
 import { adminRegister } from "../../store/admin/services";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
 
 function RegistrateNewAdmin() {
   const [FirstName, setFirstName] = useState("");
@@ -22,9 +23,12 @@ function RegistrateNewAdmin() {
       Birthday,
       Password
     ).then((resAdminRegister) => {
-      const { data: dataAdminRegister } = resAdminRegister;
-      console.log(dataAdminRegister);
-      alert(`${Email} se ha registrado exitosamente!`);
+      Swal.fire({
+        icon: "sucess",
+        text: `${Email} se ha registrado exitosamente!`,
+      });
+
+      //alert(`${Email} se ha registrado exitosamente!`);
     });
   };
 

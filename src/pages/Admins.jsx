@@ -2,7 +2,7 @@ import AdminProfile from "../components/Admin/AdminProfile";
 import AdminBar from "../components/Admin/AdminBar";
 import AdminManager from "../components/Admin/AdminManager";
 
-import "../styles/Admin.css";
+import "../styles/Admins.css";
 
 function MainAdmin() {
   return (
