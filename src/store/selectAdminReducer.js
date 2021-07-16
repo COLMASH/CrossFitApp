@@ -72,7 +72,6 @@ export function accessAdmin(email, password, history) {
 }
 
 export function saveAdminProfilePic(adminUpdate) {
-  //guarda la foto de perfil
   return {
     type: SAVE_ADMIN_PROFILE_PIC,
     payload: adminUpdate,

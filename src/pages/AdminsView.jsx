@@ -1,5 +1,3 @@
-//AGREGAR VIEW O SCREEN A LAS PAGINAS
-
 import AdminProfile from "../components/Admin/AdminProfile";
 import AdminBar from "../components/Admin/AdminBar";
 import AdminManager from "../components/Admin/AdminManager";

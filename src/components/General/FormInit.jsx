@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-// import { saveUser } from "../../store/selectUserReducer";
-// import { getAdmin } from "../../store/selectAdminReducer";
-// import { saveCoach } from "../../store/selectCoachReducer";
-// import { userSignIn, getUserInfo } from "../../store/user/services";
-// import { adminSignIn, getAdminInfo } from "../../store/admin/services";
-// import { coachSignIn, getCoachInfo } from "../../store/coach/services";
 import RegModal from "./RegistrationModal";
 import logo from "../../assets/images/logo.png";
-// import { data } from "browserslist";
 import { accessAdmin } from "../../store/selectAdminReducer";
 import { accessCoach } from "../../store/selectCoachReducer";
 
@@ -27,48 +20,6 @@ function FormInit() {
       dispatch(accessCoach(email, password, history));
     }
   };
-
-  /////////////////////
-
-  // const handleSignIn = () => {
-  //   if (checkedValue === "user") {
-  //     userSignIn(email, password).then((resUserSignIn) => {
-  //       const { data: dataUserSignIn } = resUserSignIn;
-  //       if (dataUserSignIn.token) {
-  //         localStorage.setItem("token", dataUserSignIn.token);
-  //         getUserInfo(dataUserSignIn.token).then((resGetUserInfo) => {
-  //           const { data: dataGetUserInfo } = resGetUserInfo;
-  //           dispatch(saveUser(dataGetUserInfo));
-  //           history.push("/MainUser");
-  //         });
-  //       }
-  //     });
-  //   } else if (checkedValue === "admin") {
-  //     adminSignIn(email, password).then((resAdminSignIn) => {
-  //       const { data: dataAdminSignIn } = resAdminSignIn;
-  //       if (dataAdminSignIn.token) {
-  //         localStorage.setItem("token", dataAdminSignIn.token);
-  //         getAdminInfo(dataAdminSignIn.token).then((resGetAdminInfo) => {
-  //           const { data: dataGetAdminInfo } = resGetAdminInfo;
-  //           dispatch(getAdmin(dataGetAdminInfo));
-  //           history.push("/MainAdmin");
-  //         });
-  //       }
-  //     });
-  //   } else {
-  //     coachSignIn(email, password).then((resCoachSignIn) => {
-  //       const { data: dataCoachSignIn } = resCoachSignIn;
-  //       if (dataCoachSignIn.token) {
-  //         localStorage.setItem("token", dataCoachSignIn.token);
-  //         getCoachInfo(dataCoachSignIn.token).then((resGetCoachInfo) => {
-  //           const { data: dataGetCoachInfo } = resGetCoachInfo;
-  //           dispatch(saveCoach(dataGetCoachInfo));
-  //           history.push("/MainCoach");
-  //         });
-  //       }
-  //     });
-  //   }
-  // };
 
   return (
     <div>
