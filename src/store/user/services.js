@@ -50,15 +50,9 @@ export async function updateProfilePic(token, data) {
 export async function userRegister(
   name,
   lastname,
-  dniType,
-  dni,
   email,
   address,
-  neighborhood,
   phone,
-  height,
-  weight,
-  birthday,
   password
 ) {
   try {
@@ -69,16 +63,49 @@ export async function userRegister(
       data: {
         name,
         lastname,
+        email,
+        address,
+        phone,
+        password,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function userUpdate(
+  token,
+  name,
+  lastname,
+  dniType,
+  dni,
+  address,
+  neighborhood,
+  phone,
+  height,
+  weight,
+  birthday
+) {
+  try {
+    return await axios({
+      method: "PUT",
+      baseURL: "http://localhost:8000",
+      url: "/user/userUpdate",
+      data: {
+        name,
+        lastname,
         dniType,
         dni,
-        email,
         address,
         neighborhood,
         phone,
         height,
         weight,
         birthday,
-        password,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
       },
     });
   } catch (error) {
