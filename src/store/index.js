@@ -1,7 +1,8 @@
 import selectUserReducer from "./selectUserReducer";
 import selectAdminReducer from "./selectAdminReducer";
 import selectCoachReducer from "./selectCoachReducer";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({
   selectUserReducer,
@@ -9,9 +10,7 @@ const rootReducer = combineReducers({
   selectCoachReducer,
 });
 
-export const store = createStore(
-  rootReducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-);
+const middlewares = applyMiddleware(thunk);
+export const store = createStore(rootReducer, middlewares);
 
 export default store;
