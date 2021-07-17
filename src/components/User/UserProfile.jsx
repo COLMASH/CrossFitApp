@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import UpdateProfilePic from "../General/profilePicUpdate";
 
 function ProfileCard() {
-  const { user } = useSelector(({ selectUserReducer }) => {
+  const { user } = useSelector((state) => {
     return {
-      user: selectUserReducer.userLoad,
+      user: state.selectUserReducer.user,
     };
   });
 
