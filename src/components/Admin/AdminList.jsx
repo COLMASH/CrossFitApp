@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getAllAdmin } from "../../store/selectAdminReducer";
+import React from "react";
+import { useSelector } from "react-redux";
 
 function AdminList() {
   const { adminList } = useSelector((state) => {
@@ -9,17 +7,6 @@ function AdminList() {
       adminList: state.selectAdminReducer.adminList,
     };
   });
-
-  // dispatch = useDispatch();
-  // const { adminList } = useSelector((state) => {
-  //   return {
-  //     adminList: state.selectAdminReducer.adminList,
-  //   };
-  // });
-
-  // useEffect(() => {
-  //   dispatch(getAllAdmin());
-  // }, [])
 
   const renderTable = () => {
     return (

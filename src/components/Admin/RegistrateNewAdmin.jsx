@@ -1,36 +1,37 @@
-import { adminRegister } from "../../store/admin/services";
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import { createNewAdmin } from "../../store/selectAdminReducer";
 
 function RegistrateNewAdmin() {
-  const [FirstName, setFirstName] = useState("");
-  const [LastName, setLastName] = useState("");
-  const [DNIType, setDNIType] = useState("");
-  const [DNINumber, setDNINumber] = useState("");
-  const [Email, setEmail] = useState("");
-  const [Phone, setPhone] = useState("");
-  const [Birthday, setBirthday] = useState("");
-  const [Password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [lastname, setLastname] = useState("");
+  const [dniType, setDniType] = useState("");
+  const [dni, setDniNumber] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [birthday, setBirthday] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleRegister = () => {
-    adminRegister(
-      FirstName,
-      LastName,
-      DNIType,
-      DNINumber,
-      Email,
-      Phone,
-      Birthday,
-      Password
-    ).then((resAdminRegister) => {
-      Swal.fire({
-        title: "Confirmación",
-        icon: "success",
-        text: `El usuario ${Email} se ha registrado exitosamente!`,
-        button: "Aceptar",
-      });
-
-      //alert(`${Email} se ha registrado exitosamente!`);
+    dispatch(
+      createNewAdmin(
+        name,
+        lastname,
+        dniType,
+        dni,
+        email,
+        phone,
+        birthday,
+        password
+      )
+    );
+    Swal.fire({
+      title: "Confirmation",
+      icon: "success",
+      text: `User ${email} has successfully registered!`,
+      button: "OK",
     });
   };
 
@@ -73,8 +74,8 @@ function RegistrateNewAdmin() {
                 type="text"
                 name="First-Name"
                 className="form-control"
-                onChange={(e) => setFirstName(e.target.value)}
-                value={FirstName}
+                onChange={(e) => setName(e.target.value)}
+                value={name}
               />
               <label htmlFor="Last-Name">
                 <strong> *Last Name: </strong>
@@ -84,8 +85,8 @@ function RegistrateNewAdmin() {
                 type="text"
                 name="Last-Name"
                 className="form-control"
-                onChange={(e) => setLastName(e.target.value)}
-                value={LastName}
+                onChange={(e) => setLastname(e.target.value)}
+                value={lastname}
               />
               <label htmlFor="DNI-Type">
                 <strong> *DNI Type: </strong>
@@ -95,8 +96,8 @@ function RegistrateNewAdmin() {
                 type="text"
                 name="DNI-Type"
                 className="form-control"
-                onChange={(e) => setDNIType(e.target.value)}
-                value={DNIType}
+                onChange={(e) => setDniType(e.target.value)}
+                value={dniType}
               />
               <label htmlFor="DNI">
                 <strong> DNI Number: </strong>
@@ -106,11 +107,11 @@ function RegistrateNewAdmin() {
                 type="text"
                 name="DNI-Number"
                 className="form-control"
-                onChange={(e) => setDNINumber(e.target.value)}
-                value={DNINumber}
+                onChange={(e) => setDniNumber(e.target.value)}
+                value={dni}
               />
               <label htmlFor="email">
-                <strong> *email: </strong>
+                <strong> *Email: </strong>
               </label>
               <input
                 id="Email"
@@ -118,7 +119,7 @@ function RegistrateNewAdmin() {
                 name="email"
                 className="form-control"
                 onChange={(e) => setEmail(e.target.value)}
-                value={Email}
+                value={email}
               />
               <label htmlFor="phone">
                 <strong> *Phone: </strong>
@@ -129,7 +130,7 @@ function RegistrateNewAdmin() {
                 name="phone"
                 className="form-control"
                 onChange={(e) => setPhone(e.target.value)}
-                value={Phone}
+                value={phone}
               />
               <label htmlFor="birthday">
                 <strong> Birthday: </strong>
@@ -140,7 +141,7 @@ function RegistrateNewAdmin() {
                 name="Birthday"
                 className="form-control"
                 onChange={(e) => setBirthday(e.target.value)}
-                value={Birthday}
+                value={birthday}
               />
               <label htmlFor="Password">
                 <strong> *Password: </strong>
@@ -151,7 +152,7 @@ function RegistrateNewAdmin() {
                 name="Password"
                 className="form-control"
                 onChange={(e) => setPassword(e.target.value)}
-                value={Password}
+                value={password}
               />
             </div>
             <div className="modal-footer">
@@ -164,7 +165,7 @@ function RegistrateNewAdmin() {
               </button>
               <button
                 type="submit"
-                disabled={Email === ""}
+                disabled={email === ""}
                 className="btn btn-primary btn-sm"
               >
                 Register
