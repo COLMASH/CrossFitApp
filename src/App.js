@@ -4,10 +4,10 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import MainAdmin from "./pages/MainAdmin";
 import MainCoach from "./pages/MainCoach";
-import CreateWod from "./pages/CreateWod"
+import CreateWod from "./pages/CreateWod";
 import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
-import Admins from "./pages/Admins";
+import AdminsView from "./pages/AdminsView";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route exact path="/CreateWod" component={CreateWod} />
         <Route exact path="/MainUser" component={MainUser} />
         <Route exact path="/WodUser" component={WodUser} />
-        <Route exact path="/Admins" component={Admins} />
+        <Route exact path="/AdminsView" component={AdminsView} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>
