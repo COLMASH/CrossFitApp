@@ -106,7 +106,7 @@ function reducer(state = initialState, action) {
     case ADMIN_SIGN_IN: {
       return {
         ...state,
-        admin: state.admin,
+        admin: action.payload,
       };
     }
     case SAVE_ADMIN_PROFILE_PIC: {

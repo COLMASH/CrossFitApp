@@ -2,16 +2,10 @@ import AdminProfile from "../components/Admin/AdminProfile";
 import AdminInfo from "../components/Admin/AdminInfo";
 import News from "../components/General/News";
 import AdminBar from "../components/Admin/AdminBar";
-import { useSelector } from "react-redux";
 
 import "../styles/Admin.css";
 
 function MainAdmin() {
-  const { admin } = useSelector((state) => {
-    return {
-      admin: state.selectAdminReducer.admin,
-    };
-  });
   return (
     <div className="mainAdmin">
       <div className="admin-blockNavInfo">
