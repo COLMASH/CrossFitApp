@@ -17,6 +17,7 @@ function FormInit() {
     if (checkedValue === "admin") {
       dispatch(accessAdmin(email, password, history));
     } else if (checkedValue === "coach") {
+      console.log("aquiFI");
       dispatch(accessCoach(email, password, history));
     }
   };
