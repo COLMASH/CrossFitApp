@@ -1,9 +1,10 @@
 import { useSelector } from "react-redux";
+import InformationUpdate from "../General/InformationUpdate";
 
 function UserInfo() {
-  const { user } = useSelector(({ selectUserReducer }) => {
+  const { user } = useSelector((state) => {
     return {
-      user: selectUserReducer.userLoad,
+      user: state.selectUserReducer.user,
     };
   });
   return (
@@ -50,54 +51,64 @@ function UserInfo() {
             <hr />
             <div className="row">
               <div className="col-sm-12">
-                <button className="homeButton btn btn-primary btn-sm" type="submit">
+                <button
+
+                 
+
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#userUpdateModal"
+                  className="homeButton btn btn-primary btn-sm"
+
+                >
                   <strong>EDIT</strong>
                 </button>
               </div>
+              <InformationUpdate />
             </div>
-          </div>
-        </div>
-        </div>
-        <div className="userCard card3">
-          <div className="card2-body">
-            <div className="row">
-              <div className="col-sm-3">
-                <h2 className="mb-0">Id Type</h2>
-              </div>
-              <div className="col-sm-9">CC</div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h2 className="mb-0">Id Number</h2>
-              </div>
-              <div className="col-sm-9">{user.dni}</div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h2 className="mb-0">Birthday</h2>
-              </div>
-              <div className="col-sm-9">{user.birthday}</div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h2 className="mb-0">Height</h2>
-              </div>
-              <div className="col-sm-9">{user.height}</div>
-            </div>
-            <hr />
-            <div className="row">
-              <div className="col-sm-3">
-                <h2 className="mb-0">Weight</h2>
-              </div>
-              <div className="col-sm-9">{user.weight}</div>
-            </div>
-            <hr />
           </div>
         </div>
       </div>
+      <div className="userCard card3">
+        <div className="card2-body">
+          <div className="row">
+            <div className="col-sm-3">
+              <h2 className="mb-0">Id Type</h2>
+            </div>
+            <div className="col-sm-9">CC</div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-sm-3">
+              <h2 className="mb-0">Id Number</h2>
+            </div>
+            <div className="col-sm-9">{user.dni}</div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-sm-3">
+              <h2 className="mb-0">Birthday</h2>
+            </div>
+            <div className="col-sm-9">{user.birthday}</div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-sm-3">
+              <h2 className="mb-0">Height</h2>
+            </div>
+            <div className="col-sm-9">{user.height}</div>
+          </div>
+          <hr />
+          <div className="row">
+            <div className="col-sm-3">
+              <h2 className="mb-0">Weight</h2>
+            </div>
+            <div className="col-sm-9">{user.weight}</div>
+          </div>
+          <hr />
+        </div>
+      </div>
+    </div>
   );
 }
 

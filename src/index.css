@@ -13,18 +13,30 @@ code {
 }
 
 .swal2-title {
-  font-family: "Courier New", Courier, monospace;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
   font-weight: bolder;
   color: #aaaaaa;
 }
 
 .swal2-html-container {
-  font-family: "Courier New", Courier, monospace;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
 }
 
 .swal2-confirm {
-  font-family: "Courier New", Courier, monospace;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
   font-weight: bolder;
   color: #aaaaaa;
-  background-color: #41464b;
+  background-color: #41464b !important;
+}
+
+.modal-title {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #3b3b3b;
+}
+
+.modal-body {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #3b3b3b;
 }

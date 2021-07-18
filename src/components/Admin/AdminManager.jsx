@@ -4,22 +4,22 @@ function AdminManager() {
   return (
     <div>
       <div>
-        <h1>Admin Manager</h1>
         <div class="btn-group" role="group">
-          <button
-            type="button"
-            data-bs-toggle="modal"
-            data-bs-target="#staticBackdrop"
-            className="btn btn-primary btn-sm"
-          >
-            New Admin
-          </button>
-          <button type="button" class="btn btn-primary btn-sm">
-            Update Admin
-          </button>
-          <button type="button" class="btn btn-primary btn-sm">
-            Delete Admin
-          </button>
+          <label>
+            <button
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop"
+              className="admins-Button"
+            >
+              NEW ADMIN
+            </button>
+          </label>
+          <label>
+            <button type="button" class="admins-Button">
+              DELETE ADMIN
+            </button>
+          </label>
         </div>
       </div>
 
