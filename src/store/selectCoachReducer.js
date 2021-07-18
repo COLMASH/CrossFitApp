@@ -1,14 +1,5 @@
-import { coach } from "../data";
-
-export const SELECT_COACH = "SELECT_COACH";
 export const SAVE_COACH = "SAVE_COACH";
-
-export function selectCoach(email) {
-  return {
-    type: SELECT_COACH,
-    payload: email,
-  };
-}
+export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
 
 export function saveCoach(coach) {
   return {
@@ -17,19 +8,26 @@ export function saveCoach(coach) {
   };
 }
 
+export function saveCoachProfilePic(coachUpdate) {
+  return {
+    type: SAVE_COACH_PROFILE_PIC,
+    payload: coachUpdate,
+  };
+}
+
 const initialState = {
-  coach,
+  coach: {},
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case SELECT_COACH: {
+    case SAVE_COACH: {
       return {
         ...state,
-        coach: coach.filter((u) => u.email === action.payload)[0],
+        coachLoad: action.payload,
       };
     }
-    case SAVE_COACH: {
+    case SAVE_COACH_PROFILE_PIC: {
       return {
         ...state,
         coachLoad: action.payload,
