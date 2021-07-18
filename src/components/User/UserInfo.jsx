@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import InformationUpdate from "../General/InformationUpdate";
 
 function UserInfo() {
-  const { user } = useSelector(({ selectUserReducer }) => {
+  const { user } = useSelector((state) => {
     return {
-      user: selectUserReducer.userLoad,
+      user: state.selectUserReducer.user,
     };
   });
   return (
@@ -52,10 +52,14 @@ function UserInfo() {
             <div className="row">
               <div className="col-sm-12">
                 <button
+
+                 
+
                   type="button"
                   data-bs-toggle="modal"
                   data-bs-target="#userUpdateModal"
                   className="homeButton btn btn-primary btn-sm"
+
                 >
                   <strong>EDIT</strong>
                 </button>

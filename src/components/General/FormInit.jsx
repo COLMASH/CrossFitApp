@@ -5,6 +5,7 @@ import RegModal from "./RegistrationModal";
 import logo from "../../assets/images/logo.png";
 import { accessAdmin } from "../../store/selectAdminReducer";
 import { accessCoach } from "../../store/selectCoachReducer";
+import { accessUser } from "../../store/selectUserReducer";
 
 function FormInit() {
   const dispatch = useDispatch();
@@ -18,6 +19,8 @@ function FormInit() {
       dispatch(accessAdmin(email, password, history));
     } else if (checkedValue === "coach") {
       dispatch(accessCoach(email, password, history));
+    } else {
+      dispatch(accessUser(email, password, history));
     }
   };
 

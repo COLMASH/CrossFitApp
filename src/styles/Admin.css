@@ -1,96 +1,96 @@
 .mainAdmin {
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: flex-start;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .admin-blockNavInfo {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .admin-main-body {
-	padding: 20px;
-	display: flex;
-	justify-content: center;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
 }
 
 .admin-blockInfo {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card1 {
-	padding: 10px;
-	margin: 10px;
-	color: #fff;
-	background: rgba(0, 0, 0, 0.9);
-	background-clip: border-box;
-	border: 0 solid rgba(235, 224, 224, 0.125);
-	border-radius: 0.25rem;
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  background-clip: border-box;
+  border: solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card2 {
-	padding: 10px;
-	margin: 5px;
-	width: 700px;
-	color: #fff;
-	background: rgba(0, 0, 0, 0.9);
-	background-clip: border-box;
-	border: 0 solid rgba(235, 224, 224, 0.125);
-	border-radius: 0.25rem;
+  padding: 10px;
+  margin: 5px;
+  width: 700px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.9);
+  background-clip: border-box;
+  border: 0 solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card1-body {
-	flex: 1 1 auto;
-	min-height: 10px;
-	padding: 1rem;
+  flex: 1 1 auto;
+  min-height: 10px;
+  padding: 1rem;
 }
 
 .adminNavContainer {
-	padding: 20px;
+  padding: 20px;
 }
 
 .adminLinkButton.adminLinkButton.adminLinkButton {
-	height: 40px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	background-color: #40403e;
-	border: cornsilk;
-	font-family: "Courier New", Courier, monospace;
-	font-weight: bolder;
-	color: #ffffff;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
 }
 
 .adminLinkButton.adminLinkButton.adminLinkButton:hover {
-	background-color: white;
-	color: black;
+  background-color: white;
+  color: black;
 }
 
 .adminButton.adminButton.adminButton {
-	height: 40px;
-	background-color: #40403e;
-	border: cornsilk;
-	font-family: "Courier New", Courier, monospace;
-	font-weight: bolder;
-	color: #ffffff;
+  height: 35px;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
 }
 
 .adminButton.adminButton.adminButton:hover {
-	background-color: white;
-	color: black;
+  background-color: white;
+  color: black;
 }
 
 .mb-0 {
-	font-size: 16px;
+  font-size: 16px;
 }
 
 .carousel {
-	padding: 20px;
-	max-width: 1000px;
-	color: #fff;
+  padding: 20px;
+  max-width: 1000px;
+  color: #fff;
 }

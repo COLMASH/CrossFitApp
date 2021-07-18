@@ -15,7 +15,7 @@ export async function getAdminList() {
   return await axios({
     method: "GET",
     baseURL: "http://localhost:8000",
-    url: "/admin/adminInfo",
+    url: "/admin/adminList",
   });
 }
 export async function adminRegister(

@@ -39,10 +39,29 @@ export function getAllAdmin() {
   };
 }
 
-export function createNewAdmin() {
+export function createNewAdmin(
+  name,
+  lastname,
+  dniType,
+  dni,
+  email,
+  phone,
+  birthday,
+  password
+) {
   return async function (dispatch) {
     try {
-      const { data } = await adminRegister();
+      const { data } = await adminRegister(
+        name,
+        lastname,
+        dniType,
+        dni,
+        email,
+        phone,
+        birthday,
+        password
+      );
+      //cerrar el modal
       dispatch({
         type: CREATE_NEW_ADMIN,
         payload: data,
@@ -106,7 +125,7 @@ function reducer(state = initialState, action) {
     case ADMIN_SIGN_IN: {
       return {
         ...state,
-        admin: state.admin,
+        admin: action.payload,
       };
     }
     case SAVE_ADMIN_PROFILE_PIC: {
