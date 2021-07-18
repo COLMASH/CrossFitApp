@@ -4,35 +4,18 @@ import React, { useState } from "react";
 function RegistrationModal() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
-  const [DNIType, setDNIType] = useState("");
-  const [DNINumber, setDNINumber] = useState("");
   const [Email, setEmail] = useState("");
   const [Address, setAddress] = useState("");
-  const [Neighborhood, setNeighborhood] = useState("");
   const [Phone, setPhone] = useState("");
-  const [Height, setHeight] = useState("");
-  const [Weight, setWeight] = useState("");
-  const [Birthday, setBirthday] = useState("");
   const [Password, setPassword] = useState("");
 
   const handleRegister = () => {
-    userRegister(
-      FirstName,
-      LastName,
-      DNIType,
-      DNINumber,
-      Email,
-      Address,
-      Neighborhood,
-      Phone,
-      Height,
-      Weight,
-      Birthday,
-      Password
-    ).then((resUserRegister) => {
-      const { data: dataUserRegister } = resUserRegister;
-      alert(`${Email} se ha registrado exitosamente!`);
-    });
+    userRegister(FirstName, LastName, Email, Address, Phone, Password).then(
+      (resUserRegister) => {
+        const { data: dataUserRegister } = resUserRegister;
+        alert(`${Email} se ha registrado exitosamente!`);
+      }
+    );
   };
 
   return (
@@ -45,7 +28,7 @@ function RegistrationModal() {
       <div
         className="modal fade"
         id="staticBackdrop"
-        data-bs-backdrop="false"
+        data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
@@ -88,28 +71,6 @@ function RegistrationModal() {
                 onChange={(e) => setLastName(e.target.value)}
                 value={LastName}
               />
-              <label htmlFor="DNI-Type">
-                <strong> *DNI Type: </strong>
-              </label>
-              <input
-                id="DNI-Type"
-                type="text"
-                name="DNI-Type"
-                className="form-control"
-                onChange={(e) => setDNIType(e.target.value)}
-                value={DNIType}
-              />
-              <label htmlFor="DNI">
-                <strong> DNI Number: </strong>
-              </label>
-              <input
-                id="DNI-Number"
-                type="text"
-                name="DNI-Number"
-                className="form-control"
-                onChange={(e) => setDNINumber(e.target.value)}
-                value={DNINumber}
-              />
               <label htmlFor="email">
                 <strong> *email: </strong>
               </label>
@@ -132,17 +93,6 @@ function RegistrationModal() {
                 onChange={(e) => setAddress(e.target.value)}
                 value={Address}
               />
-              <label htmlFor="neighborhood">
-                <strong> Neighborhood: </strong>
-              </label>
-              <input
-                id="neighborhood"
-                type="text"
-                name="neighborhood"
-                className="form-control"
-                onChange={(e) => setNeighborhood(e.target.value)}
-                value={Neighborhood}
-              />
               <label htmlFor="phone">
                 <strong> *Phone: </strong>
               </label>
@@ -153,39 +103,6 @@ function RegistrationModal() {
                 className="form-control"
                 onChange={(e) => setPhone(e.target.value)}
                 value={Phone}
-              />
-              <label htmlFor="height">
-                <strong> Height: </strong>
-              </label>
-              <input
-                id="height"
-                type="text"
-                name="height"
-                className="form-control"
-                onChange={(e) => setHeight(e.target.value)}
-                value={Height}
-              />
-              <label htmlFor="weight">
-                <strong> Weight: </strong>
-              </label>
-              <input
-                id="weight"
-                type="text"
-                name="weight"
-                className="form-control"
-                onChange={(e) => setWeight(e.target.value)}
-                value={Weight}
-              />
-              <label htmlFor="birthday">
-                <strong> Birthday: </strong>
-              </label>
-              <input
-                id="Birthday"
-                type="text"
-                name="Birthday"
-                className="form-control"
-                onChange={(e) => setBirthday(e.target.value)}
-                value={Birthday}
               />
               <label htmlFor="Password">
                 <strong> *Password: </strong>
@@ -202,7 +119,7 @@ function RegistrationModal() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cancel
@@ -210,7 +127,7 @@ function RegistrationModal() {
               <button
                 type="submit"
                 disabled={Email === ""}
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
               >
                 Register
               </button>

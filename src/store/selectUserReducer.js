@@ -9,6 +9,7 @@ export const GET_USER = "GET_USER";
 export const GET_USER_LIST = "GET_USER_LIST";
 export const USER_SIGN_IN = "USER_SIGN_IN";
 export const SAVE_PROFILE_PIC = "SAVE_PROFILE_PIC";
+export const UPDATE_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 
 export const SAVE_USER = "SAVE_USER";
 
@@ -76,6 +77,13 @@ const initialState = {
   user: {},
 };
 
+export function updateProfileInfo(userUpdate) {
+  return {
+    type: UPDATE_PROFILE_INFO,
+    payload: userUpdate,
+  };
+}
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
@@ -98,6 +106,12 @@ function reducer(state = initialState, action) {
     // }
 
     case SAVE_PROFILE_PIC: {
+      return {
+        ...state,
+        userLoad: action.payload,
+      };
+    }
+    case UPDATE_PROFILE_INFO: {
       return {
         ...state,
         userLoad: action.payload,

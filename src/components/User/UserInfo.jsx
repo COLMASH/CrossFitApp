@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import InformationUpdate from "../General/InformationUpdate";
 
 function UserInfo() {
   const { user } = useSelector((state) => {
@@ -51,12 +52,19 @@ function UserInfo() {
             <div className="row">
               <div className="col-sm-12">
                 <button
+
+                 
+
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#userUpdateModal"
                   className="homeButton btn btn-primary btn-sm"
-                  type="submit"
+
                 >
                   <strong>EDIT</strong>
                 </button>
               </div>
+              <InformationUpdate />
             </div>
           </div>
         </div>

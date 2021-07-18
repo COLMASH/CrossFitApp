@@ -22,16 +22,42 @@ export async function getUserList() {
 export async function userRegister(
   name,
   lastname,
+  email,
+  address,
+  phone,
+  password
+) {
+  try {
+    return await axios({
+      method: "POST",
+      baseURL: "http://localhost:8000",
+      url: "/user/signup",
+      data: {
+        name,
+        lastname,
+        email,
+        address,
+        phone,
+        password,
+      },
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+export async function userUpdate(
+  token,
+  name,
+  lastname,
   dniType,
   dni,
-  email,
   address,
   neighborhood,
   phone,
   height,
   weight,
-  birthday,
-  password
+  birthday
 ) {
   return await axios({
     method: "POST",
@@ -70,11 +96,23 @@ export async function updateProfilePic(token, data) {
     return await axios({
       method: "PUT",
       baseURL: "http://localhost:8000",
-      url: "/user/userProfilePic",
-      data,
+
+      url: "/user/userUpdate",
+      data: {
+        name,
+        lastname,
+        dniType,
+        dni,
+        address,
+        neighborhood,
+        phone,
+        height,
+        weight,
+        birthday,
+      },
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
+
       },
     });
   } catch (error) {

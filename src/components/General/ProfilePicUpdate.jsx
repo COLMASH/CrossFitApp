@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 
 function UpdateProfilePic() {
   const dispatch = useDispatch();
+
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
 
