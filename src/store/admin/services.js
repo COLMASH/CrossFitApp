@@ -18,6 +18,7 @@ export async function getAdminList() {
     url: "/admin/adminList",
   });
 }
+
 export async function adminRegister(
   name,
   lastname,
@@ -44,6 +45,7 @@ export async function adminRegister(
     },
   });
 }
+
 export async function adminSignIn(email, password) {
   return await axios({
     method: "POST",
@@ -55,6 +57,16 @@ export async function adminSignIn(email, password) {
     },
   });
 }
+
+export async function destroyAdmin(adminId) {
+  return await axios({
+    method: "DELETE",
+    baseURL: "http://localhost:8000",
+    url: "/admin/adminDelete",
+    data: { adminId },
+  });
+}
+
 export async function updateProfilePic(token, data) {
   try {
     return await axios({

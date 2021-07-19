@@ -2,7 +2,6 @@ import AdminProfile from "../components/Admin/AdminProfile";
 import AdminBar from "../components/Admin/AdminBar";
 import AdminManager from "../components/Admin/AdminManager";
 import AdminList from "../components/Admin/AdminList";
-import UpdateListAdmins from "../components/Admin/RegistrateNewAdmin";
 
 import "../styles/AdminsView.css";
 
@@ -22,7 +21,7 @@ function MainAdmin() {
           <AdminManager />
           <br />
           <h3>Active administrators</h3>
-          <AdminList UpdateListAdmins={UpdateListAdmins} />
+          <AdminList />
         </div>
       </div>
     </div>
