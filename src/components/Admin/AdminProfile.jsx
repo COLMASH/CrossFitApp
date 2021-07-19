@@ -1,9 +1,11 @@
 import { useSelector } from "react-redux";
+import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
 
 function AdminProfile() {
-  const { admin } = useSelector((state) => {
+  const { admin, adminPhoto } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
+      adminPhoto: state.selectAdminReducer.adminPhoto,
     };
   });
 
@@ -15,11 +17,20 @@ function AdminProfile() {
             <div className="card1-body">
               <div className="d-flex flex-column align-items-center text-center">
                 <img
-                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
-                  alt="AdminPhoto"
+                  src={adminPhoto}
+                  alt="AdminProfile"
                   className="rounded-circle"
                   width="150"
                 />
+                <button
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#AdminProfilePicUpdate"
+                  className="homeButton btn btn-primary btn-sm"
+                >
+                  Update
+                </button>
+
                 <div className="mt-3">
                   <h1 style={{ fontSize: 25 }}>
                     {admin.name} {admin.lastname}
@@ -27,6 +38,7 @@ function AdminProfile() {
                   <p>Administrator</p>
                 </div>
               </div>
+              <AdminProfilePicUpdate />
             </div>
           </div>
         </div>

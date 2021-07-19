@@ -4,6 +4,7 @@ import {
   adminRegister,
   adminSignIn,
   destroyAdmin,
+  updateAdminProfilePic,
 } from "./admin/services";
 
 export const GET_ADMIN = "GET_ADMIN";
@@ -114,11 +115,26 @@ export function deleteAdmin(adminToDelete) {
     }
   };
 }
-
-export function saveAdminProfilePic(adminUpdate) {
-  return {
-    type: SAVE_ADMIN_PROFILE_PIC,
-    payload: adminUpdate,
+//////////////////////////////////////
+export function updateImage(file) {
+  return async function (dispatch) {
+    try {
+      const form_data = new FormData();
+      if (file) {
+        form_data.append("profilePicture", file, file.name);
+      }
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await updateAdminProfilePic(
+        authorizationToken,
+        form_data
+      );
+      dispatch({
+        type: SAVE_ADMIN_PROFILE_PIC,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
@@ -126,6 +142,8 @@ const initialState = {
   admin: {},
   adminList: {},
   adminToDelete: "",
+  adminPhoto:
+    "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 };
 
 function reducer(state = initialState, action) {
@@ -163,17 +181,15 @@ function reducer(state = initialState, action) {
     case REMOVE_ADMIN_DELETED: {
       return {
         ...state,
-        adminList: state.adminList
-          .slice(0, state.adminList.indexOf(action.payload))
-          .concat(
-            state.adminList.slice(state.adminList.indexOf(action.payload) + 1)
-          ),
+        adminList: state.adminList.filter(
+          (admin) => admin._id !== action.payload._id
+        ),
       };
     }
     case SAVE_ADMIN_PROFILE_PIC: {
       return {
         ...state,
-        adminLoad: action.payload,
+        adminPhoto: action.payload.profilePicture,
       };
     }
     default: {
