@@ -31,7 +31,7 @@ function AdminManager() {
             <button
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
+              data-bs-target="#NewAdminModal"
               className="admins-Button"
             >
               NEW ADMIN

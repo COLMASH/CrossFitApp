@@ -44,7 +44,7 @@ function RegistrateNewAdmin() {
     >
       <div
         className="modal fade"
-        id="staticBackdrop"
+        id="NewAdminModal"
         data-bs-backdrop="false"
         data-bs-keyboard="false"
         tabIndex="-1"
@@ -100,7 +100,7 @@ function RegistrateNewAdmin() {
                 value={dniType}
               />
               <label htmlFor="DNI">
-                <strong> DNI Number: </strong>
+                <strong> *DNI Number: </strong>
               </label>
               <input
                 id="DNI-Number"
