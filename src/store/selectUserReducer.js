@@ -98,12 +98,6 @@ function reducer(state = initialState, action) {
         user: action.payload,
       };
     }
-    // case SAVE_USER: {
-    //   return {
-    //     ...state,
-    //     userLoad: action.payload,
-    //   };
-    // }
 
     case SAVE_PROFILE_PIC: {
       return {
