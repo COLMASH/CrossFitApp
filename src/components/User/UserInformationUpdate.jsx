@@ -1,9 +1,9 @@
-import { userUpdate } from "../../store/user/services";
-import { updateProfileInfo } from "../../store/selectUserReducer";
+import { updateUserProfileInfo } from "../../store/selectUserReducer";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
-function InformationUpdate() {
+function UserInformationUpdate() {
   const dispatch = useDispatch();
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
@@ -17,23 +17,25 @@ function InformationUpdate() {
   const [Birthday, setBirthday] = useState("");
 
   const handleUpdate = () => {
-    let authorizationToken = localStorage.getItem("token");
-    userUpdate(
-      authorizationToken,
-      FirstName,
-      LastName,
-      DNIType,
-      DNINumber,
-      Address,
-      Neighborhood,
-      Phone,
-      Height,
-      Weight,
-      Birthday
-    ).then((resUpdate) => {
-      const { data: dataUpdate } = resUpdate;
-      dispatch(updateProfileInfo(dataUpdate));
-      alert(`Your personal information has been updated successfully!`);
+    dispatch(
+      updateUserProfileInfo(
+        FirstName,
+        LastName,
+        DNIType,
+        DNINumber,
+        Address,
+        Neighborhood,
+        Phone,
+        Height,
+        Weight,
+        Birthday
+      )
+    );
+    Swal.fire({
+      title: "Confirmation",
+      icon: "success",
+      text: `Your personal information has been updated successfully!`,
+      button: "OK",
     });
   };
 
@@ -217,4 +219,4 @@ function InformationUpdate() {
   );
 }
 
-export default InformationUpdate;
+export default UserInformationUpdate;

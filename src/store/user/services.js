@@ -38,7 +38,7 @@ export async function getUserInfo(token) {
   }
 }
 
-export async function updateProfilePic(token, data) {
+export async function updateUserProfilePic(token, data) {
   try {
     return await axios({
       method: "PUT",

@@ -1,21 +1,27 @@
-import { userRegister } from "../../store/user/services";
 import React, { useState } from "react";
+import Swal from "sweetalert2";
+import { createNewUser } from "../../store/selectUserReducer";
+import { useDispatch } from "react-redux";
 
-function RegistrationModal() {
+function UserRegistrationModal() {
   const [FirstName, setFirstName] = useState("");
   const [LastName, setLastName] = useState("");
   const [Email, setEmail] = useState("");
   const [Address, setAddress] = useState("");
   const [Phone, setPhone] = useState("");
   const [Password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const handleRegister = () => {
-    userRegister(FirstName, LastName, Email, Address, Phone, Password).then(
-      (resUserRegister) => {
-        const { data: dataUserRegister } = resUserRegister;
-        alert(`${Email} se ha registrado exitosamente!`);
-      }
+    dispatch(
+      createNewUser(FirstName, LastName, Email, Address, Phone, Password)
     );
+    Swal.fire({
+      title: "Confirmation",
+      icon: "success",
+      text: `User ${FirstName} has successfully registered!`,
+      button: "OK",
+    });
   };
 
   return (
@@ -139,4 +145,4 @@ function RegistrationModal() {
   );
 }
 
-export default RegistrationModal;
+export default UserRegistrationModal;

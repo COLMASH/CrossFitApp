@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import UpdateProfilePic from "../General/ProfilePicUpdate";
+import UpdateProfilePic from "./UserProfilePicUpdate";
 
 function ProfileCard() {
   const { user } = useSelector((state) => {
@@ -24,7 +24,7 @@ function ProfileCard() {
             <div className="d-flex flex-column align-items-center text-center">
               <img
                 src={user.profilePicture}
-                alt="Admin"
+                alt="UserProfile"
                 className="rounded-circle"
                 width="150"
               />

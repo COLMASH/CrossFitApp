@@ -3,15 +3,20 @@ import {
   getUserList,
   userRegister,
   userSignIn,
+  userUpdate,
+  updateUserProfilePic,
 } from "./user/services";
 
 export const GET_USER = "GET_USER";
 export const GET_USER_LIST = "GET_USER_LIST";
 export const USER_SIGN_IN = "USER_SIGN_IN";
-export const SAVE_PROFILE_PIC = "SAVE_PROFILE_PIC";
-export const UPDATE_PROFILE_INFO = "UPDATE_PROFILE_INFO";
+export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
+export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
+export const CREATE_NEW_USER = "CREATE_NEW_USER";
 
-export const SAVE_USER = "SAVE_USER";
+const initialState = {
+  user: {},
+};
 
 export function getUser() {
   return async function (dispatch) {
@@ -59,28 +64,96 @@ export function accessUser(email, password, history) {
   };
 }
 
-export function saveUser(user) {
-  return {
-    type: SAVE_USER,
-    payload: user,
+export function updateUserProfileInfo(
+  FirstName,
+  LastName,
+  DNIType,
+  DNINumber,
+  Address,
+  Neighborhood,
+  Phone,
+  Height,
+  Weight,
+  Birthday
+) {
+  return async function (dispatch) {
+    try {
+      const authorizationToken = localStorage.getItem("token");
+      const { data: dataUpdate } = await userUpdate(
+        authorizationToken,
+        FirstName,
+        LastName,
+        DNIType,
+        DNINumber,
+        Address,
+        Neighborhood,
+        Phone,
+        Height,
+        Weight,
+        Birthday
+      );
+      dispatch({
+        type: UPDATE_USER_PROFILE_INFO,
+        payload: dataUpdate,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
-export function saveProfilePic(userUpdate) {
-  return {
-    type: SAVE_PROFILE_PIC,
-    payload: userUpdate,
+export function createNewUser(
+  name,
+  lastname,
+  dniType,
+  dni,
+  email,
+  phone,
+  birthday,
+  password
+) {
+  return async function (dispatch) {
+    try {
+      const { data } = await userRegister(
+        name,
+        lastname,
+        dniType,
+        dni,
+        email,
+        phone,
+        birthday,
+        password
+      );
+      dispatch({
+        type: CREATE_NEW_USER,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
-const initialState = {
-  user: {},
-};
+export function updateProfilePic(file) {
+  return async function (dispatch) {
+    try {
+      const data = new FormData();
 
-export function updateProfileInfo(userUpdate) {
-  return {
-    type: UPDATE_PROFILE_INFO,
-    payload: userUpdate,
+      if (file) {
+        data.append("profilePicture", file, file.name);
+      }
+      const authorizationToken = localStorage.getItem("token");
+      const { data: dataUpdate } = await updateUserProfilePic(
+        authorizationToken,
+        data
+      );
+      dispatch({
+        type: UPDATE_USER_PROFILE_PIC,
+        payload: dataUpdate,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
@@ -98,14 +171,19 @@ function reducer(state = initialState, action) {
         user: action.payload,
       };
     }
-
-    case SAVE_PROFILE_PIC: {
+    case CREATE_NEW_USER: {
+      return {
+        ...state,
+        userLoad: state.userList.concat(action.payload),
+      };
+    }
+    case UPDATE_USER_PROFILE_PIC: {
       return {
         ...state,
         userLoad: action.payload,
       };
     }
-    case UPDATE_PROFILE_INFO: {
+    case UPDATE_USER_PROFILE_INFO: {
       return {
         ...state,
         userLoad: action.payload,
