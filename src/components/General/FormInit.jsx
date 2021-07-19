@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import RegModal from "./RegistrationModal";
+import UserRegistrationModal from "../User/UserRegistrationModal";
 import logo from "../../assets/images/logo.png";
 import { accessAdmin } from "../../store/selectAdminReducer";
 import { accessCoach } from "../../store/selectCoachReducer";
@@ -129,7 +129,7 @@ function FormInit() {
           </div>
         </form>
       </div>
-      <RegModal />
+      <UserRegistrationModal />
     </div>
   );
 }

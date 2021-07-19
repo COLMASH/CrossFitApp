@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { updateProfilePic } from "../../store/user/services";
-import { saveProfilePic } from "../../store/selectUserReducer";
+import { updateProfilePic } from "../../store/selectUserReducer";
 import { useDispatch } from "react-redux";
+import Swal from "sweetalert2";
 
 function UpdateProfilePic() {
   const dispatch = useDispatch();
@@ -21,16 +21,12 @@ function UpdateProfilePic() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    const data = new FormData();
-
-    if (file) {
-      data.append("profilePicture", file, file.name);
-    }
-    let authorizationToken = localStorage.getItem("token");
-    updateProfilePic(authorizationToken, data).then((resUpdate) => {
-      const { data: dataUpdate } = resUpdate;
-      dispatch(saveProfilePic(dataUpdate));
+    dispatch(updateProfilePic(file));
+    Swal.fire({
+      title: "Confirmation",
+      icon: "success",
+      text: `User profile picture has been successfully updated!`,
+      button: "OK",
     });
   }
 
