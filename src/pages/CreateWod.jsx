@@ -1,10 +1,13 @@
 import CoachProfile from "../components/Coach/CoachProfile";
 import CoachBar from "../components/Coach/CoachBar";
 import EditWod from "../components/Coach/EditWod";
+import Schedule from "../components/Coach/Schedule"
+
+import "../styles/CreateWod.css"
 
 function CreateWod() {
   return (
-    <div className="mainCoach">
+    <div className="mainCreateWod">
       <div className="coach-blockNavInfo">
         <div>
           <CoachProfile />
@@ -13,8 +16,13 @@ function CreateWod() {
           <CoachBar />
         </div>
       </div>
+      <div className="containerWodSche">
       <div>
         <EditWod />
+      </div>
+      <div className="scheBox">
+        <Schedule />
+      </div>
       </div>
     </div>
   );
