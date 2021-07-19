@@ -67,19 +67,15 @@ export async function destroyAdmin(adminId) {
   });
 }
 
-export async function updateProfilePic(token, data) {
-  try {
-    return await axios({
-      method: "PUT",
-      baseURL: "http://localhost:8000",
-      url: "/admin/adminProfilePic",
-      data,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+export async function updateAdminProfilePic(token, data) {
+  return await axios({
+    method: "PUT",
+    baseURL: "http://localhost:8000",
+    url: "/admin/adminProfilePic",
+    data,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
 }
