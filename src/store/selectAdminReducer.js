@@ -128,7 +128,6 @@ export function updateImage(file) {
         authorizationToken,
         form_data
       );
-      console.log(data);
       dispatch({
         type: SAVE_ADMIN_PROFILE_PIC,
         payload: data,
@@ -138,8 +137,6 @@ export function updateImage(file) {
     }
   };
 }
-
-/////////////////////////////
 
 const initialState = {
   admin: {},
