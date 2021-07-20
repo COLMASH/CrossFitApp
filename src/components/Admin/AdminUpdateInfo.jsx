@@ -1,51 +1,43 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { useDispatch } from "react-redux";
-import { createNewAdmin } from "../../store/selectAdminReducer";
+import { updateAdminProfileInfo } from "../../store/selectAdminReducer";
 
-function RegistrateNewAdmin() {
+function AdminUpdateInformation() {
+  const dispatch = useDispatch();
+
+  const { admin } = useSelector((state) => {
+    return {
+      admin: state.selectAdminReducer.admin,
+    };
+  });
+
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [dniType, setDniType] = useState("");
   const [dni, setDniNumber] = useState("");
-  const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [birthday, setBirthday] = useState("");
-  const [password, setPassword] = useState("");
-  const dispatch = useDispatch();
 
-  const handleRegister = (e) => {
+  const handleUpdate = (e) => {
+    e.preventDefault();
     dispatch(
-      createNewAdmin(
-        name,
-        lastname,
-        dniType,
-        dni,
-        email,
-        phone,
-        birthday,
-        password
-      )
+      updateAdminProfileInfo(name, lastname, dniType, dni, phone, birthday)
     );
     Swal.fire({
       title: "Confirmation",
       icon: "success",
-      text: `User ${email} has successfully registered!`,
+      text: `Your personal information has been updated successfully!`,
       button: "OK",
     });
   };
 
   return (
-    <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        handleRegister();
-      }}
-    >
+    <form onSubmit={handleUpdate}>
       <div
         className="modal fade"
-        id="NewAdminModal"
-        data-bs-backdrop="false"
+        id="AdminUpdateInfo"
+        data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabIndex="-1"
         aria-labelledby="staticBackdropLabel"
@@ -54,8 +46,12 @@ function RegistrateNewAdmin() {
         <div className="modal-dialog modal-dialog-scrollable">
           <div className="modal-content">
             <div className="modal-header">
-              <h5 className="modal-title" id="staticBackdropLabel">
-                Admin Registration Form 🏋️‍♂️
+              <h5
+                className="modal-title"
+                id="staticBackdropLabel"
+                style={{ color: "black" }}
+              >
+                Personal Information Update 📝
               </h5>
               <button
                 type="button"
@@ -65,44 +61,50 @@ function RegistrateNewAdmin() {
               ></button>
             </div>
             <div className="modal-body">
-              <label htmlFor="First-Name">
-                <strong> *First Name: </strong>
+              <label htmlFor="name" style={{ color: "black" }}>
+                <strong> First Name: </strong>
               </label>
               <input
-                autoFocus
-                id="First-Name"
+                id="name"
                 type="text"
-                name="First-Name"
+                name="name"
                 className="form-control"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                placeholder={admin.name}
               />
-              <label htmlFor="Last-Name">
-                <strong> *Last Name: </strong>
+              <label htmlFor="lastname" style={{ color: "black" }}>
+                <strong> Last Name: </strong>
               </label>
               <input
-                id="Last-Name"
+                placeholder={admin.lastname}
+                id="lastname"
                 type="text"
-                name="Last-Name"
+                name="lastname"
                 className="form-control"
                 onChange={(e) => setLastname(e.target.value)}
                 value={lastname}
               />
-              <label htmlFor="DNI-Type">
-                <strong> *DNI Type: </strong>
+              <label htmlFor="DNI-Type" style={{ color: "black" }}>
+                <strong> DNI Type: </strong>
+              </label>
+
+              <select
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example"
+              >
+                <option selected>Choose...</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="PP">PP</option>
+                <option value="TI">TI</option>
+              </select>
+
+              <label htmlFor="DNI" style={{ color: "black" }}>
+                <strong> DNI Number: </strong>
               </label>
               <input
-                id="DNI-Type"
-                type="text"
-                name="DNI-Type"
-                className="form-control"
-                onChange={(e) => setDniType(e.target.value)}
-                value={dniType}
-              />
-              <label htmlFor="DNI">
-                <strong> *DNI Number: </strong>
-              </label>
-              <input
+                placeholder={admin.dni}
                 id="DNI-Number"
                 type="text"
                 name="DNI-Number"
@@ -110,65 +112,51 @@ function RegistrateNewAdmin() {
                 onChange={(e) => setDniNumber(e.target.value)}
                 value={dni}
               />
-              <label htmlFor="email">
-                <strong> *Email: </strong>
-              </label>
-              <input
-                id="Email"
-                type="text"
-                name="email"
-                className="form-control"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-              <label htmlFor="phone">
-                <strong> *Phone: </strong>
+              <label htmlFor="phone" style={{ color: "black" }}>
+                <strong> Phone: </strong>
               </label>
               <input
                 id="phone"
                 type="text"
                 name="phone"
+                pattern="[0-9]+"
                 className="form-control"
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
               />
-              <label htmlFor="birthday">
+              <label htmlFor="birthday" style={{ color: "black" }}>
                 <strong> Birthday: </strong>
               </label>
               <input
                 id="Birthday"
-                type="text"
+                type="date"
                 name="Birthday"
                 className="form-control"
                 onChange={(e) => setBirthday(e.target.value)}
                 value={birthday}
               />
-              <label htmlFor="Password">
-                <strong> *Password: </strong>
-              </label>
-              <input
-                id="Password"
-                type="password"
-                name="Password"
-                className="form-control"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-              />
             </div>
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cancel
               </button>
               <button
                 type="submit"
-                disabled={email === ""}
-                className="btn btn-primary btn-sm"
+                disabled={
+                  name === "" &&
+                  lastname === "" &&
+                  dniType === "" &&
+                  dni === "" &&
+                  birthday === "" &&
+                  phone === ""
+                }
+                className="homeButton btn btn-primary btn-sm"
               >
-                Register
+                Update
               </button>
             </div>
           </div>
@@ -178,4 +166,4 @@ function RegistrateNewAdmin() {
   );
 }
 
-export default RegistrateNewAdmin;
+export default AdminUpdateInformation;

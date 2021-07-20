@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
+import { getAdmin } from "../../store/selectAdminReducer";
 
 function AdminProfile() {
+  //  const dispatch = useDispatch();
+
   const { admin, adminPhoto } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
@@ -30,7 +34,6 @@ function AdminProfile() {
                 >
                   Update
                 </button>
-
                 <div className="mt-3">
                   <h1 style={{ fontSize: 25 }}>
                     {admin.name} {admin.lastname}
