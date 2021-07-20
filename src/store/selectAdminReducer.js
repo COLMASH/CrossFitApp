@@ -115,7 +115,7 @@ export function deleteAdmin(adminToDelete) {
     }
   };
 }
-//////////////////////////////////////
+
 export function updateImage(file) {
   return async function (dispatch) {
     try {

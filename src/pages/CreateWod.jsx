@@ -1,7 +1,7 @@
 import CoachProfile from "../components/Coach/CoachProfile";
 import CoachBar from "../components/Coach/CoachBar";
 import EditWod from "../components/Coach/EditWod";
-import Schedule from "../components/Coach/Schedule"
+// import Schedule from "../components/Coach/Schedule"
 
 import "../styles/CreateWod.css"
 
@@ -21,7 +21,7 @@ function CreateWod() {
         <EditWod />
       </div>
       <div className="scheBox">
-        <Schedule />
+        {/* <Schedule /> */}
       </div>
       </div>
     </div>
