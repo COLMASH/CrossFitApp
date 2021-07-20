@@ -16,6 +16,7 @@ export const CREATE_NEW_USER = "CREATE_NEW_USER";
 
 const initialState = {
   user: {},
+  userList: {},
 };
 
 export function getUser() {
@@ -162,7 +163,7 @@ function reducer(state = initialState, action) {
     case GET_USER: {
       return {
         ...state,
-        user: action.payload,
+        userList: action.payload,
       };
     }
     case USER_SIGN_IN: {
@@ -174,19 +175,19 @@ function reducer(state = initialState, action) {
     case CREATE_NEW_USER: {
       return {
         ...state,
-        userLoad: state.userList.concat(action.payload),
+        userList: state.userList.concat(action.payload),
       };
     }
     case UPDATE_USER_PROFILE_PIC: {
       return {
         ...state,
-        userLoad: action.payload,
+        user: action.payload,
       };
     }
     case UPDATE_USER_PROFILE_INFO: {
       return {
         ...state,
-        userLoad: action.payload,
+        user: action.payload,
       };
     }
     default: {
