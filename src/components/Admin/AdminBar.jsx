@@ -18,6 +18,9 @@ function AdminBar() {
   return (
     <nav>
       <div className="adminNavContainer d-grid gap-3">
+        <Link to="/MainAdmin" className="adminLinkButton btn btn-primary link">
+          <strong>PROFILE</strong>
+        </Link>
         <Link to="/BoxStats" className="adminLinkButton btn btn-primary link">
           <strong>BOX STATS</strong>
         </Link>
@@ -34,7 +37,6 @@ function AdminBar() {
         >
           <strong>ADMINS</strong>
         </Link>
-
         <Link
           to="/TrainingSetup"
           className="adminLinkButton btn btn-primary link"

@@ -58,10 +58,7 @@ function UpdateAdminProfilePic() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body"></div>
-              <label htmlFor="file" style={{ color: "black" }}>
-                
-              </label>
+              <label htmlFor="file" style={{ color: "black" }}></label>
               <input
                 className="admins-BTmodal"
                 type="file"
