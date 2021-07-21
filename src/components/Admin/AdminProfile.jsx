@@ -4,7 +4,6 @@ import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
 import { getAdmin } from "../../store/selectAdminReducer";
 
 function AdminProfile() {
-  //  const dispatch = useDispatch();
 
   const { admin, adminPhoto } = useSelector((state) => {
     return {
