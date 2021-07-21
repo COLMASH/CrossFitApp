@@ -60,7 +60,7 @@ function UpdateAdminProfilePic() {
               </div>
               <div className="modal-body"></div>
               <label htmlFor="file" style={{ color: "black" }}>
-                {/* Profile Pic */}
+                
               </label>
               <input
                 className="admins-BTmodal"
