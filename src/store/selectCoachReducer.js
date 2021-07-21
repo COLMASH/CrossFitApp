@@ -1,30 +1,70 @@
-
-export const SAVE_COACH = "SAVE_COACH";
-export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
-
-export function saveCoach(coach) {
-  return {
-    type: SAVE_COACH,
-    payload: coach,
-  };
-}
-
-export function saveCoachProfilePic(coachUpdate) {
-  return {
-    type: SAVE_COACH_PROFILE_PIC,
-    payload: coachUpdate,
-
 import {
   getCoachInfo,
   getCoachList,
   coachRegister,
   coachSignIn,
+  coachUpdate,
+  updateCoachProfilePic,
 } from "./coach/services";
 
+export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
+export const UPDATE_COACH_PROFILE_INFO = "UPDATE_COACH_PROFILE_INFO";
 export const GET_COACH = "GET_COACH";
 export const GET_COACH_LIST = "GET_COACH_LIST";
 export const CREATE_NEW_COACH = "CREATE_NEW_COACH";
 export const COACH_SIGN_IN = "COACH_SIGN_IN";
+
+export function updateImageProfilePic(file) {
+  return async function (dispatch) {
+    try {
+      const form_data = new FormData();
+      if (file) {
+        form_data.append("profilePicture", file, file.name);
+      }
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await updateCoachProfilePic(
+        authorizationToken,
+        form_data
+      );
+      dispatch({
+        type: SAVE_COACH_PROFILE_PIC,
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+}
+
+export function updateCoachProfileInfo(
+  name,
+  lastName,
+  dniType,
+  dni,
+  phone,
+  birthday
+) {
+  return async function (dispatch) {
+    try {
+      const authorizationToken = localStorage.getItem("token");
+      const { data } = await coachUpdate(
+        authorizationToken,
+        name,
+        lastName,
+        dniType,
+        dni,
+        phone,
+        birthday
+      );
+      dispatch({
+        type: UPDATE_COACH_PROFILE_INFO,
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err.message);
+    }
+  };
+}
 
 export function getCoach() {
   return async function (dispatch) {
@@ -34,8 +74,8 @@ export function getCoach() {
         type: GET_COACH,
         payload: data,
       });
-    } catch (error) {
-      console.log(error.message);
+    } catch (err) {
+      console.log(err.message);
     }
   };
 }
@@ -48,22 +88,42 @@ export function getAllCoach() {
         type: GET_COACH_LIST,
         payload: data,
       });
-    } catch (error) {
-      console.log(error.message);
+    } catch (err) {
+      console.log(err.message);
     }
   };
 }
 
-export function createNewCoach() {
+export function createNewCoach(
+  name,
+  lastName,
+  dniType,
+  dni,
+  email,
+  phone,
+  birthday,
+  password,
+  active,
+) {
   return async function (dispatch) {
     try {
-      const { data } = await coachRegister();
+      const { data } = await coachRegister(
+        name,
+        lastName,
+        dniType,
+        dni,
+        email,
+        phone,
+        birthday,
+        password,
+        active,
+      );
       dispatch({
         type: CREATE_NEW_COACH,
         payload: data,
       });
-    } catch (error) {
-      console.log(error.message);
+    } catch (err) {
+      console.log(err.message);
     }
   };
 }
@@ -74,15 +134,14 @@ export function accessCoach(email, password, history) {
       const { data } = await coachSignIn(email, password);
       if (data.token) {
         localStorage.setItem("token", data.token);
-        console.log("aqui");
         history.push("/MainCoach");
       }
       dispatch({
         type: COACH_SIGN_IN,
         payload: data.coach,
       });
-    } catch (error) {
-      console.log(error.message);
+    } catch (err) {
+      console.log(err.message);
     }
 
   };
@@ -91,28 +150,18 @@ export function accessCoach(email, password, history) {
 const initialState = {
   coach: {},
   coachList: {},
+  coachPhoto: "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 
 };
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-
-    case SAVE_COACH: {
-      return {
-        ...state,
-        coachLoad: action.payload,
-      };
-    }
-      
     case SAVE_COACH_PROFILE_PIC: {
       return {
         ...state,
-        coach: action.payload,
+        coachPhoto: action.payload.profilePicture,
       };
     }
-      
-      
-
     case GET_COACH: {
       return {
         ...state,
@@ -133,6 +182,12 @@ function reducer(state = initialState, action) {
     }
     case COACH_SIGN_IN: {
 
+      return {
+        ...state,
+        coach: action.payload,
+      };
+    }
+    case UPDATE_COACH_PROFILE_INFO: {
       return {
         ...state,
         coach: action.payload,

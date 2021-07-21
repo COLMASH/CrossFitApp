@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { updateCoachProfilePic } from "../../store/coach/services";
-import { saveCoachProfilePic } from "../../store/selectCoachReducer";
+import { updateImageProfilePic } from "../../store/selectCoachReducer";
 import { useDispatch } from "react-redux";
 
 function UpdateCoachProfilePic() {
@@ -8,29 +7,19 @@ function UpdateCoachProfilePic() {
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
 
-  function selectImage(e) {
+  const selectImage = (e) => {
     setFile(e.target.files[0]);
     generatePreview(e.target.files[0]);
   }
 
-  function generatePreview(file) {
+  const generatePreview = (file) => {
     const result = URL.createObjectURL(file);
     setImage(result);
   }
 
-  async function handleSubmit(e) {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    const data = new FormData();
-
-    if (file) {
-      data.append("profilePicture", file, file.name);
-    }
-    let authorizationToken = localStorage.getItem("token");
-    updateCoachProfilePic(authorizationToken, data).then((resUpdate) => {
-      const { data: dataUpdate } = resUpdate;
-      dispatch(saveCoachProfilePic(dataUpdate));
-    });
+    dispatch(updateImageProfilePic(file));
   }
 
   return (

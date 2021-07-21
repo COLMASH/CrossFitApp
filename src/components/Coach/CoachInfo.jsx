@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import CoachUpdateInformation from "./CoachUpdateInformation";
 
 function CoachInfo() {
   const { coach } = useSelector((state) => {
@@ -13,21 +14,21 @@ function CoachInfo() {
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Id Type</h2>
+                <h2 className="mb-0"> DNI Type: </h2>
               </div>
-              <div className="col-sm-9">CC</div>
+              <div className="col-sm-9">{coach.dniType}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Id Number</h2>
+                <h2 className="mb-0"> DNI Number: </h2>
               </div>
               <div className="col-sm-9">{coach.dni}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Full Name</h2>
+                <h2 className="mb-0"> Full Name: </h2>
               </div>
               <div className="col-sm-9">
                 {coach.name} {coach.lastname}
@@ -36,21 +37,21 @@ function CoachInfo() {
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Birthday</h2>
+                <h2 className="mb-0"> Birthday: </h2>
               </div>
               <div className="col-sm-9">{coach.birthday}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Email</h2>
+                <h2 className="mb-0"> Email: </h2>
               </div>
               <div className="col-sm-9">{coach.email}</div>
             </div>
             <hr />
             <div className="row">
               <div className="col-sm-3">
-                <h2 className="mb-0">Mobile </h2>
+                <h2 className="mb-0"> Phone: </h2>
               </div>
               <div className="col-sm-9">{coach.phone}</div>
             </div>
@@ -59,11 +60,14 @@ function CoachInfo() {
               <div className="col-sm-12">
                 <button
                   className="homeButton btn btn-primary btn-sm"
-                  type="submit"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#coachUpdateModal"
                 >
                   <strong>EDIT</strong>
                 </button>
               </div>
+              <CoachUpdateInformation />
             </div>
           </div>
         </div>

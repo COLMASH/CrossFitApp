@@ -48,6 +48,33 @@ export async function coachRegister(
   });
 }
 
+export async function coachUpdate(
+  token,
+  name,
+  lastName,
+  dniType,
+  dni,
+  phone,
+  birthday,
+) {
+  return await axios({
+      method: "PUT",
+      baseURL: "http://localhost:8000",
+      url: "/coaches/coachUpdate",
+      data: {
+        name,
+        lastName,
+        dniType,
+        dni,
+        phone,
+        birthday,
+      },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+}
+
 export async function coachSignIn(email, password) {
   return await axios({
     method: "POST",

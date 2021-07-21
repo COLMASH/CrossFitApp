@@ -1,5 +1,3 @@
-//ESTE NO, RENOMBRAR TODO.
-
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateImage } from "../../store/selectAdminReducer";

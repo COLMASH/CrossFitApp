@@ -2,7 +2,6 @@ import CoachProfile from "../components/Coach/CoachProfile";
 import CoachInfo from "../components/Coach/CoachInfo";
 import News from "../components/General/News";
 import CoachBar from "../components/Coach/CoachBar";
-import { useSelector } from "react-redux";
 
 import "../styles/MainCoach.css";
 
