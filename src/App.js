@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import MainAdmin from "./pages/MainAdmin";
@@ -9,7 +11,16 @@ import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
 
+import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
+
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+    dispatch(getAllAdmin());
+  });
+
   return (
     <Router>
       <Switch>
