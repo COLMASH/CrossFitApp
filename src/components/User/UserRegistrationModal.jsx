@@ -19,7 +19,7 @@ function UserRegistrationModal() {
     Swal.fire({
       title: "Confirmation",
       icon: "success",
-      text: `User ${FirstName} has successfully registered!`,
+      text: `User ${FirstName} has successfully registered! Please check your email 📩`,
       button: "OK",
     });
   };

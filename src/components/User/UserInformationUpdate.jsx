@@ -178,7 +178,7 @@ function UserInformationUpdate() {
               </label>
               <input
                 id="Birthday"
-                type="text"
+                type="date"
                 name="Birthday"
                 className="form-control"
                 onChange={(e) => setBirthday(e.target.value)}
