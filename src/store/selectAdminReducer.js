@@ -5,6 +5,7 @@ import {
   adminSignIn,
   destroyAdmin,
   updateAdminProfilePic,
+  adminUpdate,
 } from "./admin/services";
 
 export const GET_ADMIN = "GET_ADMIN";
@@ -14,11 +15,13 @@ export const ADMIN_SIGN_IN = "ADMIN_SIGN_IN";
 export const ASSIGN_ADMIN_TO_DELETE = "ASSIGN_ADMIN_TO_DELETE";
 export const REMOVE_ADMIN_DELETED = "REMOVE_ADMIN_DELETED";
 export const SAVE_ADMIN_PROFILE_PIC = "SAVE_ADMIN_PROFILE_PIC";
+export const UPDATE_ADMIN_PROFILE_INFO = "UPDATE_ADMIN_PROFILE_INFO";
 
 export function getAdmin() {
   return async function (dispatch) {
     try {
-      const { data } = await getAdminInfo();
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await getAdminInfo(authorizationToken);
       dispatch({
         type: GET_ADMIN,
         payload: data,
@@ -138,6 +141,36 @@ export function updateImage(file) {
   };
 }
 
+export function updateAdminProfileInfo(
+  name,
+  lastname,
+  dniType,
+  dni,
+  phone,
+  birthday
+) {
+  return async function (dispatch) {
+    try {
+      const authorizationToken = localStorage.getItem("token");
+      const { data } = await adminUpdate(
+        authorizationToken,
+        name,
+        lastname,
+        dniType,
+        dni,
+        phone,
+        birthday
+      );
+      dispatch({
+        type: UPDATE_ADMIN_PROFILE_INFO,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
 const initialState = {
   admin: {},
   adminList: {},
@@ -192,6 +225,13 @@ function reducer(state = initialState, action) {
         adminPhoto: action.payload.profilePicture,
       };
     }
+    case UPDATE_ADMIN_PROFILE_INFO: {
+      return {
+        ...state,
+        admin: action.payload,
+      };
+    }
+
     default: {
       return state;
     }

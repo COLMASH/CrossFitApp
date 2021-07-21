@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import AdminUpdateInfo from "./AdminUpdateInfo";
 
 function AdminInfo() {
   const { admin } = useSelector((state) => {
@@ -6,11 +7,26 @@ function AdminInfo() {
       admin: state.selectAdminReducer.admin,
     };
   });
+
   return (
     <div class="admin-container">
       <div class="admin-main-body">
         <div className="card2">
           <div className="card2-body">
+            <div className="row">
+              <div className="col-sm-3">
+                <h2 className="mb-0"> DNI Type: </h2>
+              </div>
+              <div className="col-sm-9">{admin.dniType}</div>
+            </div>
+            <hr />
+            <div className="row">
+              <div className="col-sm-3">
+                <h2 className="mb-0"> DNI Number: </h2>
+              </div>
+              <div className="col-sm-9">{admin.dni}</div>
+            </div>
+            <hr />
             <div className="row">
               <div className="col-sm-3">
                 <h2 className="mb-0">Full Name</h2>
@@ -45,12 +61,15 @@ function AdminInfo() {
               <div className="col-sm-12">
                 <button
                   className="homeButton btn btn-primary btn-sm"
-                  type="submit"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#AdminUpdateInfo"
                 >
                   <strong>EDIT</strong>
                 </button>
               </div>
             </div>
+            <AdminUpdateInfo />
           </div>
         </div>
       </div>

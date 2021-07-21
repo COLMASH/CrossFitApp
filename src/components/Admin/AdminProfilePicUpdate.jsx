@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateImage } from "../../store/selectAdminReducer";
+import Swal from "sweetalert2";
 
 function UpdateAdminProfilePic() {
   const dispatch = useDispatch();
@@ -20,6 +21,12 @@ function UpdateAdminProfilePic() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateImage(file));
+    Swal.fire({
+      title: "Confirmation",
+      icon: "success",
+      text: `Your profile picture has been updated successfully!`,
+      button: "OK",
+    });
   };
 
   return (
@@ -49,15 +56,14 @@ function UpdateAdminProfilePic() {
                   className="btn-close"
                   data-bs-dismiss="modal"
                   aria-label="Close"
-                >
-                  Update
-                </button>
+                ></button>
               </div>
               <div className="modal-body"></div>
               <label htmlFor="file" style={{ color: "black" }}>
-                Profile Pic
+                
               </label>
               <input
+                className="admins-BTmodal"
                 type="file"
                 id="file"
                 onChange={selectImage}

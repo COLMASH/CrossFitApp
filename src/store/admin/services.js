@@ -79,3 +79,30 @@ export async function updateAdminProfilePic(token, data) {
     },
   });
 }
+
+export async function adminUpdate(
+  token,
+  name,
+  lastname,
+  dniType,
+  dni,
+  phone,
+  birthday
+) {
+  return await axios({
+    method: "PUT",
+    baseURL: "http://localhost:8000",
+    url: "/admin/adminUpdate",
+    data: {
+      name,
+      lastname,
+      dniType,
+      dni,
+      phone,
+      birthday,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}

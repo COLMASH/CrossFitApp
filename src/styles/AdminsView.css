@@ -45,3 +45,19 @@
   font-weight: bolder;
   color: #ffffff;
 }
+
+.admins-BTmodal {
+  padding: 10;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-style: solid;
+  border-color: cornsilk;
+  border-width: 0.1px 1px 0.5px 1px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
+}
