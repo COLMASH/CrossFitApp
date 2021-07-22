@@ -51,7 +51,7 @@ export async function coachRegister(
 export async function coachUpdate(
   token,
   name,
-  lastName,
+  lastname,
   dniType,
   dni,
   phone,
@@ -63,7 +63,7 @@ export async function coachUpdate(
       url: "/coaches/coachUpdate",
       data: {
         name,
-        lastName,
+        lastname,
         dniType,
         dni,
         phone,

@@ -12,6 +12,8 @@ import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
 
 import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
+import { getCoach } from "./store/selectCoachReducer";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +21,8 @@ function App() {
   useEffect(() => {
     dispatch(getAdmin());
     dispatch(getAllAdmin());
-  });
+    dispatch(getCoach());
+  }, []);
 
   return (
     <Router>
