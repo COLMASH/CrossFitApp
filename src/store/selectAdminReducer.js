@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import {
   getAdminInfo,
   getAdminList,
@@ -72,8 +73,20 @@ export function createNewAdmin(
         type: CREATE_NEW_ADMIN,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Admin ${email} has successfully registered!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }
@@ -135,8 +148,20 @@ export function updateImage(file) {
         type: SAVE_ADMIN_PROFILE_PIC,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your profile picture has been updated successfully!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }
@@ -165,8 +190,20 @@ export function updateAdminProfileInfo(
         type: UPDATE_ADMIN_PROFILE_INFO,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your information has been updated successfully!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }

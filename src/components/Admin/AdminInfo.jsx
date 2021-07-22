@@ -8,6 +8,8 @@ function AdminInfo() {
     };
   });
 
+  const birthdayFormatted = admin.birthday.substring(0, 10);
+
   return (
     <div class="admin-container">
       <div class="admin-main-body">
@@ -54,8 +56,9 @@ function AdminInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0">Birthday</h2>
               </div>
-              <div className="col-sm-9">{admin.birthday}</div>
+              <div className="col-sm-9">{birthdayFormatted}</div>
             </div>
+
             <hr />
             <div className="row">
               <div className="col-sm-12">

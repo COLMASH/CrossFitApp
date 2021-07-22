@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { updateImage } from "../../store/selectAdminReducer";
-import Swal from "sweetalert2";
 
 function UpdateAdminProfilePic() {
   const dispatch = useDispatch();
@@ -21,12 +20,6 @@ function UpdateAdminProfilePic() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateImage(file));
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Your profile picture has been updated successfully!`,
-      button: "OK",
-    });
   };
 
   return (
