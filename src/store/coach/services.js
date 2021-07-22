@@ -30,7 +30,6 @@ export async function coachRegister(
   password,
   active
 ) {
-  console.log("hace la petición");
   return await axios({
     method: "POST",
     baseURL: "http://localhost:8000",
