@@ -2,16 +2,20 @@ import {
   getCoachInfo,
   getCoachList,
   coachRegister,
+  destroyCoach,
   coachSignIn,
   coachUpdate,
   updateCoachProfilePic,
 } from "./coach/services";
+import { ASSIGN_ADMIN_TO_DELETE } from "./selectAdminReducer";
 
 export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
 export const UPDATE_COACH_PROFILE_INFO = "UPDATE_COACH_PROFILE_INFO";
 export const GET_COACH = "GET_COACH";
 export const GET_COACH_LIST = "GET_COACH_LIST";
 export const CREATE_NEW_COACH = "CREATE_NEW_COACH";
+export const ASSIGN_COACH_TO_DELETE = "ASSIGN_COACH_TO_DELETE";
+export const REMOVE_COACH_DELETED = "REMOVE_COACH_DELETED";
 export const COACH_SIGN_IN = "COACH_SIGN_IN";
 
 export function updateImageProfilePic(file) {
@@ -88,35 +92,35 @@ export function getAllCoach() {
         type: GET_COACH_LIST,
         payload: data,
       });
-    } catch (err) {
-      console.log(err.message);
+    } catch (error) {
+      console.log(error.message);
     }
   };
 }
 
 export function createNewCoach(
   name,
-  lastName,
+  lastname,
   dniType,
   dni,
   email,
   phone,
   birthday,
   password,
-  active,
+  active
 ) {
   return async function (dispatch) {
     try {
       const { data } = await coachRegister(
         name,
-        lastName,
+        lastname,
         dniType,
         dni,
         email,
         phone,
         birthday,
         password,
-        active,
+        active
       );
       dispatch({
         type: CREATE_NEW_COACH,
@@ -124,6 +128,29 @@ export function createNewCoach(
       });
     } catch (err) {
       console.log(err.message);
+    }
+  };
+}
+
+export function assignCoachToDelete(id) {
+  return async function (dispatch) {
+    dispatch({
+      type: ASSIGN_COACH_TO_DELETE,
+      payload: id,
+    });
+  };
+}
+
+export function deleteCoach(coachToDelete) {
+  return async function (dispatch) {
+    try {
+      const { data } = await destroyCoach(coachToDelete);
+      dispatch({
+        type: REMOVE_COACH_DELETED,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
     }
   };
 }
@@ -143,15 +170,15 @@ export function accessCoach(email, password, history) {
     } catch (err) {
       console.log(err.message);
     }
-
   };
 }
 
 const initialState = {
   coach: {},
   coachList: {},
-  coachPhoto: "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
-
+  coachToDelete: "",
+  coachPhoto:
+    "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 };
 
 function reducer(state = initialState, action) {
@@ -180,8 +207,22 @@ function reducer(state = initialState, action) {
         coachList: state.coachList.concat(action.payload),
       };
     }
-    case COACH_SIGN_IN: {
+    case ASSIGN_COACH_TO_DELETE: {
+      return {
+        ...state,
+        coachToDelete: action.payload,
+      };
+    }
 
+    case REMOVE_COACH_DELETED: {
+      return {
+        ...state,
+        coachList: state.coachList.filter(
+          (coach) => coach._id !== action.payload._id
+        ),
+      };
+    }
+    case COACH_SIGN_IN: {
       return {
         ...state,
         coach: action.payload,
