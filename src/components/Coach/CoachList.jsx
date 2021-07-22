@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { assignCoachToDelete } from "../../store/selectCoachReducer"; //completar
+import { assignCoachToDelete } from "../../store/selectCoachReducer";
 
 function CoachList() {
   const [checkedValue, setIsChecked] = useState("");
