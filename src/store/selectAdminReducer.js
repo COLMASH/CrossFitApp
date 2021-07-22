@@ -175,8 +175,6 @@ const initialState = {
   admin: {},
   adminList: {},
   adminToDelete: "",
-  adminPhoto:
-    "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 };
 
 function reducer(state = initialState, action) {
@@ -222,7 +220,7 @@ function reducer(state = initialState, action) {
     case SAVE_ADMIN_PROFILE_PIC: {
       return {
         ...state,
-        adminPhoto: action.payload.profilePicture,
+        admin: action.payload,
       };
     }
     case UPDATE_ADMIN_PROFILE_INFO: {
