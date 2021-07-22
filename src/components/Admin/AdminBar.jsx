@@ -1,7 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getAllAdmin } from "../../store/selectAdminReducer";
-import { getAllCoach } from "../../store/selectCoachReducer"; //cambiar
+import { getAllCoach } from "../../store/selectCoachReducer";
 
 function AdminBar() {
   const history = useHistory();
