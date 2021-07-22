@@ -15,7 +15,7 @@ export async function getCoachList() {
   return await axios({
     method: "GET",
     baseURL: "http://localhost:8000",
-    url: "/coaches/coachInfo",
+    url: "/coaches/coachList",
   });
 }
 
@@ -48,6 +48,15 @@ export async function coachRegister(
   });
 }
 
+export async function destroyCoach(coachId) {
+  return await axios({
+    method: "DELETE",
+    baseURL: "http://localhost:8000",
+    url: "/coaches/coachDelete",
+    data: { coachId },
+  });
+}
+
 export async function coachUpdate(
   token,
   name,
@@ -55,24 +64,24 @@ export async function coachUpdate(
   dniType,
   dni,
   phone,
-  birthday,
+  birthday
 ) {
   return await axios({
-      method: "PUT",
-      baseURL: "http://localhost:8000",
-      url: "/coaches/coachUpdate",
-      data: {
-        name,
-        lastName,
-        dniType,
-        dni,
-        phone,
-        birthday,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    method: "PUT",
+    baseURL: "http://localhost:8000",
+    url: "/coaches/coachUpdate",
+    data: {
+      name,
+      lastName,
+      dniType,
+      dni,
+      phone,
+      birthday,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
 export async function coachSignIn(email, password) {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
-import { createNewAdmin } from "../../store/selectAdminReducer";
+import { createNewCoach } from "../../store/selectCoachReducer";
 
-function RegistrateNewAdmin() {
+function RegistrateNewCoach() {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
   const [dniType, setDniType] = useState("");
@@ -12,11 +12,12 @@ function RegistrateNewAdmin() {
   const [phone, setPhone] = useState("");
   const [birthday, setBirthday] = useState("");
   const [password, setPassword] = useState("");
+  const [active, setActive] = useState("");
   const dispatch = useDispatch();
 
   const handleRegister = (e) => {
     dispatch(
-      createNewAdmin(
+      createNewCoach(
         name,
         lastname,
         dniType,
@@ -24,13 +25,14 @@ function RegistrateNewAdmin() {
         email,
         phone,
         birthday,
-        password
+        password,
+        active
       )
     );
     Swal.fire({
       title: "Confirmation",
       icon: "success",
-      text: `Admin ${email} has successfully registered!`,
+      text: `Coach ${email} has successfully registered!`,
       button: "OK",
     });
   };
@@ -44,7 +46,7 @@ function RegistrateNewAdmin() {
     >
       <div
         className="modal fade"
-        id="NewAdminModal"
+        id="NewCoachModal"
         data-bs-backdrop="false"
         data-bs-keyboard="false"
         tabIndex="-1"
@@ -55,7 +57,7 @@ function RegistrateNewAdmin() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Admin Registration Form 🏋️‍♂️
+                Coach Registration Form 🏋️‍♂️
               </h5>
               <button
                 type="button"
@@ -154,6 +156,17 @@ function RegistrateNewAdmin() {
                 onChange={(e) => setPassword(e.target.value)}
                 value={password}
               />
+              <label htmlFor="Active">
+                <strong> *Active: </strong>
+              </label>
+              <input
+                id="Active"
+                type="Active"
+                name="Active"
+                className="form-control"
+                onChange={(e) => setActive(e.target.value)}
+                value={active}
+              />
             </div>
             <div className="modal-footer">
               <button
@@ -178,4 +191,4 @@ function RegistrateNewAdmin() {
   );
 }
 
-export default RegistrateNewAdmin;
+export default RegistrateNewCoach;
