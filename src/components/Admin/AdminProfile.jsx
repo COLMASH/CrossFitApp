@@ -1,14 +1,10 @@
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
 import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
-import { getAdmin } from "../../store/selectAdminReducer";
 
 function AdminProfile() {
-
-  const { admin, adminPhoto } = useSelector((state) => {
+  const { admin } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
-      adminPhoto: state.selectAdminReducer.adminPhoto,
     };
   });
 
@@ -21,7 +17,7 @@ function AdminProfile() {
               <div className="d-flex flex-column align-items-center text-center">
               <div className="portrait">
                 <img
-                  src={adminPhoto}
+                  src={admin.profilePicture}
                   alt="AdminProfile"
                   className="imageProfile rounded-circle"
                   width="150"

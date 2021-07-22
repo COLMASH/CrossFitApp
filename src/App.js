@@ -10,10 +10,10 @@ import CreateWod from "./pages/CreateWod";
 import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
+import CoachesView from "./pages/CoachesView";
 
 import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
-import { getCoach } from "./store/selectCoachReducer";
-
+import { getCoach, getAllCoach } from "./store/selectCoachReducer";
 
 function App() {
   const dispatch = useDispatch();
@@ -22,6 +22,7 @@ function App() {
     dispatch(getAdmin());
     dispatch(getAllAdmin());
     dispatch(getCoach());
+    dispatch(getAllCoach());
   }, []);
 
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route exact path="/MainUser" component={MainUser} />
         <Route exact path="/WodUser" component={WodUser} />
         <Route exact path="/AdminsView" component={AdminsView} />
+        <Route exact path="/CoachesView" component={CoachesView} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>
