@@ -27,7 +27,7 @@ function CoachUpdateInformation() {
 		<form onSubmit={handleUpdate}>
 			<div
 				className="modal fade"
-				id="coachUpdateModal"
+				id="CoachUpdateModal"
 				data-bs-backdrop="static"
 				data-bs-keyboard="false"
 				tabIndex="-1"
