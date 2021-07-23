@@ -33,7 +33,7 @@ export function getUser() {
   };
 }
 
-export function getAllAdmin() {
+export function getAllUser() {
   return async function (dispatch) {
     try {
       const { data } = await getUserList();
@@ -161,6 +161,12 @@ export function updateProfilePic(file) {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
+      return {
+        ...state,
+        userList: action.payload,
+      };
+    }
+    case GET_USER_LIST: {
       return {
         ...state,
         userList: action.payload,

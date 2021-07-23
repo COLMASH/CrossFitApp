@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { updateAdminProfileInfo } from "../../store/selectAdminReducer";
 
 function AdminUpdateInformation() {

@@ -20,7 +20,7 @@ function MainAdmin() {
         <div>
           <AdminManager />
           <br />
-          <h3>Active administrators</h3>
+          <h3>BOX ADMINISTRATORS</h3>
           <AdminList />
         </div>
       </div>

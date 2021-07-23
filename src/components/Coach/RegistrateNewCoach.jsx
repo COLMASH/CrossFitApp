@@ -93,14 +93,17 @@ function RegistrateNewCoach() {
               <label htmlFor="DNI-Type">
                 <strong> *DNI Type: </strong>
               </label>
-              <input
-                id="DNI-Type"
-                type="text"
-                name="DNI-Type"
-                className="form-control"
+              <select
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example"
                 onChange={(e) => setDniType(e.target.value)}
-                value={dniType}
-              />
+              >
+                <option selected>Choose...</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="PP">PP</option>
+                <option value="TI">TI</option>
+              </select>
               <label htmlFor="DNI">
                 <strong> *DNI Number: </strong>
               </label>
@@ -139,7 +142,7 @@ function RegistrateNewCoach() {
               </label>
               <input
                 id="Birthday"
-                type="text"
+                type="date"
                 name="Birthday"
                 className="form-control"
                 onChange={(e) => setBirthday(e.target.value)}

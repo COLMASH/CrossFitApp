@@ -126,8 +126,20 @@ export function deleteAdmin(adminToDelete) {
         type: REMOVE_ADMIN_DELETED,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Admin has successfully deleted!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }
@@ -219,7 +231,10 @@ function reducer(state = initialState, action) {
     case GET_ADMIN: {
       return {
         ...state,
-        admin: action.payload,
+        admin: {
+          ...action.payload,
+          birthday: action.payload.birthday.substring(0, 10),
+        },
       };
     }
     case GET_ADMIN_LIST: {

@@ -1,14 +1,22 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+
 import AdminUpdateInfo from "./AdminUpdateInfo";
 
+import { getAdmin } from "../../store/selectAdminReducer";
+
 function AdminInfo() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
+
   const { admin } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
     };
   });
-
-  const birthdayFormatted = admin.birthday.substring(0, 10);
 
   return (
     <div class="admin-container">
@@ -56,7 +64,7 @@ function AdminInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0">Birthday</h2>
               </div>
-              <div className="col-sm-9">{birthdayFormatted}</div>
+              <div className="col-sm-9">{admin.birthday} </div>
             </div>
 
             <hr />

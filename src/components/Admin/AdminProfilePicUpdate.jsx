@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateImage } from "../../store/selectAdminReducer";
+
+import { getAdmin, updateImage } from "../../store/selectAdminReducer";
 
 function UpdateAdminProfilePic() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
+
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
 
