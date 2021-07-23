@@ -15,11 +15,11 @@ function CoachProfile() {
             <div className="d-flex flex-column align-items-center text-center">
               <div className="portrait">
                 <img
-								src={coach.profilePicture}
-								alt="Coach"
-								className="imageProfile rounded-circle"
-								width="150"
-							/>
+	  	  src={coach.profilePicture}
+		  alt="Coach"
+		  className="imageProfile rounded-circle"
+		  width="150"
+		/>
               </div>
               <button
                 type="button"
