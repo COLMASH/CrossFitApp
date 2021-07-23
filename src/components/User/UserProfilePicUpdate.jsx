@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { updateProfilePic } from "../../store/selectUserReducer";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
 
 function UpdateProfilePic() {
   const dispatch = useDispatch();
@@ -22,12 +21,6 @@ function UpdateProfilePic() {
   async function handleSubmit(e) {
     e.preventDefault();
     dispatch(updateProfilePic(file));
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `User profile picture has been successfully updated!`,
-      button: "OK",
-    });
   }
 
   return (
