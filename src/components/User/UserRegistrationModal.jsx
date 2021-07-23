@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { createNewUser } from "../../store/selectUserReducer";
 import { useDispatch } from "react-redux";
 
@@ -16,12 +15,6 @@ function UserRegistrationModal() {
     dispatch(
       createNewUser(FirstName, LastName, Email, Address, Phone, Password)
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `User ${FirstName} has successfully registered! Please check your email 📩`,
-      button: "OK",
-    });
   };
 
   return (

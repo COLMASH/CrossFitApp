@@ -1,6 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
+
 import RegistrateNewCoach from "./RegistrateNewCoach";
 import { deleteCoach } from "../../store/selectCoachReducer";
+
+import RegistrateNewCoach from "./RegistrateNewCoach"; 
+import { deleteCoach } from "../../store/selectCoachReducer"; 
+
 
 function CoachManager() {
   const dispatch = useDispatch();

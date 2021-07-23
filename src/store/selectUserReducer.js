@@ -6,7 +6,7 @@ import {
   userUpdate,
   updateUserProfilePic,
 } from "./user/services";
-
+import Swal from "sweetalert2";
 export const GET_USER = "GET_USER";
 export const GET_USER_LIST = "GET_USER_LIST";
 export const USER_SIGN_IN = "USER_SIGN_IN";
@@ -22,7 +22,8 @@ const initialState = {
 export function getUser() {
   return async function (dispatch) {
     try {
-      const { data } = await getUserInfo();
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await getUserInfo(authorizationToken);
       dispatch({
         type: GET_USER,
         payload: data,
@@ -97,7 +98,19 @@ export function updateUserProfileInfo(
         type: UPDATE_USER_PROFILE_INFO,
         payload: dataUpdate,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your personal information has been updated successfully! 💾`,
+        button: "OK",
+      });
     } catch (error) {
+      Swal.fire({
+        title: "Oops...",
+        icon: "error",
+        text: "Something went wrong",
+        button: "OK",
+      });
       console.log(error.message);
     }
   };
@@ -129,7 +142,19 @@ export function createNewUser(
         type: CREATE_NEW_USER,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `User ${name} ${lastname} has been successfully registered! Please check your email 📩`,
+        button: "OK",
+      });
     } catch (error) {
+      Swal.fire({
+        title: "Oops...",
+        icon: "error",
+        text: "Something went wrong",
+        button: "OK",
+      });
       console.log(error.message);
     }
   };
@@ -152,7 +177,19 @@ export function updateProfilePic(file) {
         type: UPDATE_USER_PROFILE_PIC,
         payload: dataUpdate,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `User profile picture has been updated successfully! 🙋‍♂️`,
+        button: "OK",
+      });
     } catch (error) {
+      Swal.fire({
+        title: "Oops...",
+        icon: "error",
+        text: "Something went wrong",
+        button: "OK",
+      });
       console.log(error.message);
     }
   };
@@ -161,6 +198,12 @@ export function updateProfilePic(file) {
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    }
+    case GET_USER_LIST: {
       return {
         ...state,
         userList: action.payload,
@@ -181,7 +224,7 @@ function reducer(state = initialState, action) {
     case CREATE_NEW_USER: {
       return {
         ...state,
-        userList: state.userList.concat(action.payload),
+        user: action.payload,
       };
     }
     case UPDATE_USER_PROFILE_PIC: {

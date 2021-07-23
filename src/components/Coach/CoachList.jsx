@@ -6,6 +6,8 @@ import {
   assignCoachToDelete,
 } from "../../store/selectCoachReducer";
 
+import { assignCoachToDelete } from "../../store/selectCoachReducer";
+
 function CoachList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();

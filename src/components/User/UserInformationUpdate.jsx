@@ -1,7 +1,6 @@
 import { updateUserProfileInfo } from "../../store/selectUserReducer";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import Swal from "sweetalert2";
 
 function UserInformationUpdate() {
   const dispatch = useDispatch();
@@ -31,12 +30,6 @@ function UserInformationUpdate() {
         Birthday
       )
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Your personal information has been updated successfully!`,
-      button: "OK",
-    });
   };
 
   return (

@@ -12,8 +12,10 @@ import AdminsView from "./pages/AdminsView";
 import CoachesView from "./pages/CoachesView";
 import UsersView from "./pages/UsersView";
 import TrainingSetupView from "./pages/TrainingSetupView";
+import WodFactoryView from "./pages/WodFactoryView";
 
 function App() {
+
   return (
     <Router>
       <Switch>
@@ -27,6 +29,7 @@ function App() {
         <Route exact path="/CoachesView" component={CoachesView} />
         <Route exact path="/UsersView" component={UsersView} />
         <Route exact path="/TrainingSetup" component={TrainingSetupView} />
+        <Route exact path="/WodFactoryView" component={WodFactoryView} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>

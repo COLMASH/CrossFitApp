@@ -34,8 +34,20 @@ export function updateImageProfilePic(file) {
         type: SAVE_COACH_PROFILE_PIC,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your profile picture has been updated successfully!`,
+        button: "OK",
+      });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong!`,
+        button: "OK",
+      });
     }
   };
 }
@@ -64,8 +76,20 @@ export function updateCoachProfileInfo(
         type: UPDATE_COACH_PROFILE_INFO,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your personal information has been updated successfully!`,
+        button: "OK",
+      });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong!`,
+        button: "OK",
+      });
     }
   };
 }
@@ -73,7 +97,8 @@ export function updateCoachProfileInfo(
 export function getCoach() {
   return async function (dispatch) {
     try {
-      const { data } = await getCoachInfo();
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await getCoachInfo(authorizationToken);
       dispatch({
         type: GET_COACH,
         payload: data,
@@ -189,8 +214,6 @@ const initialState = {
   coach: {},
   coachList: {},
   coachToDelete: "",
-  coachPhoto:
-    "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 };
 
 function reducer(state = initialState, action) {
@@ -198,7 +221,7 @@ function reducer(state = initialState, action) {
     case SAVE_COACH_PROFILE_PIC: {
       return {
         ...state,
-        coachPhoto: action.payload.profilePicture,
+        coach: action.payload,
       };
     }
     case GET_COACH: {
@@ -225,7 +248,6 @@ function reducer(state = initialState, action) {
         coachToDelete: action.payload,
       };
     }
-
     case REMOVE_COACH_DELETED: {
       return {
         ...state,
