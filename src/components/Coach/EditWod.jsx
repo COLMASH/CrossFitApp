@@ -45,10 +45,10 @@ function EditWod() {
                 onChange={(e) => setModality(e.target.value)}
 							>
 								<option selected>Choose...</option>
-								<option value="emom">EMOM</option>
-								<option value="amrap">AMRAP</option>
-								<option value="fortime">FORTIME</option>
-								<option value="tabata">TABATA</option>
+								<option value="EMOM">EMOM</option>
+								<option value="AMRAP">AMRAP</option>
+								<option value="FORTIME">FORTIME</option>
+								<option value="TABATA">TABATA</option>
 							</select>
 						</div>
 						<div className="exeRep-container">
@@ -63,20 +63,20 @@ function EditWod() {
 								>
 									<option selected>Exercise...</option>
 									<option value="400mrum">400m rum</option>
-									<option value="airsquat">Air squat</option>
-									<option value="barmuscleup">Bar muscle up</option>
-									<option value="boxjump">Box jump</option>
-									<option value="burpee">Burpee</option>
-									<option value="chinup">Chin-up</option>
-									<option value="pistol">Pistol</option>
-									<option value="ropeclimb">Rope climb</option>
-									<option value="toestobar">Toes to bar</option>
-									<option value="backsquat">Back squat</option>
-									<option value="deadlift">Deadlift</option>
-									<option value="clean">Clean</option>
-									<option value="snatch">Snatch</option>
-									<option value="press">Press</option>
-									<option value="thruster">Thruster</option>
+									<option value="Airsquat">Air squat</option>
+									<option value="Barmuscleup">Bar muscle up</option>
+									<option value="Boxjump">Box jump</option>
+									<option value="Burpee">Burpee</option>
+									<option value="Chinup">Chin-up</option>
+									<option value="Pistol">Pistol</option>
+									<option value="Ropeclimb">Rope climb</option>
+									<option value="Toestobar">Toes to bar</option>
+									<option value="Backsquat">Back squat</option>
+									<option value="Deadlift">Deadlift</option>
+									<option value="Clean">Clean</option>
+									<option value="Snatch">Snatch</option>
+									<option value="Press">Press</option>
+									<option value="Thruster">Thruster</option>
 								</select>
 							</div>
 							<div className="repeat-container">
