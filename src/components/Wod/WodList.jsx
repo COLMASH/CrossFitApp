@@ -17,10 +17,11 @@ function WodList() {
       wod: state.selectWodReducer.wod,
     };
   });
+
   useEffect(() => {
     dispatch(getWod());
     dispatch(getAllWod());
-  }, [wod]);
+  }, []);
 
   const renderWodsTable = () => {
     return (
