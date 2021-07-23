@@ -1,11 +1,9 @@
 import AdminProfile from "../components/Admin/AdminProfile";
 import AdminBar from "../components/Admin/AdminBar";
-import CoachManager from "../components/Coach/CoachManager";
-import CoachList from "../components/Coach/CoachList";
 
 import "../styles/AdminsView.css";
 
-function MainCoach() {
+function TrainingSetup() {
   return (
     <div className="Admins">
       <div className="admins-blockNavInfo">
@@ -18,14 +16,11 @@ function MainCoach() {
       </div>
       <div className="admins-blockManager">
         <div>
-          <CoachManager />
           <br />
-          <h3>BOX COACHES</h3>
-          <CoachList />
         </div>
       </div>
     </div>
   );
 }
 
-export default MainCoach;
+export default TrainingSetup;

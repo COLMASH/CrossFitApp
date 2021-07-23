@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { assignAdminToDelete } from "../../store/selectAdminReducer";
+
+import {
+  getAllAdmin,
+  assignAdminToDelete,
+} from "../../store/selectAdminReducer";
 
 function AdminList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllAdmin());
+  }, []);
 
   const handleDelete = (id) => {
     setIsChecked(id);

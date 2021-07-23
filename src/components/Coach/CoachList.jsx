@@ -1,10 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import {
+  getAllCoach,
+  assignCoachToDelete,
+} from "../../store/selectCoachReducer";
+
 import { assignCoachToDelete } from "../../store/selectCoachReducer";
 
 function CoachList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAllCoach());
+  }, []);
 
   const handleDelete = (id) => {
     setIsChecked(id);
@@ -38,6 +48,7 @@ function CoachList() {
             </td>
             <td>{coach.phone}</td>
             <td>{coach.email}</td>
+            <td>{coach.active}</td>
           </tr>
         );
       })
@@ -52,6 +63,7 @@ function CoachList() {
           <th>Name</th>
           <th>Phone</th>
           <th>Email</th>
+          <th>Active</th>
         </tr>
       </thead>
       <tbody>{renderTable()}</tbody>

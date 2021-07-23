@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import {
   getCoachInfo,
   getCoachList,
@@ -7,9 +8,6 @@ import {
   coachUpdate,
   updateCoachProfilePic,
 } from "./coach/services";
-import Swal from "sweetalert2";
-import { ASSIGN_ADMIN_TO_DELETE } from "./selectAdminReducer";
-
 
 export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
 export const UPDATE_COACH_PROFILE_INFO = "UPDATE_COACH_PROFILE_INFO";
@@ -176,8 +174,20 @@ export function deleteCoach(coachToDelete) {
         type: REMOVE_COACH_DELETED,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Coach has successfully deleted!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }

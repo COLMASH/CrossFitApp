@@ -1,7 +1,11 @@
-import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
+
+import RegistrateNewCoach from "./RegistrateNewCoach";
+import { deleteCoach } from "../../store/selectCoachReducer";
+
 import RegistrateNewCoach from "./RegistrateNewCoach"; 
 import { deleteCoach } from "../../store/selectCoachReducer"; 
+
 
 function CoachManager() {
   const dispatch = useDispatch();
@@ -14,12 +18,6 @@ function CoachManager() {
 
   const handleDelete = () => {
     dispatch(deleteCoach(coachToDelete));
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Coach has successfully deleted!`,
-      button: "OK",
-    });
   };
 
   return (

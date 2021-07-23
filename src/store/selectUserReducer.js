@@ -209,6 +209,12 @@ function reducer(state = initialState, action) {
         userList: action.payload,
       };
     }
+    case GET_USER_LIST: {
+      return {
+        ...state,
+        userList: action.payload,
+      };
+    }
     case USER_SIGN_IN: {
       return {
         ...state,

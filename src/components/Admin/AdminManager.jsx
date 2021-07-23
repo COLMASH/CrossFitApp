@@ -1,6 +1,4 @@
-import Swal from "sweetalert2";
 import { useSelector, useDispatch } from "react-redux";
-
 import RegistrateNewAdmin from "./RegistrateNewAdmin";
 import { deleteAdmin } from "../../store/selectAdminReducer";
 
@@ -15,12 +13,6 @@ function AdminManager() {
 
   const handleDelete = () => {
     dispatch(deleteAdmin(adminToDelete));
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Admin has successfully deleted!`,
-      button: "OK",
-    });
   };
 
   return (

@@ -1,7 +1,15 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
+import { getAdmin } from "../../store/selectAdminReducer";
 
 function AdminProfile() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
+
   const { admin } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
