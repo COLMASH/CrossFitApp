@@ -11,6 +11,7 @@ import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
 import CoachesView from "./pages/CoachesView";
+import WodFactoryView from "./pages/WodFactoryView";
 
 import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
 import { getCoach, getAllCoach } from "./store/selectCoachReducer";
@@ -36,6 +37,7 @@ function App() {
         <Route exact path="/WodUser" component={WodUser} />
         <Route exact path="/AdminsView" component={AdminsView} />
         <Route exact path="/CoachesView" component={CoachesView} />
+        <Route exact path="/WodFactoryView" component={WodFactoryView} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>
