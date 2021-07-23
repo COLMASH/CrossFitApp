@@ -1,7 +1,6 @@
 import { updateCoachProfileInfo } from "../../store/selectCoachReducer";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 
 function CoachUpdateInformation() {
   const dispatch = useDispatch();
@@ -29,12 +28,6 @@ function CoachUpdateInformation() {
         birthday
       )
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Your personal information has been updated successfully!`,
-      button: "OK",
-    });
   };
 
   return (
@@ -79,6 +72,7 @@ function CoachUpdateInformation() {
                 className="form-control"
                 onChange={(e) => setName(e.target.value)}
                 value={name}
+                placeholder={coach.name}
               />
               <label htmlFor="lastName" style={{ color: "black" }}>
                 <strong> Last Name: </strong>
@@ -90,18 +84,18 @@ function CoachUpdateInformation() {
                 className="form-control"
                 onChange={(e) => setLastName(e.target.value)}
                 value={lastName}
+                placeholder={coach.lastname}
               />
               <label htmlFor="dniType" style={{ color: "black" }}>
                 <strong> DNI Type: </strong>
               </label>
-              <input
-                id="dniType"
-                type="text"
-                name="dniType"
-                className="form-control"
-                onChange={(e) => setDNIType(e.target.value)}
-                value={dniType}
-              />
+              <select class="form-select form-select-sm" aria-label=".form-select-sm example" onChange={(e) => setDNIType(e.target.value)}>
+        <option selected>Choose...</option>
+        <option value="CC">CC</option>
+        <option value="CE">CE</option>
+        <option value="PP">PP</option>
+        <option value="TI">TI</option>
+      </select>
               <label htmlFor="dni" style={{ color: "black" }}>
                 <strong> DNI Number: </strong>
               </label>
@@ -112,6 +106,7 @@ function CoachUpdateInformation() {
                 className="form-control"
                 onChange={(e) => setDNINumber(e.target.value)}
                 value={dni}
+                placeholder={coach.dni}
               />
               <label htmlFor="phone" style={{ color: "black" }}>
                 <strong> Phone: </strong>
@@ -124,6 +119,7 @@ function CoachUpdateInformation() {
                 className="form-control"
                 onChange={(e) => setPhone(e.target.value)}
                 value={phone}
+                placeholder={coach.phone}
               />
               <label htmlFor="birthday" style={{ color: "black" }}>
                 <strong> Birthday: </strong>

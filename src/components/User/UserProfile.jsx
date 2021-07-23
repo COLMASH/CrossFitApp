@@ -13,6 +13,15 @@ function ProfileCard() {
       <div className="user-main-body">
         <div className="card1">
           <div className="card1-body">
+            <div className="d-flex flex-column align-items-center text-center">
+            <div className="portrait">
+              <img
+                src={user.profilePicture}
+                alt="UserProfile"
+                className="imageProfile rounded-circle"
+                width="150"
+              />
+            </div>
             <button
               type="button"
               data-bs-toggle="modal"
@@ -21,13 +30,6 @@ function ProfileCard() {
             >
               Update
             </button>
-            <div className="d-flex flex-column align-items-center text-center">
-              <img
-                src={user.profilePicture}
-                alt="UserProfile"
-                className="rounded-circle"
-                width="150"
-              />
               <div className="mt-3">
                 <h1 style={{ fontSize: 25 }}>
                   {user.name} {user.lastname}

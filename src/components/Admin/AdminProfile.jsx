@@ -15,12 +15,14 @@ function AdminProfile() {
           <div className="card1-body">
             <div className="card1-body">
               <div className="d-flex flex-column align-items-center text-center">
+              <div className="portrait">
                 <img
                   src={admin.profilePicture}
                   alt="AdminProfile"
-                  className="rounded-circle"
+                  className="imageProfile rounded-circle"
                   width="150"
                 />
+              </div>
                 <button
                   type="button"
                   data-bs-toggle="modal"

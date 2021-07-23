@@ -23,7 +23,7 @@ function App() {
     dispatch(getAllAdmin());
     dispatch(getCoach());
     dispatch(getAllCoach());
-  });
+  }, []);
 
   return (
     <Router>
