@@ -24,7 +24,7 @@ function CoachProfile() {
               <button
                 type="button"
                 data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
+                data-bs-target="#coachProfilePic"
                 className="homeButton btn btn-primary btn-sm"
               >
                 Update
