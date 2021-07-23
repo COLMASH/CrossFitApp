@@ -53,6 +53,7 @@ function UpdateCoachProfilePic() {
               </div>
               <div className="modal-dialog modal-dialog-scrollable"></div>
               <input
+              className="bodyContainerModal"
                 type="file"
                 id="file"
                 onChange={selectImage}
