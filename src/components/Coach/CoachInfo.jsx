@@ -7,6 +7,9 @@ function CoachInfo() {
       coach: state.selectCoachReducer.coach,
     };
   });
+
+  let birthdayFormat = coach.birthday.substring(0,10);
+
   return (
     <div class="coach-container">
       <div class="coach-main-body">
@@ -39,7 +42,7 @@ function CoachInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0"> Birthday: </h2>
               </div>
-              <div className="col-sm-9">{coach.birthday}</div>
+              <div className="col-sm-9">{birthdayFormat}</div>
             </div>
             <hr />
             <div className="row">

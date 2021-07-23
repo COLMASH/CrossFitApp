@@ -2,10 +2,9 @@ import { useSelector } from "react-redux";
 import UpdateCoachProfilePic from "./CoachProfilePicUpdate";
 
 function CoachProfile() {
-  const { coach, coachPhoto } = useSelector((state) => {
+  const { coach } = useSelector((state) => {
     return {
       coach: state.selectCoachReducer.coach,
-      coachPhoto: state.selectCoachReducer.coachPhoto,
     };
   });
   return (
@@ -14,12 +13,14 @@ function CoachProfile() {
         <div className="card1">
           <div className="card1-body">
             <div className="d-flex flex-column align-items-center text-center">
-              <img
-                src={coachPhoto}
-                alt="Coach"
-                className="rounded-circle"
-                width="150"
-              />
+              <div className="portrait">
+                <img
+								src={coach.profilePicture}
+								alt="Coach"
+								className="imageProfile rounded-circle"
+								width="150"
+							/>
+              </div>
               <button
                 type="button"
                 data-bs-toggle="modal"
@@ -42,5 +43,5 @@ function CoachProfile() {
       </div>
     </div>
   );
-}
+
 export default CoachProfile;
