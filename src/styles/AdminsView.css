@@ -1,0 +1,63 @@
+.Admins {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.admins-blockNavInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+}
+
+.admins-blockManager {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.table {
+  background-color: cornsilk;
+  opacity: 0.6;
+  flex-direction: column;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: cornsilk;
+  width: 100%;
+}
+
+.admins-Button {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #40403e;
+  border-style: solid;
+  border-color: cornsilk;
+  border-width: 0.1px 1px 0.5px 1px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.admins-BTmodal {
+  padding: 10;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-style: solid;
+  border-color: cornsilk;
+  border-width: 0.1px 1px 0.5px 1px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
+}

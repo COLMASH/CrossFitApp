@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
+import MainAdmin from "./pages/MainAdmin";
+import MainCoach from "./pages/MainCoach";
+import CreateWod from "./pages/CreateWod";
+import MainUser from "./pages/MainUser";
+import WodUser from "./pages/Wod";
+import AdminsView from "./pages/AdminsView";
+
+import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
+import { getCoach } from "./store/selectCoachReducer";
+
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+    dispatch(getAllAdmin());
+    dispatch(getCoach());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/MainAdmin" component={MainAdmin} />
+        <Route exact path="/MainCoach" component={MainCoach} />
+        <Route exact path="/CreateWod" component={CreateWod} />
+        <Route exact path="/MainUser" component={MainUser} />
+        <Route exact path="/WodUser" component={WodUser} />
+        <Route exact path="/AdminsView" component={AdminsView} />
+        <Route exact path="*" component={NotFound} />
+      </Switch>
+    </Router>
   );
 }
 

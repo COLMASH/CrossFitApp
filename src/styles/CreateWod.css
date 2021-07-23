@@ -1,0 +1,65 @@
+.mainCreateWod {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+.containerWodSche {
+  display: flex;
+  justify-content: center;
+}
+
+.editWod-container {
+  padding: 20px;  
+}
+
+.editForm-card {
+  padding: 10px;
+	margin: 10px;
+  width: 600px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
+}
+
+.scheBox {
+  padding: 20px;
+}
+
+.exeRep-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.exercise-container {
+  width: 50%;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.repeat-container {
+  width: 50%;
+  margin: 5px;
+}
+
+.notes-container {
+  width: 100%;
+}
+
+.bodyContainerModal{
+  font-family: "Courier New", Courier, monospace;
+  padding: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
