@@ -1,14 +1,19 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react"
+import { getCoach } from "../../store/selectCoachReducer";
 import CoachUpdateInformation from "./CoachUpdateInformation";
 
 function CoachInfo() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCoach())
+    }, [])
+    
   const { coach } = useSelector((state) => {
     return {
       coach: state.selectCoachReducer.coach,
     };
   });
-
-  let birthdayFormat = coach.birthday.substring(0,10);
 
   return (
     <div class="coach-container">
@@ -42,7 +47,7 @@ function CoachInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0"> Birthday: </h2>
               </div>
-              <div className="col-sm-9">{birthdayFormat}</div>
+              <div className="col-sm-9">{coach.birthday}</div>
             </div>
             <hr />
             <div className="row">

@@ -27,7 +27,7 @@ function UpdateCoachProfilePic() {
       <form onSubmit={handleSubmit}>
         <div
           className="modal fade"
-          id="staticBackdrop"
+          id="coachProfilePic"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
           tabIndex="-1"
@@ -58,6 +58,7 @@ function UpdateCoachProfilePic() {
                 onChange={selectImage}
                 accept="image/*"
                 style={{ color: "black" }}
+                className="admins-BTmodal"
               />
               {image && <img src={image} alt="preview" />}
               <div className="modal-footer">
