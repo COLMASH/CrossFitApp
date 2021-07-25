@@ -13,10 +13,12 @@ export const USER_SIGN_IN = "USER_SIGN_IN";
 export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
 export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 export const CREATE_NEW_USER = "CREATE_NEW_USER";
+export const ASSIGN_WOD_TO_SUSCRIBE = "ASSIGN_WOD_TO_SUSCRIBE";
 
 const initialState = {
   user: {},
   userList: {},
+  userToSuscribe: "",
 };
 
 export function getUser() {
@@ -195,6 +197,19 @@ export function updateProfilePic(file) {
   };
 }
 
+export function assignWodToSuscribe(id) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: ASSIGN_WOD_TO_SUSCRIBE,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
@@ -231,6 +246,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+      };
+    }
+    case ASSIGN_WOD_TO_SUSCRIBE: {
+      return {
+        ...state,
+        userToSuscribe: action.payload,
       };
     }
     default: {
