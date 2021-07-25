@@ -82,7 +82,7 @@ function EditWod() {
       <label htmlFor="notes"><h6>Notes:</h6></label>
       </div>
       <div>
-      <input 
+      <textarea 
         id="notes" 
         type="text"
         name="notes"

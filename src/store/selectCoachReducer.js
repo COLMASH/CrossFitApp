@@ -227,7 +227,10 @@ function reducer(state = initialState, action) {
     case GET_COACH: {
       return {
         ...state,
-        coach: action.payload,
+        coach: {
+          ...action.payload,
+          birthday: action.payload.birthday.substring(0, 10),
+        },
       };
     }
     case GET_COACH_LIST: {
@@ -265,7 +268,10 @@ function reducer(state = initialState, action) {
     case UPDATE_COACH_PROFILE_INFO: {
       return {
         ...state,
-        coach: action.payload,
+        coach: {
+          ...action.payload,
+          birthday: action.payload.birthday.substring(0, 10),
+        },
       };
     }
     default: {

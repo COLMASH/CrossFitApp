@@ -40,7 +40,7 @@ function UpdateAdminProfilePic() {
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 <h5
@@ -57,7 +57,7 @@ function UpdateAdminProfilePic() {
                   aria-label="Close"
                 ></button>
               </div>
-              <label htmlFor="file" style={{ color: "black" }}></label>
+              <div className="modal-dialog modal-dialog-scrollable"></div>
               <input
                 className="admins-BTmodal"
                 type="file"
