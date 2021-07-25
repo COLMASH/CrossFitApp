@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import React from "react";
 
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
@@ -11,21 +10,12 @@ import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
 import CoachesView from "./pages/CoachesView";
+import UsersView from "./pages/UsersView";
+import TrainingSetupView from "./pages/TrainingSetupView";
 import WodFactoryView from "./pages/WodFactoryView";
 import UserSuscribeWod from "./pages/UserSuscribeWod";
 
-import { getAdmin, getAllAdmin } from "./store/selectAdminReducer";
-import { getCoach, getAllCoach } from "./store/selectCoachReducer";
-
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getAdmin());
-    dispatch(getAllAdmin());
-    dispatch(getCoach());
-    dispatch(getAllCoach());
-  });
 
   return (
     <Router>
@@ -38,6 +28,8 @@ function App() {
         <Route exact path="/WodUser" component={WodUser} />
         <Route exact path="/AdminsView" component={AdminsView} />
         <Route exact path="/CoachesView" component={CoachesView} />
+        <Route exact path="/UsersView" component={UsersView} />
+        <Route exact path="/TrainingSetup" component={TrainingSetupView} />
         <Route exact path="/WodFactoryView" component={WodFactoryView} />
         <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} />
         <Route exact path="*" component={NotFound} />

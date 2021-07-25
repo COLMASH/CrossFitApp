@@ -1,7 +1,9 @@
 import { Link, useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
 import { getAllAdmin } from "../../store/selectAdminReducer";
 import { getAllCoach } from "../../store/selectCoachReducer";
+import { getAllUser } from "../../store/selectUserReducer";
 
 function AdminBar() {
   const history = useHistory();
@@ -20,6 +22,10 @@ function AdminBar() {
     dispatch(getAllCoach());
   };
 
+  const handleClicUsers = () => {
+    dispatch(getAllUser());
+  };
+
   return (
     <nav>
       <div className="adminNavContainer d-grid gap-3">
@@ -29,7 +35,11 @@ function AdminBar() {
         <Link to="/BoxStats" className="adminLinkButton btn btn-primary link">
           <strong>BOX STATS</strong>
         </Link>
-        <Link to="/Users" className="adminLinkButton btn btn-primary link">
+        <Link
+          to="/UsersView"
+          className="adminLinkButton btn btn-primary link"
+          onClick={handleClicUsers}
+        >
           <strong>USERS</strong>
         </Link>
         <Link
@@ -50,7 +60,7 @@ function AdminBar() {
           to="/TrainingSetup"
           className="adminLinkButton btn btn-primary link"
         >
-          <strong>TRAINING SETUP</strong>
+          <strong>BOX SETUP</strong>
         </Link>
         <Link to="/Coaches" className="adminLinkButton btn btn-primary link">
           <strong>UPDATE NEWS</strong>

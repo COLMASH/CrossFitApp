@@ -1,7 +1,15 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import AdminProfilePicUpdate from "./AdminProfilePicUpdate";
+import { getAdmin } from "../../store/selectAdminReducer";
 
 function AdminProfile() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
+
   const { admin } = useSelector((state) => {
     return {
       admin: state.selectAdminReducer.admin,
@@ -15,12 +23,14 @@ function AdminProfile() {
           <div className="card1-body">
             <div className="card1-body">
               <div className="d-flex flex-column align-items-center text-center">
+              <div className="portrait">
                 <img
                   src={admin.profilePicture}
                   alt="AdminProfile"
-                  className="rounded-circle"
+                  className="imageProfile rounded-circle"
                   width="150"
                 />
+              </div>
                 <button
                   type="button"
                   data-bs-toggle="modal"

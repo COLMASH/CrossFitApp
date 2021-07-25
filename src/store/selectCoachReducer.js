@@ -1,3 +1,4 @@
+import Swal from "sweetalert2";
 import {
   getCoachInfo,
   getCoachList,
@@ -7,7 +8,6 @@ import {
   coachUpdate,
   updateCoachProfilePic,
 } from "./coach/services";
-import { ASSIGN_ADMIN_TO_DELETE } from "./selectAdminReducer";
 
 export const SAVE_COACH_PROFILE_PIC = "SAVE_COACH_PROFILE_PIC";
 export const UPDATE_COACH_PROFILE_INFO = "UPDATE_COACH_PROFILE_INFO";
@@ -34,8 +34,20 @@ export function updateImageProfilePic(file) {
         type: SAVE_COACH_PROFILE_PIC,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your profile picture has been updated successfully!`,
+        button: "OK",
+      });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong!`,
+        button: "OK",
+      });
     }
   };
 }
@@ -64,8 +76,20 @@ export function updateCoachProfileInfo(
         type: UPDATE_COACH_PROFILE_INFO,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your personal information has been updated successfully!`,
+        button: "OK",
+      });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong!`,
+        button: "OK",
+      });
     }
   };
 }
@@ -73,7 +97,8 @@ export function updateCoachProfileInfo(
 export function getCoach() {
   return async function (dispatch) {
     try {
-      const { data } = await getCoachInfo();
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await getCoachInfo(authorizationToken);
       dispatch({
         type: GET_COACH,
         payload: data,
@@ -149,8 +174,20 @@ export function deleteCoach(coachToDelete) {
         type: REMOVE_COACH_DELETED,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Coach has successfully deleted!`,
+        button: "OK",
+      });
     } catch (error) {
       console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
     }
   };
 }
@@ -177,8 +214,6 @@ const initialState = {
   coach: {},
   coachList: {},
   coachToDelete: "",
-  coachPhoto:
-    "https://res.cloudinary.com/mashcol/image/upload/v1626054119/crossfitapp-profileImages/john-doe_lny628.png",
 };
 
 function reducer(state = initialState, action) {
@@ -186,13 +221,16 @@ function reducer(state = initialState, action) {
     case SAVE_COACH_PROFILE_PIC: {
       return {
         ...state,
-        coachPhoto: action.payload.profilePicture,
+        coach: action.payload,
       };
     }
     case GET_COACH: {
       return {
         ...state,
-        coach: action.payload,
+        coach: {
+          ...action.payload,
+          birthday: action.payload.birthday.substring(0, 10),
+        },
       };
     }
     case GET_COACH_LIST: {
@@ -213,7 +251,6 @@ function reducer(state = initialState, action) {
         coachToDelete: action.payload,
       };
     }
-
     case REMOVE_COACH_DELETED: {
       return {
         ...state,
@@ -231,7 +268,10 @@ function reducer(state = initialState, action) {
     case UPDATE_COACH_PROFILE_INFO: {
       return {
         ...state,
-        coach: action.payload,
+        coach: {
+          ...action.payload,
+          birthday: action.payload.birthday.substring(0, 10),
+        },
       };
     }
     default: {

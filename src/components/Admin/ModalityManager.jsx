@@ -1,18 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
-import RegistrateNewCoach from "./RegistrateNewCoach";
-import { deleteCoach } from "../../store/selectCoachReducer";
+import RegistrateNewModality from "./RegistrateNewModality";
+import { deleteModality } from "../../store/selectAdminReducer";
 
-function CoachManager() {
+function ModalityManager() {
   const dispatch = useDispatch();
 
-  const { coachToDelete } = useSelector((state) => {
+  const { modalityToDelete } = useSelector((state) => {
     return {
-      coachToDelete: state.selectCoachReducer.coachToDelete,
+      modalityToDelete: state.selectAdminReducer.modalityToDelete,
     };
   });
 
   const handleDelete = () => {
-    dispatch(deleteCoach(coachToDelete));
+    dispatch(deleteModality(modalityToDelete));
   };
 
   return (
@@ -23,22 +23,22 @@ function CoachManager() {
             <button
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#NewCoachModal"
+              data-bs-target="#NewModalityModal"
               className="admins-Button"
             >
-              NEW COACH
+              NEW MODALITY
             </button>
           </label>
           <label>
             <button type="button" class="admins-Button" onClick={handleDelete}>
-              DELETE COACH
+              DELETE MODALITY
             </button>
           </label>
         </div>
       </div>
-      <RegistrateNewCoach />
+      <RegistrateNewModality />
     </div>
   );
 }
 
-export default CoachManager;
+export default ModalityManager;

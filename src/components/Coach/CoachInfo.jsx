@@ -1,12 +1,20 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react"
+import { getCoach } from "../../store/selectCoachReducer";
 import CoachUpdateInformation from "./CoachUpdateInformation";
 
 function CoachInfo() {
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(getCoach())
+    }, [])
+    
   const { coach } = useSelector((state) => {
     return {
       coach: state.selectCoachReducer.coach,
     };
   });
+
   return (
     <div class="coach-container">
       <div class="coach-main-body">

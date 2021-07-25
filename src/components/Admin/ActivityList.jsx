@@ -2,50 +2,46 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  getAllAdmin,
-  assignAdminToDelete,
+  getAllActivities,
+  assignActivityToDelete,
 } from "../../store/selectAdminReducer";
 
-function AdminList() {
+function ActivityList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllAdmin());
+    dispatch(getAllActivities());
   }, []);
 
   const handleDelete = (id) => {
     setIsChecked(id);
-    dispatch(assignAdminToDelete(id));
+    dispatch(assignActivityToDelete(id));
   };
 
-  const { adminList } = useSelector((state) => {
+  const { activityList } = useSelector((state) => {
     return {
-      adminList: state.selectAdminReducer.adminList,
+      activityList: state.selectAdminReducer.activityList,
     };
   });
 
-  const renderTable = () => {
+  const renderTableActivity = () => {
     return (
-      !!adminList &&
-      adminList.length > 0 &&
-      adminList.map((admin) => {
+      !!activityList &&
+      activityList.length > 0 &&
+      activityList.map((activity) => {
         return (
           <tr>
             <th>
               <input
                 type="radio"
-                id={admin._id}
-                name="adminToDelete"
-                value={admin._id}
+                id={activity._id}
+                name="activityToDelete"
+                value={activity._id}
                 onChange={(e) => handleDelete(e.target.value)}
               />
             </th>
-            <td>
-              {admin.name} {admin.lastname}
-            </td>
-            <td>{admin.phone}</td>
-            <td>{admin.email}</td>
+            <td>{activity.activity}</td>
           </tr>
         );
       })
@@ -57,14 +53,12 @@ function AdminList() {
       <thead>
         <tr>
           <th>Select</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
+          <th>Activity</th>
         </tr>
       </thead>
-      <tbody>{renderTable()}</tbody>
+      <tbody>{renderTableActivity()}</tbody>
     </table>
   );
 }
 
-export default AdminList;
+export default ActivityList;

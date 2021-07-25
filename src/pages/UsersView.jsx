@@ -1,11 +1,10 @@
 import AdminProfile from "../components/Admin/AdminProfile";
 import AdminBar from "../components/Admin/AdminBar";
-import CoachManager from "../components/Coach/CoachManager";
-import CoachList from "../components/Coach/CoachList";
+import UsersList from "../components/User/UsersList";
 
 import "../styles/AdminsView.css";
 
-function MainCoach() {
+function MainAdmin() {
   return (
     <div className="Admins">
       <div className="admins-blockNavInfo">
@@ -18,14 +17,12 @@ function MainCoach() {
       </div>
       <div className="admins-blockManager">
         <div>
-          <CoachManager />
-          <br />
-          <h3>BOX COACHES</h3>
-          <CoachList />
+          <h3>BOX USERS</h3>
+          <UsersList />
         </div>
       </div>
     </div>
   );
 }
 
-export default MainCoach;
+export default MainAdmin;

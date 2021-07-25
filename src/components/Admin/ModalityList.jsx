@@ -2,50 +2,46 @@ import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import {
-  getAllAdmin,
-  assignAdminToDelete,
+  getAllModalities,
+  assignModalityToDelete,
 } from "../../store/selectAdminReducer";
 
-function AdminList() {
+function ModalityList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllAdmin());
+    dispatch(getAllModalities());
   }, []);
 
   const handleDelete = (id) => {
     setIsChecked(id);
-    dispatch(assignAdminToDelete(id));
+    dispatch(assignModalityToDelete(id));
   };
 
-  const { adminList } = useSelector((state) => {
+  const { modalityList } = useSelector((state) => {
     return {
-      adminList: state.selectAdminReducer.adminList,
+      modalityList: state.selectAdminReducer.modalityList,
     };
   });
 
-  const renderTable = () => {
+  const renderTableModality = () => {
     return (
-      !!adminList &&
-      adminList.length > 0 &&
-      adminList.map((admin) => {
+      !!modalityList &&
+      modalityList.length > 0 &&
+      modalityList.map((modality) => {
         return (
           <tr>
             <th>
               <input
                 type="radio"
-                id={admin._id}
-                name="adminToDelete"
-                value={admin._id}
+                id={modality._id}
+                name="modalityToDelete"
+                value={modality._id}
                 onChange={(e) => handleDelete(e.target.value)}
               />
             </th>
-            <td>
-              {admin.name} {admin.lastname}
-            </td>
-            <td>{admin.phone}</td>
-            <td>{admin.email}</td>
+            <td>{modality.modality}</td>
           </tr>
         );
       })
@@ -57,14 +53,12 @@ function AdminList() {
       <thead>
         <tr>
           <th>Select</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
+          <th>Modality</th>
         </tr>
       </thead>
-      <tbody>{renderTable()}</tbody>
+      <tbody>{renderTableModality()}</tbody>
     </table>
   );
 }
 
-export default AdminList;
+export default ModalityList;

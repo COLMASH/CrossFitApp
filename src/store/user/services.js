@@ -4,7 +4,7 @@ export async function getUserList() {
   return await axios({
     method: "GET",
     baseURL: "http://localhost:8000",
-    url: "/user/userInfo",
+    url: "/user/userList",
   });
 }
 

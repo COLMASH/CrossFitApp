@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { updateImage } from "../../store/selectAdminReducer";
-import Swal from "sweetalert2";
+
+import { getAdmin, updateImage } from "../../store/selectAdminReducer";
 
 function UpdateAdminProfilePic() {
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getAdmin());
+  }, []);
+
   const [file, setFile] = useState(null);
   const [image, setImage] = useState(null);
 
@@ -21,12 +26,6 @@ function UpdateAdminProfilePic() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateImage(file));
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Your profile picture has been updated successfully!`,
-      button: "OK",
-    });
   };
 
   return (
@@ -41,7 +40,7 @@ function UpdateAdminProfilePic() {
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 <h5
@@ -58,7 +57,7 @@ function UpdateAdminProfilePic() {
                   aria-label="Close"
                 ></button>
               </div>
-              <label htmlFor="file" style={{ color: "black" }}></label>
+              <div className="modal-dialog modal-dialog-scrollable"></div>
               <input
                 className="admins-BTmodal"
                 type="file"

@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import Swal from "sweetalert2";
 import { updateAdminProfileInfo } from "../../store/selectAdminReducer";
 
 function AdminUpdateInformation() {
@@ -24,12 +23,6 @@ function AdminUpdateInformation() {
     dispatch(
       updateAdminProfileInfo(name, lastname, dniType, dni, phone, birthday)
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Your personal information has been updated successfully!`,
-      button: "OK",
-    });
   };
 
   return (
@@ -88,10 +81,10 @@ function AdminUpdateInformation() {
               <label htmlFor="DNI-Type" style={{ color: "black" }}>
                 <strong> DNI Type: </strong>
               </label>
-
               <select
                 class="form-select form-select-sm"
                 aria-label=".form-select-sm example"
+                onChange={(e) => setDniType(e.target.value)}
               >
                 <option selected>Choose...</option>
                 <option value="CC">CC</option>
@@ -99,7 +92,6 @@ function AdminUpdateInformation() {
                 <option value="PP">PP</option>
                 <option value="TI">TI</option>
               </select>
-
               <label htmlFor="DNI" style={{ color: "black" }}>
                 <strong> DNI Number: </strong>
               </label>

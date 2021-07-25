@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { createNewAdmin } from "../../store/selectAdminReducer";
 
@@ -27,12 +26,6 @@ function RegistrateNewAdmin() {
         password
       )
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Admin ${email} has successfully registered!`,
-      button: "OK",
-    });
   };
 
   return (
@@ -91,14 +84,17 @@ function RegistrateNewAdmin() {
               <label htmlFor="DNI-Type">
                 <strong> *DNI Type: </strong>
               </label>
-              <input
-                id="DNI-Type"
-                type="text"
-                name="DNI-Type"
-                className="form-control"
+              <select
+                class="form-select form-select-sm"
+                aria-label=".form-select-sm example"
                 onChange={(e) => setDniType(e.target.value)}
-                value={dniType}
-              />
+              >
+                <option selected>Choose...</option>
+                <option value="CC">CC</option>
+                <option value="CE">CE</option>
+                <option value="PP">PP</option>
+                <option value="TI">TI</option>
+              </select>
               <label htmlFor="DNI">
                 <strong> *DNI Number: </strong>
               </label>
@@ -137,7 +133,7 @@ function RegistrateNewAdmin() {
               </label>
               <input
                 id="Birthday"
-                type="text"
+                type="date"
                 name="Birthday"
                 className="form-control"
                 onChange={(e) => setBirthday(e.target.value)}
@@ -158,7 +154,7 @@ function RegistrateNewAdmin() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cancel
@@ -166,7 +162,7 @@ function RegistrateNewAdmin() {
               <button
                 type="submit"
                 disabled={email === ""}
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
               >
                 Register
               </button>

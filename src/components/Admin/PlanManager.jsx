@@ -1,18 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
-import RegistrateNewCoach from "./RegistrateNewCoach";
-import { deleteCoach } from "../../store/selectCoachReducer";
+import RegistrateNewPlan from "./RegistrateNewPlan";
+import { deletePlan } from "../../store/selectAdminReducer";
 
-function CoachManager() {
+function PlanManager() {
   const dispatch = useDispatch();
 
-  const { coachToDelete } = useSelector((state) => {
+  const { planToDelete } = useSelector((state) => {
     return {
-      coachToDelete: state.selectCoachReducer.coachToDelete,
+      planToDelete: state.selectAdminReducer.planToDelete,
     };
   });
 
   const handleDelete = () => {
-    dispatch(deleteCoach(coachToDelete));
+    dispatch(deletePlan(planToDelete));
   };
 
   return (
@@ -23,22 +23,23 @@ function CoachManager() {
             <button
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#NewCoachModal"
+              data-bs-target="#NewPlanModal"
               className="admins-Button"
             >
-              NEW COACH
+              NEW PLAN
             </button>
           </label>
+
           <label>
             <button type="button" class="admins-Button" onClick={handleDelete}>
-              DELETE COACH
+              DELETE PLAN
             </button>
           </label>
         </div>
       </div>
-      <RegistrateNewCoach />
+      <RegistrateNewPlan />
     </div>
   );
 }
 
-export default CoachManager;
+export default PlanManager;

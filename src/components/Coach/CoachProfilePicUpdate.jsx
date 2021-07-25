@@ -27,14 +27,14 @@ function UpdateCoachProfilePic() {
       <form onSubmit={handleSubmit}>
         <div
           className="modal fade"
-          id="staticBackdrop"
+          id="coachProfilePic"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
           tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-scrollable">
+          <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
                 <h5
@@ -51,16 +51,14 @@ function UpdateCoachProfilePic() {
                   aria-label="Close"
                 ></button>
               </div>
-              <div className="modal-body"></div>
-              <label htmlFor="file" style={{ color: "black" }}>
-                Profile Pic
-              </label>
+              <div className="modal-dialog modal-dialog-scrollable"></div>
               <input
                 type="file"
                 id="file"
                 onChange={selectImage}
                 accept="image/*"
                 style={{ color: "black" }}
+                className="admins-BTmodal"
               />
               {image && <img src={image} alt="preview" />}
               <div className="modal-footer">
