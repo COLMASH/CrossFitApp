@@ -174,7 +174,7 @@ function RegistrateNewCoach() {
             <div className="modal-footer">
               <button
                 type="button"
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
                 data-bs-dismiss="modal"
               >
                 Cancel
@@ -182,7 +182,7 @@ function RegistrateNewCoach() {
               <button
                 type="submit"
                 disabled={email === ""}
-                className="btn btn-primary btn-sm"
+                className="homeButton btn btn-primary btn-sm"
               >
                 Register
               </button>

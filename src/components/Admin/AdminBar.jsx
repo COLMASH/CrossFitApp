@@ -60,7 +60,7 @@ function AdminBar() {
           to="/TrainingSetup"
           className="adminLinkButton btn btn-primary link"
         >
-          <strong>TRAINING SETUP</strong>
+          <strong>BOX SETUP</strong>
         </Link>
         <Link to="/Coaches" className="adminLinkButton btn btn-primary link">
           <strong>UPDATE NEWS</strong>
