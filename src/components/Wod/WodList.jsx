@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { assignWodToDelete } from "../../store/selectWodReducer";
-import { getWod, getAllWod } from "../../store/selectWodReducer";
+import {
+  assignWodToDelete,
+  assignWodToUpdate,
+} from "../../store/selectWodReducer";
+import { getWod } from "../../store/selectWodReducer";
 
 function WodList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
 
-  const handleDelete = (id) => {
+  const handleSelect = (id) => {
     setIsChecked(id);
     dispatch(assignWodToDelete(id));
+    dispatch(assignWodToUpdate(id));
   };
 
   const { wod } = useSelector((state) => {
@@ -20,8 +24,7 @@ function WodList() {
 
   useEffect(() => {
     dispatch(getWod());
-    dispatch(getAllWod());
-  }, []);
+  }, [wod.activity]);
 
   const renderWodsTable = () => {
     return (
@@ -33,16 +36,23 @@ function WodList() {
             <input
               type="radio"
               id={wod._id}
-              name="wodToDelete"
+              name="wodToSelect"
               value={wod._id}
-              onChange={(e) => handleDelete(e.target.value)}
+              onChange={(e) => handleSelect(e.target.value)}
             />
           </th>
           <td>{wod.activity}</td>
           <td>{wod.modality}</td>
-          <td>{wod.exercices}</td>
-          <td>{wod.repetitions}</td>
-          <td>{wod.date}</td>
+          <td>
+            {wod.exercice1}({wod.repetition1})
+            {!!wod.exercice2 && ` - ${wod.exercice2}`}
+            {!!wod.repetition2 && `(${wod.repetition2})`}
+            {!!wod.exercice3 && ` - ${wod.exercice3}`}
+            {!!wod.repetition3 && `(${wod.repetition3})`}
+          </td>
+          <td>{wod.capacity}</td>
+          <td>{new Date(wod.startDate).toUTCString()}</td>
+          <td>{new Date(wod.endDate).toUTCString()}</td>
           <td>{wod.notes}</td>
         </tr>
       ))
@@ -56,9 +66,10 @@ function WodList() {
           <th>Select</th>
           <th>Activity</th>
           <th>Modality</th>
-          <th>Exercices</th>
-          <th>Repetitions</th>
-          <th>Date</th>
+          <th>Exercices (Reps)</th>
+          <th>Capacity</th>
+          <th>Start</th>
+          <th>Finish</th>
           <th>Notes</th>
         </tr>
       </thead>
