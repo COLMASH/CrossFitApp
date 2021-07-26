@@ -222,3 +222,32 @@ export async function destroyPlan(planId) {
     data: { planId },
   });
 }
+
+export async function registrateNews(data) {
+  return await axios({
+    method: "POST",
+    baseURL: "http://localhost:8000",
+    url: "/news/create",
+    data,
+    headers: {
+      "Content-Type": "multipart/form-data",
+    },
+  });
+}
+
+export async function getNewsList() {
+  return await axios({
+    method: "GET",
+    baseURL: "http://localhost:8000",
+    url: "/news/newsList",
+  });
+}
+
+export async function destroyNews(newsId) {
+  return await axios({
+    method: "DELETE",
+    baseURL: "http://localhost:8000",
+    url: "/news/delete",
+    data: { newsId },
+  });
+}
