@@ -19,6 +19,9 @@ import {
   planRegister,
   getPlanList,
   destroyPlan,
+  registrateNews,
+  getNewsList,
+  destroyNews,
 } from "./admin/services";
 
 export const GET_ADMIN = "GET_ADMIN";
@@ -43,9 +46,12 @@ export const ASSIGN_EXERCISE_TO_DELETE = "ASSIGN_EXERCISE_TO_DELETE";
 export const REMOVE_EXERCISE_DELETED = "REMOVE_EXERCISE_DELETED";
 export const CREATE_NEW_PLAN = "CREATE_NEW_PLAN";
 export const GET_PLAN_LIST = "GET_PLAN_LIST";
-
 export const ASSIGN_PLAN_TO_DELETE = "ASSIGN_PLAN_TO_DELETE";
 export const REMOVE_PLAN_DELETED = "REMOVE_PLAN_DELETED";
+export const CREATE_NEW = "CREATE_NEW";
+export const GET_NEWS_LIST = "GET_NEWS_LIST";
+export const ASSIGN_NEW_TO_DELETE = "ASSIGN_NEW_TO_DELETE";
+export const REMOVE_NEW_DELETED = "REMOVE_NEW_DELETED";
 
 export function getAdmin() {
   return async function (dispatch) {
@@ -534,6 +540,85 @@ export function deletePlan(planToDelete) {
   };
 }
 
+export function uploadNews(file) {
+  return async function (dispatch) {
+    try {
+      const form_data = new FormData();
+      if (file) {
+        form_data.append("news", file, file.name);
+      }
+      const { data } = await registrateNews(form_data);
+      dispatch({
+        type: CREATE_NEW,
+        payload: data,
+      });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your news list has been updated successfully!`,
+        button: "OK",
+      });
+    } catch (error) {
+      console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
+    }
+  };
+}
+
+export function getAllNews() {
+  return async function (dispatch) {
+    try {
+      const { data } = await getNewsList();
+      dispatch({
+        type: GET_NEWS_LIST,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function assignNewsToDelete(id) {
+  return async function (dispatch) {
+    dispatch({
+      type: ASSIGN_NEW_TO_DELETE,
+      payload: id,
+    });
+  };
+}
+
+export function deleteNews(newsToDelete) {
+  return async function (dispatch) {
+    try {
+      const { data } = await destroyNews(newsToDelete);
+      dispatch({
+        type: REMOVE_NEW_DELETED,
+        payload: data,
+      });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Image has successfully deleted!`,
+        button: "OK",
+      });
+    } catch (error) {
+      console.log(error.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong`,
+        button: "OK",
+      });
+    }
+  };
+}
+
 const initialState = {
   admin: {},
   adminList: {},
@@ -546,6 +631,8 @@ const initialState = {
   exerciseToDelete: "",
   planList: {},
   planListToDelete: "",
+  newsList: {},
+  newsToDelete: "",
 };
 
 function reducer(state = initialState, action) {
@@ -709,6 +796,32 @@ function reducer(state = initialState, action) {
         planList: state.planList.filter(
           (plan) => plan._id !== action.payload._id
         ),
+      };
+    }
+    case CREATE_NEW: {
+      return {
+        ...state,
+        newsList: state.newsList.concat(action.payload),
+      };
+    }
+    case GET_NEWS_LIST: {
+      return {
+        ...state,
+        newsList: action.payload,
+      };
+    }
+    case REMOVE_NEW_DELETED: {
+      return {
+        ...state,
+        newsList: state.newsList.filter(
+          (news) => news._id !== action.payload._id
+        ),
+      };
+    }
+    case ASSIGN_NEW_TO_DELETE: {
+      return {
+        ...state,
+        newsToDelete: action.payload,
       };
     }
     default: {

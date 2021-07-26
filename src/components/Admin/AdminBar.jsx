@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getAllAdmin } from "../../store/selectAdminReducer";
 import { getAllCoach } from "../../store/selectCoachReducer";
 import { getAllUser } from "../../store/selectUserReducer";
+import { getAllNews } from "../../store/selectAdminReducer";
 
 function AdminBar() {
   const history = useHistory();
@@ -24,6 +25,10 @@ function AdminBar() {
 
   const handleClicUsers = () => {
     dispatch(getAllUser());
+  };
+
+  const handleClicNews = () => {
+    dispatch(getAllNews());
   };
 
   return (
@@ -62,7 +67,11 @@ function AdminBar() {
         >
           <strong>BOX SETUP</strong>
         </Link>
-        <Link to="/Coaches" className="adminLinkButton btn btn-primary link">
+        <Link
+          to="/NewsView"
+          className="adminLinkButton btn btn-primary link"
+          onClick={handleClicNews}
+        >
           <strong>UPDATE NEWS</strong>
         </Link>
         <button
