@@ -1,4 +1,3 @@
-import { useHistory } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import {
   getAllActivities,
@@ -8,7 +7,6 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 
 function EditWod() {
-  const history = useHistory();
   const [notes, setNotes] = useState("");
   const [repeat, setRepeat] = useState("");
   const dispatch = useDispatch();
