@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 
 import CreateNewWod from "./CreateNewWod";
+import UpdateWod from "./UpdateWod";
 import { deleteWod } from "../../store/selectWodReducer";
 
 function WodManager() {
@@ -43,7 +44,7 @@ function WodManager() {
             <button
               type="button"
               data-bs-toggle="modal"
-              data-bs-target="#EditWodModal"
+              data-bs-target="#UpdateWodModal"
               className="homeButton btn btn-primary btn-sm"
             >
               EDIT WOD
@@ -52,6 +53,7 @@ function WodManager() {
         </div>
       </div>
       <CreateNewWod />
+      <UpdateWod />
     </div>
   );
 }

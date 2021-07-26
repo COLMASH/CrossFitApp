@@ -11,12 +11,16 @@ export const GET_WOD_LIST = "GET_WOD_LIST";
 export const UPDATE_WOD_INFO = "UPDATE_WOD_INFO";
 export const CREATE_NEW_WOD = "CREATE_NEW_WOD";
 export const REMOVE_WOD_DELETED = "REMOVE_WOD_DELETED";
-export const ASSIGN_WOD_TO_DELETE = "ASSIGN_WOD_TO_DELETE,";
+export const ASSIGN_WOD_TO_DELETE = "ASSIGN_WOD_TO_DELETE";
+export const ASSIGN_WOD_TO_UPDATE = "ASSIGN_WOD_TO_UPDATE";
+export const CLEAR_WOD_TO_UPDATE = "CLEAR_WOD_TO_UPDATE";
+export const CLEAR_WOD_TO_DELETE = "CLEAR_WOD_TO_DELETE";
 
 const initialState = {
   wod: {},
   wodList: {},
   wodToDelete: "",
+  wodToUpdate: "",
 };
 
 export function getWod() {
@@ -48,24 +52,74 @@ export function getAllWod() {
   };
 }
 
+export function assignWodToUpdate(id) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: ASSIGN_WOD_TO_UPDATE,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function clearWodToUpdate() {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: CLEAR_WOD_TO_UPDATE,
+        payload: "",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+export function clearWodToDelete() {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: CLEAR_WOD_TO_DELETE,
+        payload: "",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
 export function updateWodInfo(
+  wodToUpdate,
   activity,
   modality,
-  exercices,
-  repetitions,
-  date,
+  exercice1,
+  exercice2,
+  exercice3,
+  repetition1,
+  repetition2,
+  repetition3,
+  capacity,
+  startDate,
+  endDate,
   notes
 ) {
   return async function (dispatch) {
     try {
-      const authorizationToken = localStorage.getItem("token");
       const { data: dataUpdate } = await wodUpdate(
-        authorizationToken,
+        wodToUpdate,
         activity,
         modality,
-        exercices,
-        repetitions,
-        date,
+        exercice1,
+        exercice2,
+        exercice3,
+        repetition1,
+        repetition2,
+        repetition3,
+        capacity,
+        startDate,
+        endDate,
         notes
       );
       dispatch({
@@ -93,9 +147,15 @@ export function updateWodInfo(
 export function createNewWod(
   activity,
   modality,
-  exercices,
-  repetitions,
-  date,
+  exercice1,
+  exercice2,
+  exercice3,
+  repetition1,
+  repetition2,
+  repetition3,
+  capacity,
+  startDate,
+  endDate,
   notes
 ) {
   return async function (dispatch) {
@@ -105,9 +165,15 @@ export function createNewWod(
         authorizationToken,
         activity,
         modality,
-        exercices,
-        repetitions,
-        date,
+        exercice1,
+        exercice2,
+        exercice3,
+        repetition1,
+        repetition2,
+        repetition3,
+        capacity,
+        startDate,
+        endDate,
         notes
       );
       dispatch({
@@ -134,10 +200,14 @@ export function createNewWod(
 
 export function assignWodToDelete(id) {
   return async function (dispatch) {
-    dispatch({
-      type: ASSIGN_WOD_TO_DELETE,
-      payload: id,
-    });
+    try {
+      dispatch({
+        type: ASSIGN_WOD_TO_DELETE,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 }
 
@@ -194,6 +264,24 @@ function reducer(state = initialState, action) {
       };
     }
     case ASSIGN_WOD_TO_DELETE: {
+      return {
+        ...state,
+        wodToDelete: action.payload,
+      };
+    }
+    case ASSIGN_WOD_TO_UPDATE: {
+      return {
+        ...state,
+        wodToUpdate: action.payload,
+      };
+    }
+    case CLEAR_WOD_TO_UPDATE: {
+      return {
+        ...state,
+        wodToUpdate: action.payload,
+      };
+    }
+    case CLEAR_WOD_TO_DELETE: {
       return {
         ...state,
         wodToDelete: action.payload,

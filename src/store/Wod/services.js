@@ -25,9 +25,15 @@ export async function wodCreation(
   token,
   activity,
   modality,
-  exercices,
-  repetitions,
-  date,
+  exercice1,
+  exercice2,
+  exercice3,
+  repetition1,
+  repetition2,
+  repetition3,
+  capacity,
+  startDate,
+  endDate,
   notes
 ) {
   try {
@@ -37,9 +43,15 @@ export async function wodCreation(
       data: {
         activity,
         modality,
-        exercices,
-        repetitions,
-        date,
+        exercice1,
+        exercice2,
+        exercice3,
+        repetition1,
+        repetition2,
+        repetition3,
+        capacity,
+        startDate,
+        endDate,
         notes,
       },
       headers: {
@@ -52,12 +64,18 @@ export async function wodCreation(
 }
 
 export async function wodUpdate(
-  token,
+  wodId,
   activity,
   modality,
-  exercices,
-  repetitions,
-  date,
+  exercice1,
+  exercice2,
+  exercice3,
+  repetition1,
+  repetition2,
+  repetition3,
+  capacity,
+  startDate,
+  endDate,
   notes
 ) {
   try {
@@ -65,15 +83,19 @@ export async function wodUpdate(
       method: "PUT",
       url: "http://localhost:8000/wod/wodUpdate",
       data: {
+        wodId,
         activity,
         modality,
-        exercices,
-        repetitions,
-        date,
+        exercice1,
+        exercice2,
+        exercice3,
+        repetition1,
+        repetition2,
+        repetition3,
+        capacity,
+        startDate,
+        endDate,
         notes,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
       },
     });
   } catch (error) {

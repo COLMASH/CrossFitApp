@@ -85,7 +85,9 @@ function UserInfo() {
             <div className="col-sm-3">
               <h2 className="mb-0">Birthday</h2>
             </div>
-            <div className="col-sm-9">{user.birthday}</div>
+            <div className="col-sm-9">
+              {new Date(user.birthday).toDateString()}
+            </div>
           </div>
           <hr />
           <div className="row">

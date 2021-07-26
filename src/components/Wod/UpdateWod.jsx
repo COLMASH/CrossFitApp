@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { createNewWod } from "../../store/selectWodReducer";
+import { useDispatch, useSelector } from "react-redux";
+import { updateWodInfo } from "../../store/selectWodReducer";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import {
+  clearWodToUpdate,
+  clearWodToDelete,
+} from "../../store/selectWodReducer";
 
-function CreateNewWod() {
+function UpdateWod() {
   const [activity, setActivity] = useState("");
   const [modality, setModality] = useState("");
   const [exercice1, setExercice1] = useState("");
@@ -19,9 +23,16 @@ function CreateNewWod() {
   const [notes, setNotes] = useState("");
   const dispatch = useDispatch();
 
-  const handleCreate = () => {
+  const { wodToUpdate } = useSelector((state) => {
+    return {
+      wodToUpdate: state.selectWodReducer.wodToUpdate,
+    };
+  });
+
+  const handleUpdate = () => {
     dispatch(
-      createNewWod(
+      updateWodInfo(
+        wodToUpdate,
         activity,
         modality,
         exercice1,
@@ -36,18 +47,20 @@ function CreateNewWod() {
         notes
       )
     );
+    dispatch(clearWodToUpdate());
+    dispatch(clearWodToDelete());
   };
 
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        handleCreate();
+        handleUpdate();
       }}
     >
       <div
         className="modal fade"
-        id="NewWodModal"
+        id="UpdateWodModal"
         data-bs-backdrop="static"
         data-bs-keyboard="false"
         tabIndex="-1"
@@ -58,7 +71,7 @@ function CreateNewWod() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="staticBackdropLabel">
-                Wod Creation Form 🏋️‍♂️
+                Edit Wod Form 🔁
               </h5>
               <button
                 type="button"
@@ -70,7 +83,7 @@ function CreateNewWod() {
             <div className="modal-body">
               <div>
                 <h6>
-                  <strong> *Activity: </strong>
+                  <strong> Activity: </strong>
                 </h6>
               </div>
               <select
@@ -86,7 +99,7 @@ function CreateNewWod() {
               </select>
               <div>
                 <h6>
-                  <strong> *Modality: </strong>
+                  <strong> Modality: </strong>
                 </h6>
               </div>
               <select
@@ -103,7 +116,7 @@ function CreateNewWod() {
 
               <div>
                 <h6>
-                  <strong> *Exercice 1: </strong>
+                  <strong> Exercice 1: </strong>
                 </h6>
               </div>
               <select
@@ -131,7 +144,7 @@ function CreateNewWod() {
 
               <div>
                 <h6>
-                  <strong> *Repetitions (Ex1): </strong>
+                  <strong> Repetitions (Ex1): </strong>
                 </h6>
               </div>
               <select
@@ -286,7 +299,7 @@ function CreateNewWod() {
 
               <div>
                 <h6>
-                  <strong> *Wod capacity (students): </strong>
+                  <strong> Wod capacity (students): </strong>
                 </h6>
               </div>
               <select
@@ -317,7 +330,7 @@ function CreateNewWod() {
                 <option value="20">20</option>
               </select>
               <label htmlFor="Start Date">
-                <strong> *Start Date: </strong>
+                <strong> Start Date: </strong>
               </label>
               <div>
                 <DatePicker
@@ -329,7 +342,7 @@ function CreateNewWod() {
                 />
               </div>
               <label htmlFor="End Date">
-                <strong> *End Date: </strong>
+                <strong> End Date: </strong>
               </label>
               <div>
                 <DatePicker
@@ -362,17 +375,17 @@ function CreateNewWod() {
               </button>
               <button
                 disabled={
-                  activity === "" ||
-                  modality === "" ||
-                  exercice1 === "" ||
-                  repetition1 === "" ||
-                  capacity === "" ||
-                  startDate === "" ||
+                  activity === "" &&
+                  modality === "" &&
+                  exercice1 === "" &&
+                  repetition1 === "" &&
+                  capacity === "" &&
+                  startDate === "" &&
                   endDate === ""
                 }
                 className="homeButton btn btn-primary btn-sm"
               >
-                Create
+                Update
               </button>
             </div>
           </div>
@@ -382,4 +395,4 @@ function CreateNewWod() {
   );
 }
 
-export default CreateNewWod;
+export default UpdateWod;
