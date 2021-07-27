@@ -20,7 +20,7 @@ function MainAdmin() {
         <div>
           <AdminInfo />
         </div>
-        <div>
+        <div className="news-container">
           <News />
         </div>
       </div>

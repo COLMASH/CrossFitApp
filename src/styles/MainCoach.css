@@ -1,8 +1,17 @@
 .mainCoach {
 	padding: 20px;
 	display: flex;
+  flex-direction: row;
 	justify-content: center;
 	align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .mainCoach {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 70px;
+  }  
 }
 
 .coach-blockNavInfo {
@@ -23,6 +32,18 @@
 	justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .coach-blockInfo {
+    width: 100%;
+  }  
+}
+
+@media (max-width: 768px) {
+  .coach-container {
+    width: 100%;
+  }  
+}
+
 .card1 {
 	padding: 10px;
 	margin: 10px;
@@ -33,7 +54,7 @@
 	border-radius: 0.25rem;
 }
 
-.card2 {
+.coachInfo {
 	padding: 20px;
 	margin: 5px;
 	width: 700px;
@@ -42,6 +63,12 @@
 	background-clip: border-box;
 	border: 0 solid rgba(235, 224, 224, 0.125);
 	border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .coachInfo {
+    width: 100%;
+  }  
 }
 
 .card1-body {
@@ -87,4 +114,51 @@
 
 .mb-0 {
 	font-size: 16px;
+}
+
+.coachBar-desktop {
+  display: inline-block;
+}
+
+@media (max-width: 768px){
+  .coachBar-desktop {
+    display: none;
+  }
+}
+
+.coachBar-mobile {
+  display: none;
+}
+
+@media (max-width: 768px){
+  .coachBar-mobile {
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.coach-menu {
+  display: flex;
+  height: 70px;
+  width: 100%;
+  background: white;
+}
+
+.coach-menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  border: solid 0.5px black;
+  text-align: center;
+}
+
+.coach-menu-item:hover {
+  background: black;
+}
+
+.coach-item-content h3 {
+  font-size: 12px;
 }

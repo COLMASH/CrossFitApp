@@ -151,8 +151,20 @@ export function createNewCoach(
         type: CREATE_NEW_COACH,
         payload: data,
       });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Coach ${email} has successfully registered!`,
+        button: "OK",
+      });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Alert",
+        icon: "error",
+        text: `Something went wrong!`,
+        button: "OK",
+      });
     }
   };
 }
@@ -206,6 +218,12 @@ export function accessCoach(email, password, history) {
       });
     } catch (err) {
       console.log(err.message);
+      Swal.fire({
+        title: "Ooops!",
+        icon: "warning",
+        text: `Invalid password or email.`,
+        button: "OK",
+      });
     }
   };
 }
