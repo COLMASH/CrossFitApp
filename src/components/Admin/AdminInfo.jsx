@@ -21,7 +21,7 @@ function AdminInfo() {
   return (
     <div class="admin-container">
       <div class="admin-main-body">
-        <div className="card2">
+        <div className="adminInfo card2">
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
@@ -64,8 +64,8 @@ function AdminInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0">Birthday</h2>
               </div>
-              <div className="col-sm-9">{admin.birthday} </div>
-            </div>
+              {new Date(admin.birthday+"GMT-5:00").toDateString()}
+              </div>
 
             <hr />
             <div className="row">

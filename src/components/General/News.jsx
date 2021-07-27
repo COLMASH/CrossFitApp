@@ -34,10 +34,9 @@ function News() {
                 counter === 0 ? "carousel-item active" : "carousel-item"
               }
             >
-              <img src={news.news} className="d-block w-100" alt="..." />
+              <img src={news.news} className="img d-block w-100" alt="..." />
             </div>
           ))}
-        ;
       </div>
       <button
         className="carousel-control-prev"

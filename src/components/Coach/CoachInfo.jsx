@@ -16,9 +16,9 @@ function CoachInfo() {
   });
 
   return (
-    <div class="coach-container">
-      <div class="coach-main-body">
-        <div className="card2">
+    <div className="coach-container">
+      <div className="coach-main-body">
+        <div className="coachInfo card2">
           <div className="card2-body">
             <div className="row">
               <div className="col-sm-3">
@@ -47,7 +47,9 @@ function CoachInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0"> Birthday: </h2>
               </div>
-              <div className="col-sm-9">{coach.birthday}</div>
+              <div className="col-sm-9">
+                {new Date(coach.birthday+"GMT-5:00").toDateString()}
+              </div>
             </div>
             <hr />
             <div className="row">
