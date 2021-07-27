@@ -154,7 +154,7 @@ export function createNewCoach(
       Swal.fire({
         title: "Confirmation",
         icon: "success",
-        text: `Admin ${email} has successfully registered!`,
+        text: `Coach ${email} has successfully registered!`,
         button: "OK",
       });
     } catch (err) {
