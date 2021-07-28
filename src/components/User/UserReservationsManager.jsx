@@ -1,4 +1,17 @@
+import { useSelector, useDispatch } from "react-redux";
+import { userWodUnsuscription } from "../../store/selectUserReducer";
+
 function UserReservationManager() {
+  const dispatch = useDispatch();
+  const { wodToUnsuscribe } = useSelector((state) => {
+    return {
+      wodToUnsuscribe: state.selectUserReducer.wodToUnsuscribe,
+    };
+  });
+
+  const handleUnsuscribe = () => {
+    dispatch(userWodUnsuscription(wodToUnsuscribe));
+  };
   return (
     <div>
       <div>
@@ -7,7 +20,7 @@ function UserReservationManager() {
             <button
               type="button"
               className="homeButton btn btn-primary btn-sm"
-              // onClick={handleDelete}
+              onClick={handleUnsuscribe}
             >
               CANCEL RESERVATION
             </button>
@@ -16,7 +29,7 @@ function UserReservationManager() {
             <button
               type="button"
               className="homeButton btn btn-primary btn-sm"
-              // onClick={handleDelete}
+              // onClick={handlePayment}
             >
               PAY RESERVATIONS
             </button>

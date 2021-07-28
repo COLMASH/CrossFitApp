@@ -118,6 +118,19 @@ export async function userSuscribe(token, wodId) {
   });
 }
 
+export async function userUnsuscribe(token, wodId) {
+  return await axios({
+    method: "PUT",
+    url: "http://localhost:8000/user/userUnsuscribeWods",
+    data: {
+      wodId,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
 export async function getUserWods(token) {
   return await axios({
     method: "GET",

@@ -1,9 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import {
-  userWodSuscription,
-  clearUserToSuscribe,
-} from "../../store/selectUserReducer";
-import React, { useEffect } from "react";
+import { userWodSuscription } from "../../store/selectUserReducer";
 
 function UserSuscriptionManager() {
   const dispatch = useDispatch();
@@ -15,7 +11,6 @@ function UserSuscriptionManager() {
 
   const handleSuscribe = () => {
     dispatch(userWodSuscription(wodToSuscribe));
-    // dispatch(clearUserToSuscribe());
   };
 
   return (

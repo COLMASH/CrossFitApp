@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { assignWodToSuscribe } from "../../store/selectUserReducer";
-import { getUserWod } from "../../store/selectUserReducer";
+import { assignWodToUnsuscribe } from "../../store/selectUserReducer";
+import { getUserWod, getUser } from "../../store/selectUserReducer";
 
 function UserReservationList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
 
-  // const handleSelect = (id) => {
-  //   setIsChecked(id);
-  //   dispatch(assignWodToSuscribe(id));
-  // };
+  const handleSelect = (id) => {
+    setIsChecked(id);
+    dispatch(assignWodToUnsuscribe(id));
+  };
 
   const { userWods } = useSelector((state) => {
     return {
@@ -18,18 +18,12 @@ function UserReservationList() {
     };
   });
 
-  const { user } = useSelector((state) => {
-    return {
-      user: state.selectUserReducer.user,
-    };
-  });
-
   useEffect(() => {
     dispatch(getUserWod());
-  }, []);
+    dispatch(getUser());
+  }, [userWods.wods]);
 
-  // console.log(userWods); ///////////////////////////////////////////////
-  console.log(user); ///////////////////////////////////////////////
+  console.log(userWods);
 
   const renderUserWodsTable = () => {
     return (
@@ -43,7 +37,7 @@ function UserReservationList() {
               id={wod._id}
               name="wodToSelect"
               value={wod._id}
-              // onChange={(e) => handleSelect(e.target.value)}
+              onChange={(e) => handleSelect(e.target.value)}
             />
           </th>
           <td>

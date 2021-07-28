@@ -7,6 +7,7 @@ import {
   updateUserProfilePic,
   getUserWods,
   userSuscribe,
+  userUnsuscribe,
 } from "./user/services";
 import Swal from "sweetalert2";
 export const GET_USER = "GET_USER";
@@ -16,9 +17,11 @@ export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
 export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 export const CREATE_NEW_USER = "CREATE_NEW_USER";
 export const ASSIGN_WOD_TO_SUSCRIBE = "ASSIGN_WOD_TO_SUSCRIBE";
+export const ASSIGN_WOD_TO_UNSUSCRIBE = "ASSIGN_WOD_TO_UNSUSCRIBE";
 export const GET_USER_WODS = "GET_USER_WODS";
 export const CLEAR_USER_TO_SUSCRIBE = "CLEAR_USER_TO_SUSCRIBE";
 export const USER_SUSCRIBE = "USER_SUSCRIBE";
+export const USER_UNSUSCRIBE = "USER_UNSUSCRIBE";
 
 const initialState = {
   user: {},
@@ -220,6 +223,19 @@ export function assignWodToSuscribe(id) {
   };
 }
 
+export function assignWodToUnsuscribe(id) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: ASSIGN_WOD_TO_UNSUSCRIBE,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
 export function clearUserToSuscribe() {
   return async function (dispatch) {
     try {
@@ -241,7 +257,6 @@ export function userWodSuscription(wodToSuscribe) {
         authorizationToken,
         wodToSuscribe
       );
-      console.log(dataUpdate); //////////////////////////////////////////////////
       dispatch({
         type: USER_SUSCRIBE,
         payload: dataUpdate,
@@ -250,6 +265,36 @@ export function userWodSuscription(wodToSuscribe) {
         title: "Confirmation",
         icon: "success",
         text: `Your reservation has been created successfully! 💾`,
+        button: "OK",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Oops...",
+        icon: "error",
+        text: "Something went wrong",
+        button: "OK",
+      });
+      console.log(error.message);
+    }
+  };
+}
+
+export function userWodUnsuscription(wodToUnsuscribe) {
+  return async function (dispatch) {
+    try {
+      const authorizationToken = localStorage.getItem("token");
+      const { data: wodUnsuscribed } = await userUnsuscribe(
+        authorizationToken,
+        wodToUnsuscribe
+      );
+      dispatch({
+        type: USER_UNSUSCRIBE,
+        payload: wodUnsuscribed,
+      });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your reservation has been removed successfully! 🗑`,
         button: "OK",
       });
     } catch (error) {
@@ -308,12 +353,12 @@ function reducer(state = initialState, action) {
         wodToSuscribe: action.payload,
       };
     }
-    // case CLEAR_USER_TO_SUSCRIBE: {
-    //   return {
-    //     ...state,
-    //     wodToSuscribe: action.payload,
-    //   };
-    // }
+    case ASSIGN_WOD_TO_UNSUSCRIBE: {
+      return {
+        ...state,
+        wodToUnsuscribe: action.payload,
+      };
+    }
     case GET_USER_WODS: {
       return {
         ...state,
@@ -324,6 +369,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+      };
+    }
+    case USER_UNSUSCRIBE: {
+      return {
+        ...state,
+        user: state.user.wods.filter((wod) => wod._id !== action.payload._id),
       };
     }
     default: {
