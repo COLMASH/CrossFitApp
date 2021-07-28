@@ -9,50 +9,38 @@ export async function getUserList() {
 }
 
 export async function userSignIn(email, password) {
-  try {
-    return await axios({
-      method: "POST",
-      baseURL: "http://localhost:8000",
-      url: "/user/signin",
-      data: {
-        email,
-        password,
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "POST",
+    baseURL: "http://localhost:8000",
+    url: "/user/signin",
+    data: {
+      email,
+      password,
+    },
+  });
 }
 
 export async function getUserInfo(token) {
-  try {
-    return await axios({
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      url: `http://localhost:8000/user/userInfo`,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    url: `http://localhost:8000/user/userInfo`,
+  });
 }
 
 export async function updateUserProfilePic(token, data) {
-  try {
-    return await axios({
-      method: "PUT",
-      baseURL: "http://localhost:8000",
-      url: "/user/userProfilePic",
-      data,
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "multipart/form-data",
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "PUT",
+    baseURL: "http://localhost:8000",
+    url: "/user/userProfilePic",
+    data,
+    headers: {
+      Authorization: `Bearer ${token}`,
+      "Content-Type": "multipart/form-data",
+    },
+  });
 }
 
 export async function userRegister(
@@ -77,8 +65,8 @@ export async function userRegister(
         password,
       },
     });
-  } catch (error) {
-    console.log(error.message);
+  } catch {
+    console.log("hola");
   }
 }
 
@@ -95,28 +83,60 @@ export async function userUpdate(
   weight,
   birthday
 ) {
-  try {
-    return await axios({
-      method: "PUT",
-      baseURL: "http://localhost:8000",
-      url: "/user/userUpdate",
-      data: {
-        name,
-        lastname,
-        dniType,
-        dni,
-        address,
-        neighborhood,
-        phone,
-        height,
-        weight,
-        birthday,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "PUT",
+    baseURL: "http://localhost:8000",
+    url: "/user/userUpdate",
+    data: {
+      name,
+      lastname,
+      dniType,
+      dni,
+      address,
+      neighborhood,
+      phone,
+      height,
+      weight,
+      birthday,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export async function userSuscribe(token, wodId) {
+  return await axios({
+    method: "PUT",
+    url: "http://localhost:8000/user/userSuscribeWods",
+    data: {
+      wodId,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export async function userUnsuscribe(token, wodId) {
+  return await axios({
+    method: "PUT",
+    url: "http://localhost:8000/user/userUnsuscribeWods",
+    data: {
+      wodId,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
+
+export async function getUserWods(token) {
+  return await axios({
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    url: `http://localhost:8000/user/userWodsList`,
+  });
 }
