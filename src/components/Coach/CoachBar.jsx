@@ -1,12 +1,19 @@
 import { Link, useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux"
+import { getAllUser } from "../../store/selectUserReducer"
 
 function CoachBar() {
   const history = useHistory();
+  const dispatch = useDispatch();
 
-  function Logout() {
+  const Logout = () => {
     localStorage.removeItem("token");
     history.push("/");
   }
+  const handleClickUsers = () => {
+    dispatch(getAllUser())
+  }
+
   return (
     <nav>
       <div className="coachNavContainer d-grid gap-3">
@@ -29,8 +36,9 @@ function CoachBar() {
           <strong>RESERVATIONS</strong>
         </Link>
         <Link
-          to="/Performance"
+          to="/coachUserView"
           className="coachLinkButton btn btn-primary link"
+          onClick={handleClickUsers}
         >
           <strong>USERS</strong>
         </Link>
