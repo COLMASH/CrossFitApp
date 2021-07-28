@@ -5,6 +5,7 @@ import CoachBar from "../components/Coach/CoachBar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserAlt, faCalendarPlus, faDumbbell, faUserFriends, faCalendarAlt ,faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
+
 import "../styles/MainCoach.css";
 
 function MainCoach() {
