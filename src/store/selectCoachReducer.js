@@ -18,6 +18,7 @@ export const ASSIGN_COACH_TO_DELETE = "ASSIGN_COACH_TO_DELETE";
 export const REMOVE_COACH_DELETED = "REMOVE_COACH_DELETED";
 export const COACH_SIGN_IN = "COACH_SIGN_IN";
 
+
 export function updateImageProfilePic(file) {
   return async function (dispatch) {
     try {

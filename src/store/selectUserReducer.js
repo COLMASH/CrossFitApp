@@ -13,10 +13,13 @@ export const USER_SIGN_IN = "USER_SIGN_IN";
 export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
 export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 export const CREATE_NEW_USER = "CREATE_NEW_USER";
+export const ASSIGN_USER_TO_FIND = "ASSIGN_USER_TO_FIND";
+export const SHOW_USER_TO_COACH = "SHOW_USER_TO_COACH";
 
 const initialState = {
   user: {},
   userList: {},
+  userToShow: {},
 };
 
 export function getUser() {
@@ -195,6 +198,24 @@ export function updateProfilePic(file) {
   };
 }
 
+export function assignUserToFind(userId) {
+  return async function (dispatch) {
+    dispatch({
+      type: ASSIGN_USER_TO_FIND,
+      payload: userId,
+    });
+  };
+}
+
+export function findUserToShow(userId) {
+  return async function (dispatch) {
+    dispatch({
+      type: SHOW_USER_TO_COACH,
+      payload: userId,
+    });
+  };
+}
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
@@ -237,6 +258,20 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+      };
+    }
+    case ASSIGN_USER_TO_FIND: {
+      return {
+        ...state,
+        userToFind: action.payload,
+      };
+    }
+    case SHOW_USER_TO_COACH: {
+      return {
+        ...state,
+        userToShow: state.userList.filter(
+          (user) => user._id === action.payload
+        ),
       };
     }
     default: {
