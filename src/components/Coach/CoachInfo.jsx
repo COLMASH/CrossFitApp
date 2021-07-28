@@ -1,14 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react"
+import { useEffect } from "react";
 import { getCoach } from "../../store/selectCoachReducer";
 import CoachUpdateInformation from "./CoachUpdateInformation";
 
 function CoachInfo() {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getCoach())
-    }, [])
-    
+    dispatch(getCoach());
+  }, []);
+
   const { coach } = useSelector((state) => {
     return {
       coach: state.selectCoachReducer.coach,
@@ -48,7 +49,7 @@ function CoachInfo() {
                 <h2 className="mb-0"> Birthday: </h2>
               </div>
               <div className="col-sm-9">
-                {new Date(coach.birthday+"GMT-5:00").toDateString()}
+                {new Date(coach.birthday + "GMT-5:00").toDateString()}
               </div>
             </div>
             <hr />

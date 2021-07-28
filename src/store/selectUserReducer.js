@@ -31,7 +31,6 @@ const initialState = {
   userToShow: {},
   userWods: {},
   wodToSuscribe: "",
-
 };
 
 export function getUserWod() {
@@ -229,7 +228,9 @@ export function findUserToShow(userId) {
       type: SHOW_USER_TO_COACH,
       payload: userId,
     });
-    
+  };
+}
+
 export function assignWodToSuscribe(id) {
   return async function (dispatch) {
     try {
@@ -380,7 +381,8 @@ function reducer(state = initialState, action) {
         userToShow: state.userList.filter(
           (user) => user._id === action.payload
         ),
-
+      };
+    }
     case ASSIGN_WOD_TO_SUSCRIBE: {
       return {
         ...state,
@@ -409,7 +411,6 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: state.user.wods.filter((wod) => wod._id !== action.payload._id),
-
       };
     }
     default: {
