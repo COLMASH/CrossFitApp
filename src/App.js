@@ -14,9 +14,9 @@ import UsersView from "./pages/UsersView";
 import TrainingSetupView from "./pages/TrainingSetupView";
 import WodFactoryView from "./pages/WodFactoryView";
 import UserSuscribeWod from "./pages/UserSuscribeWod";
+import UserWodReservations from "./pages/UserWodReservations";
 
 function App() {
-
   return (
     <Router>
       <Switch>
@@ -32,6 +32,11 @@ function App() {
         <Route exact path="/TrainingSetup" component={TrainingSetupView} />
         <Route exact path="/WodFactoryView" component={WodFactoryView} />
         <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} />
+        <Route
+          exact
+          path="/UserWodReservations"
+          component={UserWodReservations}
+        />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>

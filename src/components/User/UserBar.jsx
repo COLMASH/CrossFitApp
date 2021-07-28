@@ -11,28 +11,19 @@ function UserBar() {
     <nav>
       <div className="userNavContainer d-grid gap-3">
         <Link
-          to="/Reservations"
-          className="userLinkButton btn btn-primary link"
-        >
-          <strong>YOUR RESERVATIONS</strong>
-        </Link>
-        <Link
           to="/UserSuscribeWod"
           className="userLinkButton btn btn-primary link"
         >
           <strong>SUSCRIBE WODs</strong>
         </Link>
-        <Link to="/UserWods" className="userLinkButton btn btn-primary link">
-          <strong>YOUR WODs</strong>
+        <Link
+          to="/UserWodReservations"
+          className="userLinkButton btn btn-primary link"
+        >
+          <strong>YOUR RESERVATIONS</strong>
         </Link>
         <Link to="/Performance" className="userLinkButton btn btn-primary link">
           <strong>YOUR PERFORMANCE</strong>
-        </Link>
-        <Link
-          to="/UserPayments"
-          className="userLinkButton btn btn-primary link"
-        >
-          <strong>PAYMENTS</strong>
         </Link>
         <button
           type="button"

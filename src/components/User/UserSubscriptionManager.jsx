@@ -1,4 +1,23 @@
+import { useSelector, useDispatch } from "react-redux";
+import {
+  userWodSuscription,
+  clearUserToSuscribe,
+} from "../../store/selectUserReducer";
+import React, { useEffect } from "react";
+
 function UserSuscriptionManager() {
+  const dispatch = useDispatch();
+  const { wodToSuscribe } = useSelector((state) => {
+    return {
+      wodToSuscribe: state.selectUserReducer.wodToSuscribe,
+    };
+  });
+
+  const handleSuscribe = () => {
+    dispatch(userWodSuscription(wodToSuscribe));
+    // dispatch(clearUserToSuscribe());
+  };
+
   return (
     <div>
       <div>
@@ -7,7 +26,7 @@ function UserSuscriptionManager() {
             <button
               type="button"
               className="homeButton btn btn-primary btn-sm"
-              // onClick={handleDelete}
+              onClick={handleSuscribe}
             >
               SUSCRIBE
             </button>

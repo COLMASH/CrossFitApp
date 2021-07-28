@@ -1,32 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { assignWodToSuscribe } from "../../store/selectUserReducer";
-import { getAllWod } from "../../store/selectWodReducer";
+import { getUserWod } from "../../store/selectUserReducer";
 
-function UserGeneralWodList() {
+function UserReservationList() {
   const [checkedValue, setIsChecked] = useState("");
   const dispatch = useDispatch();
 
-  const handleSelect = (id) => {
-    setIsChecked(id);
-    dispatch(assignWodToSuscribe(id));
-  };
+  // const handleSelect = (id) => {
+  //   setIsChecked(id);
+  //   dispatch(assignWodToSuscribe(id));
+  // };
 
-  const { wod } = useSelector((state) => {
+  const { userWods } = useSelector((state) => {
     return {
-      wod: state.selectWodReducer.wod,
+      userWods: state.selectUserReducer.userWods,
+    };
+  });
+
+  const { user } = useSelector((state) => {
+    return {
+      user: state.selectUserReducer.user,
     };
   });
 
   useEffect(() => {
-    dispatch(getAllWod());
+    dispatch(getUserWod());
   }, []);
 
-  const renderWodsTable = () => {
+  // console.log(userWods); ///////////////////////////////////////////////
+  console.log(user); ///////////////////////////////////////////////
+
+  const renderUserWodsTable = () => {
     return (
-      !!wod &&
-      wod.length > 0 &&
-      wod.map((wod) => (
+      !!userWods.wods &&
+      userWods.wods.length > 0 &&
+      userWods.wods.map((wod) => (
         <tr key={wod._id}>
           <th>
             <input
@@ -34,7 +43,7 @@ function UserGeneralWodList() {
               id={wod._id}
               name="wodToSelect"
               value={wod._id}
-              onChange={(e) => handleSelect(e.target.value)}
+              // onChange={(e) => handleSelect(e.target.value)}
             />
           </th>
           <td>
@@ -82,9 +91,9 @@ function UserGeneralWodList() {
           <th>Notes</th>
         </tr>
       </thead>
-      <tbody>{renderWodsTable()}</tbody>
+      <tbody>{renderUserWodsTable()}</tbody>
     </table>
   );
 }
 
-export default UserGeneralWodList;
+export default UserReservationList;
