@@ -90,22 +90,3 @@
 .mb-0 {
   font-size: 16px;
 }
-
-<<<<<<< HEAD
-=======
-.news-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.user-blockManager {
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  font-family: Tahoma, Verdana, Helvetica, sans-serif;
-  font-weight: bolder;
-  color: #ffffff;
-}
->>>>>>> ms-userWodsViewFE
