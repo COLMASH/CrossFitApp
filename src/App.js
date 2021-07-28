@@ -13,7 +13,7 @@ import CoachesView from "./pages/CoachesView";
 import UsersView from "./pages/UsersView";
 import TrainingSetupView from "./pages/TrainingSetupView";
 import WodFactoryView from "./pages/WodFactoryView";
-// import UserSuscribeWod from "./pages/UserSuscribeWod";
+import UserSuscribeWod from "./pages/UserSuscribeWod";
 import UserWodReservations from "./pages/UserWodReservations";
 
 function App() {
@@ -31,7 +31,7 @@ function App() {
         <Route exact path="/UsersView" component={UsersView} />
         <Route exact path="/TrainingSetup" component={TrainingSetupView} />
         <Route exact path="/WodFactoryView" component={WodFactoryView} />
-        {/* <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} /> */}
+        <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} />
         <Route
           exact
           path="/UserWodReservations"

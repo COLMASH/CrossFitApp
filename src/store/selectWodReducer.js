@@ -248,7 +248,7 @@ function reducer(state = initialState, action) {
     case GET_WOD_LIST: {
       return {
         ...state,
-        wodList: action.payload,
+        wod: action.payload,
       };
     }
     case CREATE_NEW_WOD: {

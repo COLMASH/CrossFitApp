@@ -1,14 +1,14 @@
 .mainUser {
   padding: 20px;
-	display: flex;
+  display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
 .user-blockNavInfo {
   display: flex;
-	flex-direction: column;
-	justify-content: center;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .user-container {
@@ -19,30 +19,30 @@
 }
 
 .user-blockInfo {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card1 {
-	padding: 10px;
-	margin: 10px;
+  padding: 10px;
+  margin: 10px;
   color: #fff;
-	background: rgba(0, 0, 0, 0.9);
-	background-clip: border-box;
-	border: 0 solid rgba(235, 224, 224, 0.125);
-	border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.9);
+  background-clip: border-box;
+  border: 0 solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
 }
 
 .userCard {
-	padding: 10px;
-	margin: 5px;
-	width: 500px;
+  padding: 10px;
+  margin: 5px;
+  width: 500px;
   color: #fff;
-	background: rgba(0, 0, 0, 0.9);
-	background-clip: border-box;
-	border: 0 solid rgba(235, 224, 224, 0.125);
-	border-radius: 0.25rem;
+  background: rgba(0, 0, 0, 0.9);
+  background-clip: border-box;
+  border: 0 solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
 }
 
 .card1-body {
@@ -51,44 +51,61 @@
   padding: 1rem;
 }
 
-
 .userNavContainer {
-	padding: 20px;
+  padding: 20px;
 }
 
 .userLinkButton.userLinkButton.userLinkButton {
-	height: 40px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
-	background-color: #40403e;
-	border: cornsilk;
-	font-family: "Courier New", Courier, monospace;
-	font-weight: bolder;
-	color: #ffffff;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
 }
 
 .userLinkButton.userLinkButton.userLinkButton:hover {
-	background-color: white;
-	color: black;
+  background-color: white;
+  color: black;
 }
 
 .userButton.userButton.userButton {
-	height: 40px;
-	background-color: #40403e;
-	border: cornsilk;
-	font-family: "Courier New", Courier, monospace;
-	font-weight: bolder;
-	color: #ffffff;
+  height: 40px;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
 }
 
 .userButton.userButton.userButton:hover {
-	background-color: white;
-	color: black;
+  background-color: white;
+  color: black;
 }
 
 .mb-0 {
   font-size: 16px;
 }
 
+<<<<<<< HEAD
+=======
+.news-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-blockManager {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #ffffff;
+}
+>>>>>>> ms-userWodsViewFE
