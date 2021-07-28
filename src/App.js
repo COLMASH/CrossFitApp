@@ -15,12 +15,17 @@ import TrainingSetupView from "./pages/TrainingSetupView";
 import WodFactoryView from "./pages/WodFactoryView";
 import NewsView from "./pages/NewsView";
 import coachUserView from "./pages/CoachUsersView"
+import UserSuscribeWod from "./pages/UserSuscribeWod";
+import UserWodReservations from "./pages/UserWodReservations";
+
+
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/NewsView" component={MainNews} />
         <Route exact path="/MainAdmin" component={MainAdmin} />
         <Route exact path="/MainCoach" component={MainCoach} />
         <Route exact path="/CreateWod" component={CreateWod} />
@@ -33,6 +38,13 @@ function App() {
         <Route exact path="/WodFactoryView" component={WodFactoryView} />
         <Route exact path="/NewsView" component={NewsView} />
         <Route exact path="/coachUserView" component={coachUserView} />
+        <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} />
+        <Route
+          exact
+          path="/UserWodReservations"
+          component={UserWodReservations}
+        />
+
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>
