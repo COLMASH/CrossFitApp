@@ -8,10 +8,6 @@ function SeeUserProfile() {
       userToShow: state.selectUserReducer.userToShow,
     }
   })
-  // useEffect(() => {
-  //   dispatch()
-  // })
-console.log(userToShow)
   return (
     <form
       onSubmit={(e) => {
