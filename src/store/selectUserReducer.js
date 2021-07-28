@@ -5,6 +5,8 @@ import {
   userSignIn,
   userUpdate,
   updateUserProfilePic,
+  getUserWods,
+  userSuscribe,
 } from "./user/services";
 import Swal from "sweetalert2";
 export const GET_USER = "GET_USER";
@@ -13,11 +15,32 @@ export const USER_SIGN_IN = "USER_SIGN_IN";
 export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
 export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 export const CREATE_NEW_USER = "CREATE_NEW_USER";
+export const ASSIGN_WOD_TO_SUSCRIBE = "ASSIGN_WOD_TO_SUSCRIBE";
+export const GET_USER_WODS = "GET_USER_WODS";
+export const CLEAR_USER_TO_SUSCRIBE = "CLEAR_USER_TO_SUSCRIBE";
+export const USER_SUSCRIBE = "USER_SUSCRIBE";
 
 const initialState = {
   user: {},
   userList: {},
+  userWods: {},
+  wodToSuscribe: "",
 };
+
+export function getUserWod() {
+  return async function (dispatch) {
+    try {
+      let authorizationToken = localStorage.getItem("token");
+      const { data } = await getUserWods(authorizationToken);
+      dispatch({
+        type: GET_USER_WODS,
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
 
 export function getUser() {
   return async function (dispatch) {
@@ -116,26 +139,15 @@ export function updateUserProfileInfo(
   };
 }
 
-export function createNewUser(
-  name,
-  lastname,
-  dniType,
-  dni,
-  email,
-  phone,
-  birthday,
-  password
-) {
+export function createNewUser(name, lastname, email, address, phone, password) {
   return async function (dispatch) {
     try {
       const { data } = await userRegister(
         name,
         lastname,
-        dniType,
-        dni,
         email,
+        address,
         phone,
-        birthday,
         password
       );
       dispatch({
@@ -195,18 +207,69 @@ export function updateProfilePic(file) {
   };
 }
 
+export function assignWodToSuscribe(id) {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: ASSIGN_WOD_TO_SUSCRIBE,
+        payload: id,
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function clearUserToSuscribe() {
+  return async function (dispatch) {
+    try {
+      dispatch({
+        type: CLEAR_USER_TO_SUSCRIBE,
+        payload: "",
+      });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+}
+
+export function userWodSuscription(wodToSuscribe) {
+  return async function (dispatch) {
+    try {
+      const authorizationToken = localStorage.getItem("token");
+      const { data: dataUpdate } = await userSuscribe(
+        authorizationToken,
+        wodToSuscribe
+      );
+      console.log(dataUpdate); //////////////////////////////////////////////////
+      dispatch({
+        type: USER_SUSCRIBE,
+        payload: dataUpdate,
+      });
+      Swal.fire({
+        title: "Confirmation",
+        icon: "success",
+        text: `Your reservation has been created successfully! 💾`,
+        button: "OK",
+      });
+    } catch (error) {
+      Swal.fire({
+        title: "Oops...",
+        icon: "error",
+        text: "Something went wrong",
+        button: "OK",
+      });
+      console.log(error.message);
+    }
+  };
+}
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
       return {
         ...state,
         user: action.payload,
-      };
-    }
-    case GET_USER_LIST: {
-      return {
-        ...state,
-        userList: action.payload,
       };
     }
     case GET_USER_LIST: {
@@ -234,6 +297,30 @@ function reducer(state = initialState, action) {
       };
     }
     case UPDATE_USER_PROFILE_INFO: {
+      return {
+        ...state,
+        user: action.payload,
+      };
+    }
+    case ASSIGN_WOD_TO_SUSCRIBE: {
+      return {
+        ...state,
+        wodToSuscribe: action.payload,
+      };
+    }
+    // case CLEAR_USER_TO_SUSCRIBE: {
+    //   return {
+    //     ...state,
+    //     wodToSuscribe: action.payload,
+    //   };
+    // }
+    case GET_USER_WODS: {
+      return {
+        ...state,
+        userWods: action.payload,
+      };
+    }
+    case USER_SUSCRIBE: {
       return {
         ...state,
         user: action.payload,

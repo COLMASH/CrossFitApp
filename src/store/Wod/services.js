@@ -8,17 +8,13 @@ export async function getWodList() {
 }
 
 export async function getWodInfo(token) {
-  try {
-    return await axios({
-      method: "GET",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-      url: `http://localhost:8000/wod/wodInfo`,
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+    url: `http://localhost:8000/wod/wodInfo`,
+  });
 }
 
 export async function wodCreation(
@@ -36,31 +32,27 @@ export async function wodCreation(
   endDate,
   notes
 ) {
-  try {
-    return await axios({
-      method: "POST",
-      url: "http://localhost:8000/wod/wodCreate",
-      data: {
-        activity,
-        modality,
-        exercice1,
-        exercice2,
-        exercice3,
-        repetition1,
-        repetition2,
-        repetition3,
-        capacity,
-        startDate,
-        endDate,
-        notes,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "POST",
+    url: "http://localhost:8000/wod/wodCreate",
+    data: {
+      activity,
+      modality,
+      exercice1,
+      exercice2,
+      exercice3,
+      repetition1,
+      repetition2,
+      repetition3,
+      capacity,
+      startDate,
+      endDate,
+      notes,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 }
 
 export async function wodUpdate(
@@ -78,29 +70,25 @@ export async function wodUpdate(
   endDate,
   notes
 ) {
-  try {
-    return await axios({
-      method: "PUT",
-      url: "http://localhost:8000/wod/wodUpdate",
-      data: {
-        wodId,
-        activity,
-        modality,
-        exercice1,
-        exercice2,
-        exercice3,
-        repetition1,
-        repetition2,
-        repetition3,
-        capacity,
-        startDate,
-        endDate,
-        notes,
-      },
-    });
-  } catch (error) {
-    console.log(error.message);
-  }
+  return await axios({
+    method: "PUT",
+    url: "http://localhost:8000/wod/wodUpdate",
+    data: {
+      wodId,
+      activity,
+      modality,
+      exercice1,
+      exercice2,
+      exercice3,
+      repetition1,
+      repetition2,
+      repetition3,
+      capacity,
+      startDate,
+      endDate,
+      notes,
+    },
+  });
 }
 
 export async function destroyWod(wodId) {
