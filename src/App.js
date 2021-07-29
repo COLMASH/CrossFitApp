@@ -17,6 +17,7 @@ import UserSuscribeWod from "./pages/UserSuscribeWod";
 import UserWodReservations from "./pages/UserWodReservations";
 import NewsView from "./pages/NewsView";
 import PaymentsView from "./pages/PaymentsView";
+import coachUserView from "./pages/CoachUsersView";
 
 function App() {
   return (
