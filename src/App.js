@@ -17,6 +17,7 @@ import NewsView from "./pages/NewsView";
 import coachUserView from "./pages/CoachUsersView";
 import UserSuscribeWod from "./pages/UserSuscribeWod";
 import UserWodReservations from "./pages/UserWodReservations";
+import PaymentsView from "./pages/PaymentsView";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           path="/UserWodReservations"
           component={UserWodReservations}
         />
+        <Route exact path="/PaymentsView" component={PaymentsView} />
 
         <Route exact path="*" component={NotFound} />
       </Switch>

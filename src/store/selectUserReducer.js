@@ -24,6 +24,7 @@ export const GET_USER_WODS = "GET_USER_WODS";
 export const CLEAR_USER_TO_SUSCRIBE = "CLEAR_USER_TO_SUSCRIBE";
 export const USER_SUSCRIBE = "USER_SUSCRIBE";
 export const USER_UNSUSCRIBE = "USER_UNSUSCRIBE";
+export const ASSIGN_PLAN_TO_PAY = "ASSIGN_PLAN_TO_PAY";
 
 const initialState = {
   user: {},
@@ -31,6 +32,7 @@ const initialState = {
   userToShow: {},
   userWods: {},
   wodToSuscribe: "",
+  planToPay: "",
 };
 
 export function getUserWod() {
@@ -330,6 +332,15 @@ export function userWodUnsuscription(wodToUnsuscribe) {
   };
 }
 
+export function assignPlanToPay(planToPay) {
+  return async function (dispatch) {
+    dispatch({
+      type: ASSIGN_PLAN_TO_PAY,
+      payload: planToPay,
+    });
+  };
+}
+
 function reducer(state = initialState, action) {
   switch (action.type) {
     case GET_USER: {
@@ -411,6 +422,12 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: state.user.wods.filter((wod) => wod._id !== action.payload._id),
+      };
+    }
+    case ASSIGN_PLAN_TO_PAY: {
+      return {
+        ...state,
+        planToPay: action.payload,
       };
     }
     default: {

@@ -25,6 +25,12 @@ function UserBar() {
         <Link to="/Performance" className="userLinkButton btn btn-primary link">
           <strong>YOUR PERFORMANCE</strong>
         </Link>
+        <Link
+          to="/PaymentsView"
+          className="userLinkButton btn btn-primary link"
+        >
+          <strong>PAYMENTS</strong>
+        </Link>
         <button
           type="button"
           onClick={Logout}
