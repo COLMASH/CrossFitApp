@@ -28,7 +28,7 @@ function UserSuscribeWod() {
         <div>
           <UserSuscriptionManager />
           <br />
-          <h3>All Active Wods</h3>
+          <h3 style={{ color: "white" }}>All Active Wods</h3>
           <UserGeneralWodList />
         </div>
       </div>

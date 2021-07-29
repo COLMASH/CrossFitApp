@@ -51,8 +51,8 @@ function WodList() {
             {!!wod.repetition3 && `(${wod.repetition3})`}
           </td>
           <td>{wod.capacity}</td>
-          <td>{new Date(wod.startDate).toUTCString()}</td>
-          <td>{new Date(wod.endDate).toUTCString()}</td>
+          <td>{new Date(wod.startDate).toString()}</td>
+          <td>{new Date(wod.endDate).toString()}</td>
           <td>{wod.notes}</td>
         </tr>
       ))

@@ -15,14 +15,14 @@ import TrainingSetupView from "./pages/TrainingSetupView";
 import WodFactoryView from "./pages/WodFactoryView";
 import UserSuscribeWod from "./pages/UserSuscribeWod";
 import UserWodReservations from "./pages/UserWodReservations";
-import MainNews from "./pages/NewsView";
+import NewsView from "./pages/NewsView";
 
 function App() {
   return (
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route exact path="/NewsView" component={MainNews} />
+        <Route exact path="/NewsView" component={NewsView} />
         <Route exact path="/MainAdmin" component={MainAdmin} />
         <Route exact path="/MainCoach" component={MainCoach} />
         <Route exact path="/CreateWod" component={CreateWod} />
