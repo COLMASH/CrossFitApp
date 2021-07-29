@@ -16,10 +16,8 @@ import WodFactoryView from "./pages/WodFactoryView";
 import UserSuscribeWod from "./pages/UserSuscribeWod";
 import UserWodReservations from "./pages/UserWodReservations";
 import NewsView from "./pages/NewsView";
-import coachUserView from "./pages/CoachUsersView";
-import UserSuscribeWod from "./pages/UserSuscribeWod";
-import UserWodReservations from "./pages/UserWodReservations";
 import PaymentsView from "./pages/PaymentsView";
+import coachUserView from "./pages/CoachUsersView";
 
 function App() {
   return (
