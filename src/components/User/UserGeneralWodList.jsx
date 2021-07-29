@@ -17,6 +17,7 @@ function UserGeneralWodList() {
       wod: state.selectWodReducer.wod,
     };
   });
+
   const { user } = useSelector((state) => {
     return {
       user: state.selectUserReducer.user,

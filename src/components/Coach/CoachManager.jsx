@@ -18,7 +18,7 @@ function CoachManager() {
   return (
     <div>
       <div>
-        <div class="btn-group" role="group">
+        <div className="btn-group" role="group">
           <label>
             <button
               type="button"
@@ -30,7 +30,7 @@ function CoachManager() {
             </button>
           </label>
           <label>
-            <button type="button" class="admins-Button" onClick={handleDelete}>
+            <button type="button" className="admins-Button" onClick={handleDelete}>
               DELETE COACH
             </button>
           </label>

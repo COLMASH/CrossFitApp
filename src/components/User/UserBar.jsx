@@ -13,6 +13,7 @@ function UserBar() {
         <Link to="/MainUser" className="adminLinkButton btn btn-primary link">
           <strong>PROFILE</strong>
         </Link>
+
         <Link
           to="/UserSuscribeWod"
           className="userLinkButton btn btn-primary link"

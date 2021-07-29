@@ -16,6 +16,8 @@ export const USER_SIGN_IN = "USER_SIGN_IN";
 export const UPDATE_USER_PROFILE_PIC = "UPDATE_PROFILE_PIC";
 export const UPDATE_USER_PROFILE_INFO = "UPDATE_PROFILE_INFO";
 export const CREATE_NEW_USER = "CREATE_NEW_USER";
+export const ASSIGN_USER_TO_FIND = "ASSIGN_USER_TO_FIND";
+export const SHOW_USER_TO_COACH = "SHOW_USER_TO_COACH";
 export const ASSIGN_WOD_TO_SUSCRIBE = "ASSIGN_WOD_TO_SUSCRIBE";
 export const ASSIGN_WOD_TO_UNSUSCRIBE = "ASSIGN_WOD_TO_UNSUSCRIBE";
 export const GET_USER_WODS = "GET_USER_WODS";
@@ -26,6 +28,7 @@ export const USER_UNSUSCRIBE = "USER_UNSUSCRIBE";
 const initialState = {
   user: {},
   userList: {},
+  userToShow: {},
   userWods: {},
   wodToSuscribe: "",
 };
@@ -210,6 +213,24 @@ export function updateProfilePic(file) {
   };
 }
 
+export function assignUserToFind(userId) {
+  return async function (dispatch) {
+    dispatch({
+      type: ASSIGN_USER_TO_FIND,
+      payload: userId,
+    });
+  };
+}
+
+export function findUserToShow(userId) {
+  return async function (dispatch) {
+    dispatch({
+      type: SHOW_USER_TO_COACH,
+      payload: userId,
+    });
+  };
+}
+
 export function assignWodToSuscribe(id) {
   return async function (dispatch) {
     try {
@@ -248,6 +269,7 @@ export function clearUserToSuscribe() {
     }
   };
 }
+
 export function userWodSuscription(wodToSuscribe) {
   return async function (dispatch) {
     try {
@@ -360,6 +382,21 @@ function reducer(state = initialState, action) {
       return {
         ...state,
         user: action.payload,
+      };
+    }
+
+    case ASSIGN_USER_TO_FIND: {
+      return {
+        ...state,
+        userToFind: action.payload,
+      };
+    }
+    case SHOW_USER_TO_COACH: {
+      return {
+        ...state,
+        userToShow: state.userList.filter(
+          (user) => user._id === action.payload
+        ),
       };
     }
     case ASSIGN_WOD_TO_SUSCRIBE: {
