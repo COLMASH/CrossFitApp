@@ -36,12 +36,7 @@ function App() {
         <Route exact path="/NewsView" component={NewsView} />
         <Route exact path="/coachUserView" component={coachUserView} />
         <Route exact path="/UserSuscribeWod" component={UserSuscribeWod} />
-        <Route
-          exact
-          path="/UserWodReservations"
-          component={UserWodReservations}
-        />
-
+        <Route exact path="/UserWodReservations" component={UserWodReservations} />
         <Route exact path="*" component={NotFound} />
       </Switch>
     </Router>
