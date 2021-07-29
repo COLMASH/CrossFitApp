@@ -278,16 +278,32 @@ export function userWodSuscription(wodToSuscribe) {
         authorizationToken,
         wodToSuscribe
       );
-      dispatch({
-        type: USER_SUSCRIBE,
-        payload: dataUpdate,
-      });
-      Swal.fire({
-        title: "Confirmation",
-        icon: "success",
-        text: `Your reservation has been created successfully! 💾`,
-        button: "OK",
-      });
+      if (dataUpdate === "full") {
+        Swal.fire({
+          title: "Sorry...",
+          icon: "warning",
+          text: "Wod is already full 👥",
+          button: "OK",
+        });
+      } else if (dataUpdate === "already") {
+        Swal.fire({
+          title: "...",
+          icon: "question",
+          text: "Wod is already suscribed 🤦‍♂️",
+          button: "OK",
+        });
+      } else {
+        dispatch({
+          type: USER_SUSCRIBE,
+          payload: dataUpdate,
+        });
+        Swal.fire({
+          title: "Confirmation",
+          icon: "success",
+          text: `Your reservation has been created successfully! 💾`,
+          button: "OK",
+        });
+      }
     } catch (error) {
       Swal.fire({
         title: "Oops...",

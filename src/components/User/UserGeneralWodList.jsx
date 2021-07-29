@@ -18,9 +18,15 @@ function UserGeneralWodList() {
     };
   });
 
+  const { user } = useSelector((state) => {
+    return {
+      user: state.selectUserReducer.user,
+    };
+  });
+
   useEffect(() => {
     dispatch(getAllWod());
-  }, []);
+  }, [user.wods]);
 
   const renderWodsTable = () => {
     return (
@@ -57,9 +63,12 @@ function UserGeneralWodList() {
             {!!wod.exercice3 && ` - ${wod.exercice3}`}
             {!!wod.repetition3 && `(${wod.repetition3})`}
           </td>
-          <td>{wod.capacity}</td>
-          <td>{new Date(wod.startDate).toUTCString()}</td>
-          <td>{new Date(wod.endDate).toUTCString()}</td>
+          <td>
+            {`${wod.users.length}(${wod.capacity})`}
+            {wod.users.length === wod.capacity && `FULL!!!`}
+          </td>
+          <td>{new Date(wod.startDate).toString()}</td>
+          <td>{new Date(wod.endDate).toString()}</td>
           <td>{wod.notes}</td>
         </tr>
       ))
@@ -76,7 +85,7 @@ function UserGeneralWodList() {
           <th>Activity</th>
           <th>Modality</th>
           <th>Exercices (Reps)</th>
-          <th>Capacity</th>
+          <th>Users Suscribed (Wod Capacity)</th>
           <th>Start</th>
           <th>Finish</th>
           <th>Notes</th>

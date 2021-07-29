@@ -1,19 +1,12 @@
 import UserProfile from "../components/User/UserProfile";
 import UserBar from "../components/User/UserBar";
-import { useDispatch } from "react-redux";
-import React, { useEffect } from "react";
+import React from "react";
 import UserReservationsManager from "../components/User/UserReservationsManager";
 import UserReservationList from "../components/User/UserReservationList";
-import { getUser } from "../store/selectUserReducer";
 
 import "../styles/MainUser.css";
 
 function UserSuscribeWod() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getUser());
-  }, []);
-
   return (
     <div>
       <div className="mainUser">
@@ -29,7 +22,7 @@ function UserSuscribeWod() {
           <div>
             <UserReservationsManager />
             <br />
-            <h3>Your Reservations</h3>
+            <h3 style={{ color: "white" }}>Your Reservations</h3>
             <UserReservationList />
           </div>
         </div>
