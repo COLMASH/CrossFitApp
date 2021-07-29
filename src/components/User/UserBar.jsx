@@ -10,6 +10,10 @@ function UserBar() {
   return (
     <nav>
       <div className="userNavContainer d-grid gap-3">
+        <Link to="/MainUser" className="adminLinkButton btn btn-primary link">
+          <strong>PROFILE</strong>
+        </Link>
+
         <Link
           to="/UserSuscribeWod"
           className="userLinkButton btn btn-primary link"
@@ -24,6 +28,12 @@ function UserBar() {
         </Link>
         <Link to="/Performance" className="userLinkButton btn btn-primary link">
           <strong>YOUR PERFORMANCE</strong>
+        </Link>
+        <Link
+          to="/PaymentsView"
+          className="userLinkButton btn btn-primary link"
+        >
+          <strong>PAYMENTS</strong>
         </Link>
         <button
           type="button"

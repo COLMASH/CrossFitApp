@@ -51,23 +51,19 @@ export async function userRegister(
   phone,
   password
 ) {
-  try {
-    return await axios({
-      method: "POST",
-      baseURL: "http://localhost:8000",
-      url: "/user/signup",
-      data: {
-        name,
-        lastname,
-        email,
-        address,
-        phone,
-        password,
-      },
-    });
-  } catch {
-    console.log("hola");
-  }
+  return await axios({
+    method: "POST",
+    baseURL: "http://localhost:8000",
+    url: "/user/signup",
+    data: {
+      name,
+      lastname,
+      email,
+      address,
+      phone,
+      password,
+    },
+  });
 }
 
 export async function userUpdate(
