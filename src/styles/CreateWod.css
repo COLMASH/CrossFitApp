@@ -51,3 +51,14 @@
 .notes-container {
   width: 100%;
 }
+
+.deleteButton {
+  padding: 20px;
+  display: flex;
+}
+
+.buttonContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}

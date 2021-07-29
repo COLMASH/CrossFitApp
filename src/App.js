@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
 import MainAdmin from "./pages/MainAdmin";
 import MainCoach from "./pages/MainCoach";
-import CreateWod from "./pages/CreateWod";
+import CreateWodView from "./pages/CreateWodView";
 import MainUser from "./pages/MainUser";
 import WodUser from "./pages/Wod";
 import AdminsView from "./pages/AdminsView";
@@ -28,7 +28,7 @@ function App() {
         <Route exact path="/NewsView" component={NewsView} />
         <Route exact path="/MainAdmin" component={MainAdmin} />
         <Route exact path="/MainCoach" component={MainCoach} />
-        <Route exact path="/CreateWod" component={CreateWod} />
+        <Route exact path="/CreateWodView" component={CreateWodView} />
         <Route exact path="/MainUser" component={MainUser} />
         <Route exact path="/WodUser" component={WodUser} />
         <Route exact path="/AdminsView" component={AdminsView} />

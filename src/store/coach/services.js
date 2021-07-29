@@ -112,13 +112,3 @@ export async function updateCoachProfilePic(token, data) {
     console.log(error.message);
   }
 }
-
-export async function getUserToShow(userId) {
-  console.log(userId)
-  return await axios({
-    method: "GET",
-    baseURL: "http://localhost:8000",
-    url: "/user/userToShow",
-    data: {userId},
-  })
-}
