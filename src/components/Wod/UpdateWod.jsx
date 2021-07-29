@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { updateWodInfo } from "../../store/selectWodReducer";
 import DatePicker from "react-datepicker";
@@ -7,8 +7,21 @@ import {
   clearWodToUpdate,
   clearWodToDelete,
 } from "../../store/selectWodReducer";
+import {
+	getAllActivities,
+	getAllModalities,
+	getAllExercises,
+} from "../../store/selectAdminReducer";
 
 function UpdateWod() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+		dispatch(getAllActivities());
+		dispatch(getAllModalities());
+		dispatch(getAllExercises());
+	}, []);
+
   const [activity, setActivity] = useState("");
   const [modality, setModality] = useState("");
   const [exercice1, setExercice1] = useState("");
@@ -21,7 +34,14 @@ function UpdateWod() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [notes, setNotes] = useState("");
-  const dispatch = useDispatch();
+	
+  const { activityList, modalityList, exerciseList } = useSelector((state) => {
+		return {
+			activityList: state.selectAdminReducer.activityList,
+			modalityList: state.selectAdminReducer.modalityList,
+			exerciseList: state.selectAdminReducer.exerciseList,
+		};
+	});
 
   const { wodToUpdate } = useSelector((state) => {
     return {
@@ -82,258 +102,204 @@ function UpdateWod() {
             </div>
             <div className="modal-body">
               <div>
-                <h6>
-                  <strong> Activity: </strong>
-                </h6>
+              <label htmlFor="activity">
+									<strong>
+										<h6> Activity </h6>
+									</strong>
+								</label>
               </div>
               <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setActivity(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="Crossfit">Crossfit</option>
-                <option value="Running">Running</option>
-                <option value="Gymnastics">Gymnastics</option>
-                <option value="Weightlifting">Weightlifting</option>
-              </select>
+								id="activity"
+								name="activity"
+								class="form-select form-select-sm"
+								aria-label=".form-select-sm example"
+								onChange={(e) => setActivity(e.target.value)}
+							>
+								<option selected>Choose...</option>
+								{!!activityList &&
+									activityList.length > 0 &&
+									activityList.map((activity) => (
+										<option value={activity.activity}>
+											{activity.activity}
+										</option>
+									))}
+							</select>
               <div>
-                <h6>
-                  <strong> Modality: </strong>
-                </h6>
+              <label htmlFor="modality">
+									<strong>
+										<h6> Modality </h6>
+									</strong>
+								</label>
               </div>
               <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setModality(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="AMRAP">AMRAP</option>
-                <option value="EMOM">EMOM</option>
-                <option value="FOR TIME">FOR TIME</option>
-                <option value="TABATA">TABATA</option>
-              </select>
+								id="modality"
+								name="modality"
+								class="form-select form-select-sm"
+								aria-label=".form-select-sm example"
+								onChange={(e) => setModality(e.target.value)}
+							>
+								<option selected>Choose...</option>
+								{!!modalityList &&
+									modalityList.length > 0 &&
+									modalityList.map((modality) => (
+										<option value={modality.modality}>
+											{modality.modality}
+										</option>
+									))}
+							</select>
 
               <div>
-                <h6>
-                  <strong> Exercice 1: </strong>
-                </h6>
+              <label htmlFor="exercise1">
+										<strong>
+											<h6> Exercise 1 </h6>
+										</strong>
+									</label>
               </div>
               <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setExercice1(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="400m run">400m run</option>
-                <option value="Air squat">Air squat</option>
-                <option value="Bar muscle up">Bar muscle up</option>
-                <option value="Box jump">Box jump</option>
-                <option value="Burpiee">Burpiee</option>
-                <option value="Chin-up">Chin-up</option>
-                <option value="Pistol">Pistol</option>
-                <option value="Rope climb">Rope climb</option>
-                <option value="Toes to bar">Toes to bar</option>
-                <option value="Back squat">Back squat</option>
-                <option value="Deadlift">Deadlift</option>
-                <option value="Clean">Clean</option>
-                <option value="Snatch">Snatch</option>
-                <option value="Press">Press</option>
-                <option value="Thruster">Thruster</option>
-              </select>
+									id="exercise1"
+									name="exercise1"
+									class="form-select form-select-sm"
+									aria-label=".form-select-sm example"
+									onChange={(e) => setExercice1(e.target.value)}
+								>
+									<option selected>Choose...</option>
+									{!!exerciseList &&
+										exerciseList.length > 0 &&
+										exerciseList.map((exercise) => (
+											<option value={exercise.exercise}>
+												{exercise.exercise}
+											</option>
+										))}
+								</select>
 
               <div>
-                <h6>
-                  <strong> Repetitions (Ex1): </strong>
-                </h6>
+              <label htmlFor="repetition1">
+										<strong>
+											<h6> Repetitions (Ex1) </h6>
+										</strong>
+									</label>
               </div>
-              <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setRepetition1(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-              </select>
+              <input
+									id="repetition1"
+									type="text"
+									name="repetition1"
+									pattern="[0-9]+"
+									placeholder="Write the amount of repetitions ..."
+									className="form-control"
+									onChange={(e) => setRepetition1(e.target.value)}
+									value={repetition1}
+								/>
 
               <div>
-                <h6>
-                  <strong> Exercice 2: </strong>
-                </h6>
+              <label htmlFor="exercise2">
+										<strong>
+											<h6> Exercise 2 </h6>
+										</strong>
+									</label>
               </div>
               <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setExercice2(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="400m run">400m run</option>
-                <option value="Air squat">Air squat</option>
-                <option value="Bar muscle up">Bar muscle up</option>
-                <option value="Box jump">Box jump</option>
-                <option value="Burpiee">Burpiee</option>
-                <option value="Chin-up">Chin-up</option>
-                <option value="Pistol">Pistol</option>
-                <option value="Rope climb">Rope climb</option>
-                <option value="Toes to bar">Toes to bar</option>
-                <option value="Back squat">Back squat</option>
-                <option value="Deadlift">Deadlift</option>
-                <option value="Clean">Clean</option>
-                <option value="Snatch">Snatch</option>
-                <option value="Press">Press</option>
-                <option value="Thruster">Thruster</option>
-              </select>
+									id="exercise2"
+									name="exercise2"
+									class="form-select form-select-sm"
+									aria-label=".form-select-sm example"
+									onChange={(e) => setExercice2(e.target.value)}
+								>
+									<option selected>Choose...</option>
+									{!!exerciseList &&
+										exerciseList.length > 0 &&
+										exerciseList.map((exercise) => (
+											<option value={exercise.exercise}>
+												{exercise.exercise}
+											</option>
+										))}
+								</select>
 
               <div>
-                <h6>
-                  <strong> Repetitions (Ex2): </strong>
-                </h6>
+              <label htmlFor="repetition2">
+										<strong>
+											<h6> Repetitions (Ex2) </h6>
+										</strong>
+									</label>
               </div>
-              <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setRepetition2(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-              </select>
+              <input
+									id="repetition2"
+									type="text"
+									name="repetition2"
+									pattern="[0-9]+"
+									placeholder="Write the amount of repetitions ..."
+									className="form-control"
+									onChange={(e) => setRepetition2(e.target.value)}
+									value={repetition2}
+								/>
 
               <div>
-                <h6>
-                  <strong> Exercice 3: </strong>
-                </h6>
+              <label htmlFor="exercise3">
+										<strong>
+											<h6> Exercise 3 </h6>
+										</strong>
+									</label>
               </div>
               <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setExercice3(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="400m run">400m run</option>
-                <option value="Air squat">Air squat</option>
-                <option value="Bar muscle up">Bar muscle up</option>
-                <option value="Box jump">Box jump</option>
-                <option value="Burpiee">Burpiee</option>
-                <option value="Chin-up">Chin-up</option>
-                <option value="Pistol">Pistol</option>
-                <option value="Rope climb">Rope climb</option>
-                <option value="Toes to bar">Toes to bar</option>
-                <option value="Back squat">Back squat</option>
-                <option value="Deadlift">Deadlift</option>
-                <option value="Clean">Clean</option>
-                <option value="Snatch">Snatch</option>
-                <option value="Press">Press</option>
-                <option value="Thruster">Thruster</option>
-              </select>
+									id="exercise3"
+									name="exercise3"
+									class="form-select form-select-sm"
+									aria-label=".form-select-sm example"
+									onChange={(e) => setExercice3(e.target.value)}
+								>
+									<option selected>Choose...</option>
+									{!!exerciseList &&
+										exerciseList.length > 0 &&
+										exerciseList.map((exercise) => (
+											<option value={exercise.exercise}>
+												{exercise.exercise}
+											</option>
+										))}
+								</select>
 
               <div>
-                <h6>
-                  <strong> Repetitions (Ex3): </strong>
-                </h6>
-              </div>
-              <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setRepetition3(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-              </select>
-
-              <div>
-                <h6>
-                  <strong> Wod capacity (students): </strong>
-                </h6>
-              </div>
-              <select
-                class="form-select form-select-sm"
-                aria-label=".form-select-sm example"
-                onChange={(e) => setCapacity(e.target.value)}
-              >
-                <option selected>Choose...</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-                <option value="11">11</option>
-                <option value="12">12</option>
-                <option value="13">13</option>
-                <option value="14">14</option>
-                <option value="15">15</option>
-                <option value="16">16</option>
-                <option value="17">17</option>
-                <option value="18">18</option>
-                <option value="19">19</option>
-                <option value="20">20</option>
-              </select>
-              <label htmlFor="Start Date">
-                <strong> Start Date: </strong>
+              <label htmlFor="repetition3">
+										<strong>
+											<h6> Repetitions (Ex3) </h6>
+										</strong>
               </label>
+              </div>
+              <input
+									id="repetition3"
+									type="text"
+									name="repetition3"
+									pattern="[0-9]+"
+									placeholder="Write the amount of repetitions ..."
+									className="form-control"
+									onChange={(e) => setRepetition3(e.target.value)}
+									value={repetition3}
+								/>
+
+              <div>
+              <label htmlFor="capacity">
+								<strong>
+									<h6> Wod capacity (students) </h6>
+								</strong>
+							</label>
+              </div>
+              <input
+								id="capacity"
+								type="text"
+								name="capacity"
+								pattern="[0-9]+"
+								placeholder="Write the number of people who can sign up ..."
+								className="form-control"
+								onChange={(e) => setCapacity(e.target.value)}
+								value={capacity}
+							/>
+              <label htmlFor="startDate">
+									<strong>
+										<h6> Start Date </h6>
+									</strong>
+								</label>
               <div>
                 <DatePicker
+                id="startDate"
+                name="startDate"
                   minDate={new Date()}
                   selected={startDate}
                   onChange={(date) => setStartDate(date)}
@@ -341,11 +307,15 @@ function UpdateWod() {
                   dateFormat="MMMM d, yyyy h:mm aa"
                 />
               </div>
-              <label htmlFor="End Date">
-                <strong> End Date: </strong>
-              </label>
+              <label htmlFor="endDate">
+									<strong>
+										<h6> End Date </h6>
+									</strong>
+								</label>
               <div>
                 <DatePicker
+                id="endDate"
+                name="endDate"
                   minDate={new Date()}
                   selected={endDate}
                   onChange={(date) => setEndDate(date)}
@@ -353,13 +323,16 @@ function UpdateWod() {
                   dateFormat="MMMM d, yyyy h:mm aa"
                 />
               </div>
-              <label htmlFor="Notes">
-                <strong> Notes: </strong>
-              </label>
+              <label htmlFor="notes">
+								<strong>
+									<h6> Notes </h6>
+								</strong>
+							</label>
               <textarea
-                id="Notes"
+                id="notes"
                 type="text"
-                name="Notes"
+                name="notes"
+                placeholder="Write some notes..."
                 className="form-control"
                 onChange={(e) => setNotes(e.target.value)}
                 value={notes}

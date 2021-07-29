@@ -20,7 +20,7 @@ function CoachBar() {
         <Link to="/MainCoach" className=" coachLinkButton btn btn-primary link">
           <strong>PROFILE</strong>
         </Link>
-        <Link to="/CreateWod" className="coachLinkButton btn btn-primary link">
+        <Link to="/CreateWodView" className="coachLinkButton btn btn-primary link">
           <strong>CREATE WOD</strong>
         </Link>
         <Link
