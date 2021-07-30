@@ -3,7 +3,7 @@ import axios from "axios";
 export async function getUserList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/user/userList",
   });
 }
@@ -11,7 +11,7 @@ export async function getUserList() {
 export async function userSignIn(email, password) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/user/signin",
     data: {
       email,
@@ -23,17 +23,18 @@ export async function userSignIn(email, password) {
 export async function getUserInfo(token) {
   return await axios({
     method: "GET",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/user/userInfo",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    url: `http://localhost:8000/user/userInfo`,
   });
 }
 
 export async function updateUserProfilePic(token, data) {
   return await axios({
     method: "PUT",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/user/userProfilePic",
     data,
     headers: {
@@ -53,7 +54,7 @@ export async function userRegister(
 ) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/user/signup",
     data: {
       name,
@@ -81,7 +82,7 @@ export async function userUpdate(
 ) {
   return await axios({
     method: "PUT",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/user/userUpdate",
     data: {
       name,
@@ -104,7 +105,8 @@ export async function userUpdate(
 export async function userSuscribe(token, wodId) {
   return await axios({
     method: "PUT",
-    url: "http://localhost:8000/user/userSuscribeWods",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/user/userSuscribeWods",
     data: {
       wodId,
     },
@@ -117,7 +119,8 @@ export async function userSuscribe(token, wodId) {
 export async function userUnsuscribe(token, wodId) {
   return await axios({
     method: "PUT",
-    url: "http://localhost:8000/user/userUnsuscribeWods",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/user/userUnsuscribeWods",
     data: {
       wodId,
     },
@@ -130,9 +133,10 @@ export async function userUnsuscribe(token, wodId) {
 export async function getUserWods(token) {
   return await axios({
     method: "GET",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/user/userWodsList",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    url: `http://localhost:8000/user/userWodsList`,
   });
 }

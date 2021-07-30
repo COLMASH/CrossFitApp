@@ -3,18 +3,18 @@ import axios from "axios";
 export async function getCoachInfo(token) {
   return await axios({
     method: "GET",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/coaches/coachInfo",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    baseURL: "http://localhost:8000",
-    url: "/coaches/coachInfo",
   });
 }
 
 export async function getCoachList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/coaches/coachList",
   });
 }
@@ -32,7 +32,7 @@ export async function coachRegister(
 ) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/coaches/create",
     data: {
       name,
@@ -51,7 +51,7 @@ export async function coachRegister(
 export async function destroyCoach(coachId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/coaches/coachDelete",
     data: { coachId },
   });
@@ -67,27 +67,27 @@ export async function coachUpdate(
   birthday
 ) {
   return await axios({
-      method: "PUT",
-      baseURL: "http://localhost:8000",
-      url: "/coaches/coachUpdate",
-      data: {
-        name,
-        lastname,
-        dniType,
-        dni,
-        phone,
-        birthday,
-      },
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-  }
+    method: "PUT",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/coaches/coachUpdate",
+    data: {
+      name,
+      lastname,
+      dniType,
+      dni,
+      phone,
+      birthday,
+    },
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+}
 
 export async function coachSignIn(email, password) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/coaches/signin",
     data: {
       email,
@@ -100,7 +100,7 @@ export async function updateCoachProfilePic(token, data) {
   try {
     return await axios({
       method: "PUT",
-      baseURL: "http://localhost:8000",
+      baseURL: process.env.REACT_APP_SERVER_URL,
       url: "/coaches/coachProfilePic",
       data,
       headers: {
