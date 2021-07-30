@@ -42,12 +42,6 @@ function CoachBar() {
         >
           <strong>USERS</strong>
         </Link>
-        <Link
-          to="/ScheduleCoach"
-          className="coachLinkButton btn btn-primary link"
-        >
-          <strong>MY SCHEDULE</strong>
-        </Link>
         <button
           type="button"
           onClick={Logout}
