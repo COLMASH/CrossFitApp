@@ -1,0 +1,166 @@
+.mainCoach {
+	padding: 20px;
+	display: flex;
+  flex-direction: row;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .mainCoach {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }  
+}
+
+.coach-blockNavInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.coach-main-body {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.coach-blockInfo {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .coach-blockInfo {
+    width: 100%;
+  }  
+}
+
+@media (max-width: 768px) {
+  .coach-container {
+    width: 100%;
+  }  
+}
+
+.card1 {
+	padding: 10px;
+	margin: 10px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
+}
+
+.coachInfo {
+	padding: 20px;
+	margin: 5px;
+	width: 700px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .coachInfo {
+    width: 100%;
+  }  
+}
+
+.card1-body {
+	flex: 1 1 auto;
+	min-height: 10px;
+	padding: 1rem;
+}
+
+.coachNavContainer {
+	padding: 20px;
+}
+
+.coachLinkButton.coachLinkButton.coachLinkButton {
+	height: 40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background-color: #40403e;
+	border: cornsilk;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bolder;
+	color: #ffffff;
+}
+
+.coachLinkButton.coachLinkButton.coachLinkButton:hover {
+	background-color: white;
+	color: black;
+}
+
+.coachButton.coachButton.coachButton {
+	height: 40px;
+	background-color: #40403e;
+	border: cornsilk;
+	font-family: "Courier New", Courier, monospace;
+	font-weight: bolder;
+	color: #ffffff;
+}
+
+.coachButton.coachButton.coachButton:hover {
+	background-color: white;
+	color: black;
+}
+
+.mb-0 {
+	font-size: 16px;
+}
+
+.coachBar-desktop {
+  display: inline-block;
+}
+
+@media (max-width: 768px){
+  .coachBar-desktop {
+    display: none;
+  }
+}
+
+.coachBar-mobile {
+  display: none;
+}
+
+@media (max-width: 768px){
+  .coachBar-mobile {
+    display: inline-block;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+.coach-menu {
+  display: flex;
+  height: 50px;
+  width: 100%;
+}
+
+.coach-menu-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  text-align: center;
+}
+
+.coach-menu-item:hover {
+  color: black;
+}
+
+.coach-item-content h3 {
+  font-size: 12px;
+}
+
+.phoneButton.phoneButton.phoneButton {
+  background: rgba(0, 0, 0, 0);
+}

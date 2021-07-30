@@ -1,0 +1,47 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.swal2-title {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #aaaaaa;
+}
+
+.swal2-html-container {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+}
+
+.swal2-confirm {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #aaaaaa;
+  background-color: #41464b !important;
+}
+
+.modal-title {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #3b3b3b;
+}
+
+.modal-body {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #3b3b3b;
+}
+.nav-link {
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #3b3b3b;
+}

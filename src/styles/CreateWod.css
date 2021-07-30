@@ -1,0 +1,113 @@
+.mainCreateWod {
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+  .mainCreateWod {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 60px;
+  }  
+}
+
+.containerWodSche {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .containerWodSche {
+    width: 100%;
+    display: flex;
+    
+  }  
+}
+
+.editWod-container {
+  padding: 20px;  
+}
+
+@media (max-width: 768px) {
+  .editWod-container {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+  }  
+}
+
+.editForm-card {
+  padding: 10px;
+	margin: 10px;
+  width: 600px;
+  color: #fff;
+	background: rgba(0, 0, 0, 0.9);
+	background-clip: border-box;
+	border: 0 solid rgba(235, 224, 224, 0.125);
+	border-radius: 0.25rem;
+}
+
+.scheBox {
+  padding: 20px;
+}
+
+.exeRep-container {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.exercise-container {
+  width: 50%;
+  margin: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.repeat-container {
+  width: 50%;
+  margin: 5px;
+}
+
+.notes-container {
+  width: 100%;
+}
+
+.deleteButton {
+  padding: 20px;
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .deleteButton {
+    margin-left: 50px;
+  }  
+}
+
+.buttonContainer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.coach-blockManager {
+  width: 800px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  .coach-blockManager {
+    width: 100%;  
+    margin-left: 10px;
+  }  
+}

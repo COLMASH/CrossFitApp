@@ -1,0 +1,120 @@
+.mainAdmin {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.admin-blockNavInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.admin-main-body {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.admin-blockInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card1 {
+  padding: 10px;
+  margin: 10px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  background-clip: border-box;
+  border: solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
+}
+
+.adminInfo {
+  padding: 10px;
+  margin: 5px;
+  width: 700px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.9);
+  background-clip: border-box;
+  border: 0 solid rgba(235, 224, 224, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card1-body {
+  flex: 1 1 auto;
+  min-height: 10px;
+  padding: 1rem;
+}
+
+.portrait {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+
+.imageProfile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.adminNavContainer {
+  padding: 20px;
+}
+
+.adminLinkButton.adminLinkButton.adminLinkButton {
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.adminLinkButton.adminLinkButton.adminLinkButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.adminButton.adminButton.adminButton {
+  height: 35px;
+  background-color: #40403e;
+  border: cornsilk;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bolder;
+  color: #ffffff;
+}
+
+.adminButton.adminButton.adminButton:hover {
+  background-color: white;
+  color: black;
+}
+
+.mb-0 {
+  font-size: 16px;
+}
+
+.news-container {
+  padding: 20px;
+  max-width: 750px;
+  color: #fff;
+}
+
+.img {
+height: 550px;
+object-fit: contain;
+}
+
+@media (max-width: 768px){
+  .img {
+    height: 350px;
+  }
+}
