@@ -37,9 +37,7 @@ function AdminBar() {
         <Link to="/MainAdmin" className="adminLinkButton btn btn-primary link">
           <strong>PROFILE</strong>
         </Link>
-        <Link to="/BoxStats" className="adminLinkButton btn btn-primary link">
-          <strong>BOX STATS</strong>
-        </Link>
+
         <Link
           to="/UsersView"
           className="adminLinkButton btn btn-primary link"

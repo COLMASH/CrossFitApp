@@ -45,3 +45,17 @@ code {
   font-weight: bolder;
   color: #3b3b3b;
 }
+
+.table {
+  background-color: cornsilk;
+  opacity: 0.7;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid purple;
+  flex-direction: column;
+  font-family: Tahoma, Verdana, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 16px;
+  color: rgb(34, 34, 34);
+  text-align: left;
+}

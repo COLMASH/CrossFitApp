@@ -63,14 +63,14 @@ function WodList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Activity</th>
-          <th>Modality</th>
-          <th>Exercices (Reps)</th>
-          <th>Capacity</th>
-          <th>Start</th>
-          <th>Finish</th>
-          <th>Notes</th>
+          <th>SELECT</th>
+          <th>ACTIVITY</th>
+          <th>MODALITY</th>
+          <th>EXERCISES (Reps)</th>
+          <th>CAPACITY</th>
+          <th>START</th>
+          <th>FINISH</th>
+          <th>NOTES</th>
         </tr>
       </thead>
       <tbody>{renderWodsTable()}</tbody>
