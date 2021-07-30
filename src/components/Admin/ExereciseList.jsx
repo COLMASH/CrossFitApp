@@ -54,10 +54,10 @@ function ExerciseList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Exercise Name</th>
-          <th>Unit of Measurement</th>
-          <th>Video</th>
+          <th>SELECT</th>
+          <th>NAME</th>
+          <th>MEASURMENT</th>
+          <th>VIDEO</th>
         </tr>
       </thead>
       <tbody>{renderTableExercise()}</tbody>

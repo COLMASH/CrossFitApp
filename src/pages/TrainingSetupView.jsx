@@ -49,18 +49,6 @@ function TrainingSetupView() {
             >
               MEMBERSHIP
             </button>
-            <button
-              class="homeButton btn btn-primary btn-sm"
-              id="nav-contact-tab"
-              data-bs-toggle="tab"
-              data-bs-target="#nav-contact"
-              type="button"
-              role="tab"
-              aria-controls="nav-contact"
-              aria-selected="false"
-            >
-              SCHEDULE
-            </button>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">

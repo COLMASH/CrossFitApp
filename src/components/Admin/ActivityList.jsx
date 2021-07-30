@@ -52,8 +52,8 @@ function ActivityList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Activity</th>
+          <th>SELECT</th>
+          <th>ACTIVITY</th>
         </tr>
       </thead>
       <tbody>{renderTableActivity()}</tbody>

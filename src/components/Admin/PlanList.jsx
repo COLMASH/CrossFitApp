@@ -55,11 +55,11 @@ function PlanList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Plan Name</th>
-          <th>Validity in days</th>
-          <th>Number of Credits</th>
-          <th>Price</th>
+          <th>SELECT</th>
+          <th>PLAN NAME</th>
+          <th>VALIDITY</th>
+          <th>CREDITS</th>
+          <th>PRICE</th>
         </tr>
       </thead>
       <tbody>{renderTablePlan()}</tbody>
