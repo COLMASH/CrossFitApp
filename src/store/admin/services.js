@@ -3,18 +3,18 @@ import axios from "axios";
 export async function getAdminInfo(token) {
   return await axios({
     method: "GET",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/admin/adminInfo",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    baseURL: "http://localhost:8000",
-    url: "/admin/adminInfo",
   });
 }
 
 export async function getAdminList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/adminList",
   });
 }
@@ -31,7 +31,7 @@ export async function adminRegister(
 ) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/create",
     data: {
       name,
@@ -49,7 +49,7 @@ export async function adminRegister(
 export async function adminSignIn(email, password) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/signin",
     data: {
       email,
@@ -61,7 +61,7 @@ export async function adminSignIn(email, password) {
 export async function destroyAdmin(adminId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/adminDelete",
     data: { adminId },
   });
@@ -70,7 +70,7 @@ export async function destroyAdmin(adminId) {
 export async function updateAdminProfilePic(token, data) {
   return await axios({
     method: "PUT",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/adminProfilePic",
     data,
     headers: {
@@ -91,7 +91,7 @@ export async function adminUpdate(
 ) {
   return await axios({
     method: "PUT",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/admin/adminUpdate",
     data: {
       name,
@@ -110,7 +110,7 @@ export async function adminUpdate(
 export async function activityRegister(activity) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/activity/create",
     data: {
       activity,
@@ -121,7 +121,7 @@ export async function activityRegister(activity) {
 export async function getActivityList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/activity/activityList",
   });
 }
@@ -129,7 +129,7 @@ export async function getActivityList() {
 export async function destroyActivity(activityId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/activity/activityDelete",
     data: { activityId },
   });
@@ -138,7 +138,7 @@ export async function destroyActivity(activityId) {
 export async function modalityRegister(modality) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/modality/create",
     data: {
       modality,
@@ -149,7 +149,7 @@ export async function modalityRegister(modality) {
 export async function getModalityList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/modality/modalityList",
   });
 }
@@ -157,7 +157,7 @@ export async function getModalityList() {
 export async function destroyModality(modalityId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/modality/modalityDelete",
     data: { modalityId },
   });
@@ -166,7 +166,7 @@ export async function destroyModality(modalityId) {
 export async function exerciseRegister(exercise, unitMeasurement, video) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/exercise/create",
     data: {
       exercise,
@@ -178,7 +178,7 @@ export async function exerciseRegister(exercise, unitMeasurement, video) {
 export async function getExerciseList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/exercise/exerciseList",
   });
 }
@@ -186,7 +186,7 @@ export async function getExerciseList() {
 export async function destroyExercise(exerciseId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/exercise/exerciseDelete",
     data: { exerciseId },
   });
@@ -195,7 +195,7 @@ export async function destroyExercise(exerciseId) {
 export async function planRegister(plan, validity, credits, price) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/plan/create",
     data: {
       plan,
@@ -209,7 +209,7 @@ export async function planRegister(plan, validity, credits, price) {
 export async function getPlanList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/plan/planList",
   });
 }
@@ -217,7 +217,7 @@ export async function getPlanList() {
 export async function destroyPlan(planId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/plan/planDelete",
     data: { planId },
   });
@@ -226,7 +226,7 @@ export async function destroyPlan(planId) {
 export async function registrateNews(data) {
   return await axios({
     method: "POST",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/news/create",
     data,
     headers: {
@@ -238,7 +238,7 @@ export async function registrateNews(data) {
 export async function getNewsList() {
   return await axios({
     method: "GET",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/news/newsList",
   });
 }
@@ -246,7 +246,7 @@ export async function getNewsList() {
 export async function destroyNews(newsId) {
   return await axios({
     method: "DELETE",
-    baseURL: "http://localhost:8000",
+    baseURL: process.env.REACT_APP_SERVER_URL,
     url: "/news/delete",
     data: { newsId },
   });

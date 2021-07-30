@@ -3,17 +3,19 @@ import axios from "axios";
 export async function getWodList() {
   return await axios({
     method: "GET",
-    url: "http://localhost:8000/wod/wodList",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/wod/wodList",
   });
 }
 
 export async function getWodInfo(token) {
   return await axios({
     method: "GET",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/wod/wodInfo",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    url: `http://localhost:8000/wod/wodInfo`,
   });
 }
 
@@ -34,7 +36,8 @@ export async function wodCreation(
 ) {
   return await axios({
     method: "POST",
-    url: "http://localhost:8000/wod/wodCreate",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/wod/wodCreate",
     data: {
       activity,
       modality,
@@ -72,7 +75,8 @@ export async function wodUpdate(
 ) {
   return await axios({
     method: "PUT",
-    url: "http://localhost:8000/wod/wodUpdate",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/wod/wodUpdate",
     data: {
       wodId,
       activity,
@@ -94,7 +98,8 @@ export async function wodUpdate(
 export async function destroyWod(wodId) {
   return await axios({
     method: "DELETE",
-    url: "http://localhost:8000/wod/wodDelete",
+    baseURL: process.env.REACT_APP_SERVER_URL,
+    url: "/wod/wodDelete",
     data: { wodId },
   });
 }
