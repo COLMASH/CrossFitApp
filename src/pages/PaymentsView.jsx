@@ -41,7 +41,7 @@ function PaymentsView() {
       country: "CO",
       invoice: "1234",
 
-      response: `${process.env.REACT_APP_BASE_URL}/PaymentsView`,
+      response: `${process.env.REACT_APP_SERVER_URL}/PaymentsView`,
       name_billing: `${user.name} ${user.lastname}`,
       address_billing: user.address,
       type_doc_billing: user.dniType,
