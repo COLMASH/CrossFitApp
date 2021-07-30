@@ -51,8 +51,8 @@ function NewsList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Image</th>
+          <th>SELECT</th>
+          <th>IMAGE</th>
         </tr>
       </thead>
       <tbody>{renderTableNews()}</tbody>

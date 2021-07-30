@@ -23,16 +23,6 @@
   color: #ffffff;
 }
 
-.table {
-  background-color: cornsilk;
-  opacity: 0.6;
-  flex-direction: column;
-  font-family: Tahoma, Verdana, Helvetica, sans-serif;
-  font-weight: bolder;
-  color: cornsilk;
-  width: 100%;
-}
-
 .admins-Button {
   height: 40px;
   display: flex;

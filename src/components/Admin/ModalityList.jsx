@@ -52,8 +52,8 @@ function ModalityList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Modality</th>
+          <th>SELECT</th>
+          <th>MODALITY</th>
         </tr>
       </thead>
       <tbody>{renderTableModality()}</tbody>

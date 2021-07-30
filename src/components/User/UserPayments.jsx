@@ -53,11 +53,11 @@ function UserPayments() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Plan</th>
-          <th>Validity</th>
-          <th>Credits</th>
-          <th>Price</th>
+          <th>SELECT</th>
+          <th>PLAN</th>
+          <th>VALIDITY</th>
+          <th>CREDITS</th>
+          <th>PRICE</th>
         </tr>
       </thead>
       <tbody>{renderTable()}</tbody>

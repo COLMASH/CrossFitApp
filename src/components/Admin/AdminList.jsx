@@ -56,10 +56,10 @@ function AdminList() {
     <table className="table">
       <thead>
         <tr>
-          <th>Select</th>
-          <th>Name</th>
-          <th>Phone</th>
-          <th>Email</th>
+          <th>SELECT</th>
+          <th>NAME</th>
+          <th>PHONE</th>
+          <th>E-MAIL</th>
         </tr>
       </thead>
       <tbody>{renderTable()}</tbody>
