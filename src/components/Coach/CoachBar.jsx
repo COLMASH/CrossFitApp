@@ -1,6 +1,6 @@
 import { Link, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { getAllUser } from "../../store/selectUserReducer";
+import { useDispatch } from "react-redux"
+import { getAllUser } from "../../store/selectUserReducer"
 
 function CoachBar() {
   const history = useHistory();
@@ -9,10 +9,10 @@ function CoachBar() {
   const Logout = () => {
     localStorage.removeItem("token");
     history.push("/");
-  };
+  }
   const handleClickUsers = () => {
-    dispatch(getAllUser());
-  };
+    dispatch(getAllUser())
+  }
 
   return (
     <nav>
@@ -20,18 +20,15 @@ function CoachBar() {
         <Link to="/MainCoach" className=" coachLinkButton btn btn-primary link">
           <strong>PROFILE</strong>
         </Link>
-        <Link
-          to="/CreateWodView"
-          className="coachLinkButton btn btn-primary link"
-        >
+        <Link to="/CreateWodView" className="coachLinkButton btn btn-primary link">
           <strong>CREATE WOD</strong>
         </Link>
-        {/* <Link
+        <Link
           to="/WodFactoryView"
           className="coachLinkButton btn btn-primary link"
         >
           <strong>WOD FACTORY</strong>
-        </Link> */}
+        </Link>
         <Link
           to="/Reservations"
           className="coachLinkButton btn btn-primary link"
