@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
 import { createNewCoach } from "../../store/selectCoachReducer";
 
@@ -29,12 +28,6 @@ function RegistrateNewCoach() {
         active
       )
     );
-    Swal.fire({
-      title: "Confirmation",
-      icon: "success",
-      text: `Coach ${email} has successfully registered!`,
-      button: "OK",
-    });
   };
 
   return (
