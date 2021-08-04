@@ -24,13 +24,17 @@ function CoachManager() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#NewCoachModal"
-              className="admins-Button"
+              className="homeButton btn btn-primary btn-sm"
             >
               NEW COACH
             </button>
           </label>
           <label>
-            <button type="button" className="admins-Button" onClick={handleDelete}>
+            <button
+              type="button"
+              className="homeButton btn btn-primary btn-sm"
+              onClick={handleDelete}
+            >
               DELETE COACH
             </button>
           </label>

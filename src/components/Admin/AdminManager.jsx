@@ -24,13 +24,17 @@ function AdminManager() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#NewAdminModal"
-              className="admins-Button"
+              className="homeButton btn btn-primary btn-sm"
             >
               NEW ADMIN
             </button>
           </label>
           <label>
-            <button type="button" class="admins-Button" onClick={handleDelete}>
+            <button
+              type="button"
+              className="homeButton btn btn-primary btn-sm"
+              onClick={handleDelete}
+            >
               DELETE ADMIN
             </button>
           </label>

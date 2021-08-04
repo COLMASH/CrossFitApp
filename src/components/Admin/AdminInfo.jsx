@@ -64,8 +64,8 @@ function AdminInfo() {
               <div className="col-sm-3">
                 <h2 className="mb-0">Birthday</h2>
               </div>
-              {new Date(admin.birthday+"GMT-5:00").toDateString()}
-              </div>
+              {new Date(admin.birthday + "GMT-5:00").toDateString()}
+            </div>
 
             <hr />
             <div className="row">

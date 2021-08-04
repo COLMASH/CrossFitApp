@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 function SeeUserProfile() {
   const dispatch = useDispatch();
-  const { userToShow } = useSelector(state => {
+  const { userToShow } = useSelector((state) => {
     return {
       userToShow: state.selectUserReducer.userToShow,
-    }
-  })
+    };
+  });
   return (
     <form
       onSubmit={(e) => {
