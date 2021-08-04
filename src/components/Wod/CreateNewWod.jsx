@@ -372,7 +372,7 @@ function CreateNewWod() {
                 }
                 className="homeButton btn btn-primary btn-sm"
               >
-                Create
+                CREATE
               </button>
             </div>
           </div>

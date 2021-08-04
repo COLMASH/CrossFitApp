@@ -24,13 +24,17 @@ function NewsManager() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#UploadNews"
-              className="admins-Button"
+              className="homeButton btn btn-primary btn-sm"
             >
               UPLOAD NEWS
             </button>
           </label>
           <label>
-            <button type="button" class="admins-Button" onClick={handleDelete}>
+            <button
+              type="button"
+              className="homeButton btn btn-primary btn-sm"
+              onClick={handleDelete}
+            >
               DELETE NEWS
             </button>
           </label>

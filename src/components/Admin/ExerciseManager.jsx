@@ -24,13 +24,17 @@ function ExerciseManager() {
               type="button"
               data-bs-toggle="modal"
               data-bs-target="#NewExerciseModal"
-              className="admins-Button"
+              className="homeButton btn btn-primary btn-sm"
             >
               NEW EXERCISE
             </button>
           </label>
           <label>
-            <button type="button" class="admins-Button" onClick={handleDelete}>
+            <button
+              type="button"
+              className="homeButton btn btn-primary btn-sm"
+              onClick={handleDelete}
+            >
               DELETE EXERCISE
             </button>
           </label>
